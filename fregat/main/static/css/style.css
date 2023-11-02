@@ -1,21 +1,21 @@
 @font-face {
     font-family: 'Montserrat-bold'; 
-    src: url(/fonts/Montserrat-Bold.ttf); 
+    src: url("../fonts/Montserrat-Bold.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: 'MYRIADPRO-REGULAR'; 
-    src: url(/fonts/Myriad_Pro.ttf); 
+    font-family: 'MYRIADPRO-REGULAR';
+    src: url("../fonts/Myriad_Pro.ttf") format("truetype");
 }
 
 @font-face {
     font-family: "MontHeavyDEMO";
-    src: url(/fonts/Mont-Heavy-DEMO.ttf);
+    src: url("../fonts/Mont-Heavy-DEMO.ttf") format("truetype");
 }
 
 @font-face {
     font-family: "Montserrat-light";
-    src: url(/fonts/Montserrat-light.ttf);
+    src: url("../fonts/Montserrat-light.ttf") format("truetype");
 }
 
 * {

@@ -1,63 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Языки - Учи языки на борту Фрегата!</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <header>
-        <div class="header_line"></div>
-        <div class="container-nav">
-            <div class="nav">
-                <a href="#"><img src="img/logo.png" alt="logo" class="logo" id="#id"></a>
-                <ul class="nav-list">
-                    <div class="linehover_block">
-                        <li><a href="home.html" class="nav-link">О ФРЕГАТЕ</a></li>
-                        <img src="img/linehover.png" alt="linehover" class="linehover1">
-                    </div>
-                    <div class="linehover_block">
-                        <li><a href="lang.html" class="nav-link">ЯЗЫКИ</a></li>
-                        <img src="img/linehover.png" alt="linehover" class="linehover2">
-                    </div>
-                    <div class="linehover_block">
-                        <li><a href="" class="nav-link">СТОИМОСТЬ</a></li>
-                        <img src="img/linehover.png" alt="linehover" class="linehover3"> 
-                    </div>
-                    <div class="linehover_block">
-                        <li><a href="" class="nav-link">БЛОГ</a></li>
-                        <img src="img/linehover.png" alt="linehover" class="linehover4">
-                    </div>
-                    <div class="linehover_block">
-                        <li><a href="" class="nav-link">СВЯЗАТЬСЯ</a></li>
-                        <img src="img/linehover.png" alt="linehover" class="linehover5">
-                    </div>
-                    <div class="linehover_block club-padding">
-                        <li><a href="" class="nav-link">КИНОКЛУБ</a></li>
-                        <img src="img/linehover.png" alt="linehover" class="linehover3">
-                    </div>
-                </ul>
-            
-                <div class="button-nav-block">
-                    <a href="">
-                        <button class="button-nav">ЗАПИСАТЬСЯ НА УРОК</button>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </header>
+{% extends './base.html' %}
+{% load static %}
+{% block title %}Языки - Учи языки на борту Фрегата!{% endblock %}
 
+{% block content %}
     <section class="english-section">
         <div class="container-footer">
-            <img src="img/lang-bg-1.png" alt="img" class="lang-bg-img">
+            <img src="{% static 'img/lang-bg-1.png' %}" alt="img" class="lang-bg-img">
             <div class="text-block-lang">
-                <img src="img/circle.png" alt="circle" class="circle-two">
+                <img src="{% static "img/circle.png" %}" alt="circle" class="circle-two">
                 <p class="title-lang">Английский</p>
                 
                 <div class="container-title-arrow" style="width: 100%;">
                     <p class="title-lang-arrow">Разнообразные направления:</p>
-                    <img src="img/arrow.png" alt="arrow" class="arrow">
+                    <img src="{% static 'img/arrow.png' %}" alt="arrow" class="arrow">
                 </div>
 
                 <ul style="margin-top: 30px;">
@@ -85,12 +40,12 @@
         <div class="two__block">
             <div class="container margin-arrow-block">
                 <p class="title-languages">Представляем наши программы</p>
-                <img src="img/arrow.png" alt="arrow" class="arrow">
+                <img src="{% static 'img/arrow.png' %}" alt="arrow" class="arrow">
             </div>
             <div class="container">
                 <div class="lang-price-full-two">
                     <div class="lang__price__text__block">
-                        <img class="circle-two" src="img/circle.png" alt="circle">
+                        <img class="circle-two" src="{% static "img/circle.png" %}" alt="circle">
                         <p class="price-title">COURSE 1</p>
                         
                         <p class="text-price">
@@ -117,7 +72,7 @@
                         </ul> 
                     </div>
                     <div>
-                        <img src="img/lang-bg-2.png" alt="img" class="bg-img">
+                        <img src="{% static 'img/lang-bg-2.png' %}" alt="img" class="bg-img">
                         <div class="button-lang">
                             <a href=""><button class="price-button">ЗАПИСАТЬСЯ</button></a>
                         </div>
@@ -133,13 +88,13 @@
             <div class="container">
                 <div class="lang-price-full">
                     <div>
-                        <img src="img/lang-bg-3.png" alt="" class="bg-img">
+                        <img src="{% static 'img/lang-bg-3.png' %}" alt="" class="bg-img">
                         <div class="button-lang2">
                             <a href=""><button class="price-button">ЗАПИСАТЬСЯ</button></a>
                         </div>
                     </div>
                     <div class="lang__price__text__block__two">
-                        <img class="circle-two" src="img/circle.png" alt="circle">
+                        <img class="circle-two" src="{% static "img/circle.png" %}" alt="circle">
                         <p class="price-title">GOOD VIBES</p>
                         
                         <p class="text-price2">
@@ -191,7 +146,7 @@
             <div class="container">
                 <div class="lang-price-full-two">
                     <div class="lang__price__text__block">
-                        <img class="circle-two" src="img/circle.png" alt="circle">
+                        <img class="circle-two" src="{% static "img/circle.png" %}" alt="circle">
                         <p class="price-title">COURSE 2</p>
                         
                         <p class="text-price">
@@ -215,7 +170,7 @@
                         </ul> 
                     </div>
                     <div>
-                        <img src="img/lang-bg-4.png" alt="img" class="bg-img">
+                        <img src="{% static 'img/lang-bg-4.png' %}" alt="img" class="bg-img">
                         <div class="button-lang">
                             <a href=""><button class="price-button">ЗАПИСАТЬСЯ</button></a>
                         </div>
@@ -229,14 +184,14 @@
         <!-- НЕМЕЦКИЙ -->
         <div class="two__block">
             <div class="container-footer">
-                <img src="img/lang-bg-5.png" alt="img" class="lang-bg-img">
+                <img src="{% static 'img/lang-bg-5.png' %}" alt="img" class="lang-bg-img">
                 <div class="text-block-lang">
-                    <img src="img/circle.png" alt="circle" class="circle-two">
+                    <img src="{% static "img/circle.png" %}" alt="circle" class="circle-two">
                     <p class="title-lang">Немецкий</p>
                     
                     <div class="container-title-arrow" style="width: 100%;">
                         <p class="title-lang-arrow">Разнообразные направления:</p>
-                        <img src="img/arrow.png" alt="arrow" class="arrow">
+                        <img src="{% static 'img/arrow.png' %}" alt="arrow" class="arrow">
                     </div>
     
                     <ul style="margin-top: 30px;">
@@ -262,14 +217,14 @@
         <!-- ФРАНЦУЗСКИЙ -->
         <div class="two__block">
             <div class="container-footer">
-                <img src="img/lang-bg-6.png" alt="img" class="lang-bg-img">
+                <img src="{% static 'img/lang-bg-6.png' %}" alt="img" class="lang-bg-img">
                 <div class="text-block-lang">
-                    <img src="img/circle.png" alt="circle" class="circle-two">
+                    <img src="{% static "img/circle.png" %}" alt="circle" class="circle-two">
                     <p class="title-lang">Французский</p>
                     
                     <div class="container-title-arrow" style="width: 100%;">
                         <p class="title-lang-arrow">Разнообразные направления:</p>
-                        <img src="img/arrow.png" alt="arrow" class="arrow">
+                        <img src="{% static 'img/arrow.png' %}" alt="arrow" class="arrow">
                     </div>
     
                     <ul style="margin-top: 30px;">
@@ -295,14 +250,14 @@
         <!-- ИСПАНСКИЙ -->
         <div class="two__block">
             <div class="container-footer">
-                <img src="img/lang-bg-7.png" alt="img" class="lang-bg-img">
+                <img src="{% static 'img/lang-bg-7.png' %}" alt="img" class="lang-bg-img">
                 <div class="text-block-lang">
-                    <img src="img/circle.png" alt="circle" class="circle-two">
+                    <img src="{% static "img/circle.png" %}" alt="circle" class="circle-two">
                     <p class="title-lang">Испанский</p>
                     
                     <div class="container-title-arrow" style="width: 100%;">
                         <p class="title-lang-arrow">Разнообразные направления:</p>
-                        <img src="img/arrow.png" alt="arrow" class="arrow">
+                        <img src="{% static 'img/arrow.png' %}" alt="arrow" class="arrow">
                     </div>
     
                     <ul style="margin-top: 30px;">
@@ -326,14 +281,14 @@
         <!-- ИТАЛЬЯНСКИЙ -->
         <div class="two__block">
             <div class="container-footer">
-                <img src="img/lang-bg-11.png" alt="img" class="lang-bg-img">
+                <img src="{% static 'img/lang-bg-11.png' %}" alt="img" class="lang-bg-img">
                 <div class="text-block-lang">
-                    <img src="img/circle.png" alt="circle" class="circle-two">
+                    <img src="{% static "img/circle.png" %}" alt="circle" class="circle-two">
                     <p class="title-lang">Итальянский</p>
                     
                     <div class="container-title-arrow" style="width: 100%;">
                         <p class="title-lang-arrow">Разнообразные направления:</p>
-                        <img src="img/arrow.png" alt="arrow" class="arrow">
+                        <img src="{% static 'img/arrow.png' %}" alt="arrow" class="arrow">
                     </div>
     
                     <ul style="margin-top: 30px;">
@@ -358,14 +313,14 @@
         <!-- АРАБСКИЙ -->
         <div class="two__block">
             <div class="container-footer">
-                <img src="img/lang-bg-8.png" alt="img" class="lang-bg-img">
+                <img src="{% static 'img/lang-bg-8.png' %}" alt="img" class="lang-bg-img">
                 <div class="text-block-lang">
-                    <img src="img/circle.png" alt="circle" class="circle-two">
+                    <img src="{% static "img/circle.png" %}" alt="circle" class="circle-two">
                     <p class="title-lang">Арабский</p>
                     
                     <div class="container-title-arrow" style="width: 100%;">
                         <p class="title-lang-arrow">Разнообразные направления:</p>
-                        <img src="img/arrow.png" alt="arrow" class="arrow">
+                        <img src="{% static 'img/arrow.png' %}" alt="arrow" class="arrow">
                     </div>
     
                     <ul style="margin-top: 30px;">
@@ -393,7 +348,7 @@
             <div class="container">
                 <div class="lang-price-full-two">
                     <div class="lang__price__text__block">
-                        <img class="circle-two" src="img/circle.png" alt="circle">
+                        <img class="circle-two" src="{% static "img/circle.png" %}" alt="circle">
                         <p class="price-title">АРАБСКИЙ С НУЛЯ</p>
                         
                         <p class="text-price">
@@ -414,7 +369,7 @@
                             Вдохновение обеспечено.</p>
                     </div>
                     <div>
-                        <img src="img/книга-арабский.png" alt="img" class="bg-img">
+                        <img src="{% static 'img/книга-арабский.png' %}" alt="img" class="bg-img">
                         <div class="button-lang">
                             <a href=""><button class="price-button">ЗАПИСАТЬСЯ</button></a>
                         </div>
@@ -428,14 +383,14 @@
         <!-- РУССКИЙ -->
         <div class="two__block">
             <div class="container-footer">
-                <img src="img/lang-bg-9.png" alt="img" class="lang-bg-img">
+                <img src="{% static 'img/lang-bg-9.png' %}" alt="img" class="lang-bg-img">
                 <div class="text-block-lang">
-                    <img src="img/circle.png" alt="circle" class="circle-two">
+                    <img src="{% static "img/circle.png" %}" alt="circle" class="circle-two">
                     <p class="title-lang">Русский</p>
                     <p class="icr">как иностранный</p>
                     <div class="container-title-arrow" style="width: 100%;">
                         <p class="title-lang-arrow">Разнообразные направления:</p>
-                        <img src="img/arrow.png" alt="arrow" class="arrow">
+                        <img src="{% static 'img/arrow.png' %}" alt="arrow" class="arrow">
                     </div>
     
                     <ul style="margin-top: 30px;">
@@ -460,13 +415,13 @@
         <!-- КИТАЙСКИЙ -->
         <div class="two__block">
             <div class="container-footer">
-                <img src="img/lang-bg-10.png" alt="img" class="lang-bg-img">
+                <img src="{% static 'img/lang-bg-10.png' %}" alt="img" class="lang-bg-img">
                 <div class="text-block-lang">
-                    <img src="img/circle.png" alt="circle" class="circle-two">
+                    <img src="{% static "img/circle.png" %}" alt="circle" class="circle-two">
                     <p class="title-lang">Китайский</p>
                     <div class="container-title-arrow" style="width: 100%;">
                         <p class="title-lang-arrow">Разнообразные направления:</p>
-                        <img src="img/arrow.png" alt="arrow" class="arrow">
+                        <img src="{% static 'img/arrow.png' %}" alt="arrow" class="arrow">
                     </div>
     
                     <ul style="margin-top: 30px;">
@@ -488,35 +443,4 @@
 
         <div class="line-section" style="margin-top:30px;"></div>
     </main>
-
-    <footer class="footer">
-        <div class="container-footer">
-            <div class="footer-links">
-                <a href="" class="link-footer">Главная</a>
-                <a href="" class="link-footer">Языки</a>
-                <a href="" class="link-footer">Стоимость</a>
-                <a href="" class="link-footer">Блог</a>
-                <a href="" class="link-footer">Связаться</a>
-            </div>
-            <div class="footer-info">
-                <div class="social-media-icons">
-                        <a href="https://vk.com/frigateschool" target="_blank">
-                            <img src="img/vk.png" class="icon-soc" alt="icon">
-                        </a>
-                        <a href="https://wa.me/+79785502653" target="_blank">
-                            <img src="img/ws.png" class="icon-soc" alt="icon">
-                        </a>
-                        <a href="https://t.me/frigateschool" target="_blank">
-                            <img src="img/tg.png" class="icon-soc" alt="icon" style="margin-top: 3px;">
-                        </a>
-                </div>
-                <p class="footer-text">
-                    © Языковая школа Фрегат 2021 <br> Дизайн - Елизавета Муждабаева <br>
-                    <a href="">Политика конфиденциальности</a><br>
-                    <a href="">Договор оферты</a>
-                </p>
-            </div>
-        </div>
-    </footer>
-</body>
-</html>
+{% endblock %}

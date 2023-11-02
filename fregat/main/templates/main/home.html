@@ -1,57 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Учи языки на борту Фрегата!</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <header class="header">
-        <div class="header_line"></div>
-        <div class="container-nav">
-            <div class="nav">
-                <a href="#"><img src="img/logo.png" alt="logo" class="logo" id="#id"></a>
-                <ul class="nav-list">
-                    <div class="linehover_block">
-                        <li><a href="home.html" class="nav-link">О ФРЕГАТЕ</a></li>
-                        <img src="img/linehover.png" alt="linehover" class="linehover1">
-                    </div>
-                    <div class="linehover_block">
-                        <li><a href="lang.html" class="nav-link">ЯЗЫКИ</a></li>
-                        <img src="img/linehover.png" alt="linehover" class="linehover2">
-                    </div>
-                    <div class="linehover_block">
-                        <li><a href="" class="nav-link">СТОИМОСТЬ</a></li>
-                        <img src="img/linehover.png" alt="linehover" class="linehover3"> 
-                    </div>
-                    <div class="linehover_block">
-                        <li><a href="" class="nav-link">БЛОГ</a></li>
-                        <img src="img/linehover.png" alt="linehover" class="linehover4">
-                    </div>
-                    <div class="linehover_block">
-                        <li><a href="" class="nav-link">СВЯЗАТЬСЯ</a></li>
-                        <img src="img/linehover.png" alt="linehover" class="linehover5">
-                    </div>
-                    <div class="linehover_block club-padding">
-                        <li><a href="" class="nav-link">КИНОКЛУБ</a></li>
-                        <img src="img/linehover.png" alt="linehover" class="linehover3">
-                    </div>
-                </ul>
-            
-                <div class="button-nav-block">
-                    <a href="">
-                        <button class="button-nav">ЗАПИСАТЬСЯ НА УРОК</button>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </header>
+{% extends './base.html' %}
+{% load static %}
+{% block title %}Учи языки на борту Фрегата!{% endblock %}
+
+{% block content %}
     <section class="main-section">
         <div class="text-main-section-div">
-            <img class="circle" src="img/circle.png" alt="circle">
+            <img class="circle" src="{% static 'img/circle.png' %}" alt="circle">
             <h1 class="h1-text-main-section">Учи языки<br>на борту Фрегата!</h1>
-            <img class="line" src="img/linehover.png" alt="linehover">
+            <img class="line" src="{% static 'img/linehover.png' %}" alt="linehover">
             <p class="p-text-main-section">Забудь о языке жестов и онлайн-переводчиках. Скажи сам!</p>
             <div class="buttons-main-section">
                 <a href=""><button class="one-main-section-button">ЗАПИСАТЬСЯ</button></a>
@@ -60,7 +16,7 @@
         </div>
 
         <div class="main-section-container-img">
-            <img src="img/bg1.png" alt="person">
+            <img src="{% static 'img/bg1.png' %}" alt="person">
         </div>
     </section> 
 
@@ -70,78 +26,78 @@
     <section class="two__block">
         <div class="container margin-arrow-block">
             <p class="title-languages">Выбирай язык по душе<br>и начинай свой путь изучения уже сегодня!</p>
-            <img src="img/arrow.png" alt="arrow" class="arrow">
+            <img src="{% static 'img/arrow.png' %}" alt="arrow" class="arrow">
         </div>
         <div class="container block-languages">
             <div class="languages-card">
                 <a href="" class="card-link-languages">
-                    <img src="img/1.png" alt="" class="img-card-languages">
+                    <img src="{% static 'img/1.png' %}" alt="" class="img-card-languages">
                     <p class="text-card-languages">АНГЛИЙСКИЙ</p>
                 </a>
-                <img src="img/khover.png" alt="khover" class="khover">
+                <img src="{% static 'img/khover.png' %}" alt="khover" class="khover">
             </div>
             <div class="languages-card">
                 <a href="" class="card-link-languages">
-                    <img src="img/2.png" alt="" class="img-card-languages">
+                    <img src="{% static 'img/2.png' %}" alt="" class="img-card-languages">
                     <p class="text-card-languages">ФРАНЦУЗСКИЙ</p>
                 </a>
-                <img src="img/khover.png" alt="khover" class="khover">
+                <img src="{% static 'img/khover.png' %}" alt="khover" class="khover">
             </div>
             <div class="languages-card">
                 <a href="" class="card-link-languages">
-                    <img src="img/3.png" alt="" class="img-card-languages">
+                    <img src="{% static 'img/3.png' %}" alt="" class="img-card-languages">
                     <p class="text-card-languages">НЕМЕЦКИЙ</p>
                 </a>
-                <img src="img/khover.png" alt="khover" class="khover">
+                <img src="{% static 'img/khover.png' %}" alt="khover" class="khover">
             </div>
             <div class="languages-card">
                 <a href="" class="card-link-languages">
-                    <img src="img/4.png" alt="" class="img-card-languages">
+                    <img src="{% static 'img/4.png' %}" alt="" class="img-card-languages">
                     <p class="text-card-languages">ИСПАНСКИЙ</p>
                 </a>
-                <img src="img/khover.png" alt="khover" class="khover">
+                <img src="{% static 'img/khover.png' %}" alt="khover" class="khover">
             </div>
             <div class="languages-card">
                 <a href="" class="card-link-languages">
-                    <img src="img/5.png" alt="" class="img-card-languages">
+                    <img src="{% static 'img/5.png' %}" alt="" class="img-card-languages">
                     <p class="text-card-languages">ИТАЛЬЯНСКИЙ</p>
                 </a>
-                <img src="img/khover.png" alt="khover" class="khover">
+                <img src="{% static 'img/khover.png' %}" alt="khover" class="khover">
             </div>
             <div class="languages-card">
                 <a href="" class="card-link-languages">
-                    <img src="img/6.png" alt="" class="img-card-languages">
+                    <img src="{% static 'img/6.png' %}" alt="" class="img-card-languages">
                     <p class="text-card-languages">АРАБСКИЙ</p>
                 </a>
-                <img src="img/khover.png" alt="khover" class="khover">
+                <img src="{% static 'img/khover.png' %}" alt="khover" class="khover">
             </div>
             <div class="languages-card">
                 <a href="" class="card-link-languages">
-                    <img src="img/7.png" alt="" class="img-card-languages">
+                    <img src="{% static 'img/7.png' %}" alt="" class="img-card-languages">
                     <p class="text-card-languages">КИТАЙСКИЙ</p>
                 </a>
-                <img src="img/khover.png" alt="khover" class="khover">
+                <img src="{% static 'img/khover.png' %}" alt="khover" class="khover">
             </div>
             <div class="languages-card">
                 <a href="" class="card-link-languages">
-                    <img src="img/8.png" alt="" class="img-card-languages">
+                    <img src="{% static 'img/8.png' %}" alt="" class="img-card-languages">
                     <p class="text-card-languages">ЯПОНСКИЙ</p>
                 </a>
-                <img src="img/khover.png" alt="khover" class="khover">
+                <img src="{% static 'img/khover.png' %}" alt="khover" class="khover">
             </div>
             <div class="languages-card">
                 <a href="" class="card-link-languages">
-                    <img src="img/9.png" alt="" class="img-card-languages">
+                    <img src="{% static 'img/9.png' %}" alt="" class="img-card-languages">
                     <p class="text-card-languages">КОРЕЙСКИЙ</p>
                 </a>
-                <img src="img/khover.png" alt="khover" class="khover">
+                <img src="{% static 'img/khover.png' %}" alt="khover" class="khover">
             </div>
             <div class="languages-card">
                 <a href="" class="card-link-languages">
-                    <img src="img/10.png" alt="" class="img-card-languages">
+                    <img src="{% static 'img/10.png' %}" alt="" class="img-card-languages">
                     <p class="text-card-languages">РУССКИЙ</p>
                 </a>
-                <img src="img/khover.png" alt="khover" class="khover">
+                <img src="{% static 'img/khover.png' %}" alt="khover" class="khover">
             </div>
         </div>
     </section>
@@ -151,15 +107,15 @@
     <section class="two__block"> 
         <div class="container margin-arrow-block">
             <p class="title-languages">Форматы обучения -<br>выбери свой!</p>
-            <img src="img/arrow.png" alt="arrow" class="arrow">
+            <img src="{% static 'img/arrow.png' %}" alt="arrow" class="arrow">
         </div>
 
         <div class="price-info-block">
             <div class="container">
                 <div class="price-full">
-                    <img src="img/bg2.png" alt="img" class="bg-img">
+                    <img src="{% static 'img/bg2.png' %}" alt="img" class="bg-img">
                     <div class="price-text-block">
-                        <img src="img/circle.png" alt="circle" class="circle-two">
+                        <img src="{% static 'img/circle.png' %}" alt="circle" class="circle-two">
                         <p class="price-title">ИНДИВИДУАЛЬНЫЕ<br>ЗАНЯТИЯ</p>
 
                         <p class="text-price">На занятиях вам гарантировано:</p>
@@ -186,7 +142,7 @@
             <div class="container">
                 <div class="price-full">
                     <div class="price-text-block-two">
-                        <img src="img/circle.png" alt="circle" class="circle-two">
+                        <img src="{% static 'img/circle.png' %}" alt="circle" class="circle-two">
                         <p class="price-title">ЗАНЯТИЯ<br>В ГРУППАХ</p>
                         <p class="text-price">Формат занятий гарантирует языковую практику и позволяет использовать язык для общения вне занятий.</p>
                         <p class="text-price">Группы формируются согласно возрастам и целям студентов. Занятия проводятся один или два раза в неделю. При пропуске занятий есть возможность его отработки в другой группе.</p>
@@ -200,7 +156,7 @@
                             <a href=""><button class="price-button">ЗАПИСАТЬСЯ</button></a>
                         </div>
                     </div>
-                    <img src="img/bg3.png" alt="img" class="bg-img">
+                    <img src="{% static 'img/bg3.png' %}" alt="img" class="bg-img">
                 </div>
             </div>
         </div>
@@ -208,9 +164,9 @@
         <div class="price-info-block">
             <div class="container">
                 <div class="price-full">
-                    <img src="img/bg4.png" alt="img" class="bg-img">
+                    <img src="{% static 'img/bg4.png' %}" alt="img" class="bg-img">
                     <div class="price-text-block">
-                        <img src="img/circle.png" alt="circle" class="circle-two">
+                        <img src="{% static 'img/circle.png' %}" alt="circle" class="circle-two">
                         <p class="price-title">САМОСТОЯТЕЛЬНЫЙ<br>КУРС</p>
 
                         <p class="text-price">Курс для любителей самостоятельности и отсутствия дедлайнов.</p>
@@ -237,7 +193,7 @@
             <div class="container">
                 <div class="price-full">
                     <div class="price-text-block-two">
-                        <img src="img/circle.png" alt="circle" class="circle-two">
+                        <img src="{% static 'img/circle.png' %}" alt="circle" class="circle-two">
                         <p class="price-title">ПОДПИСКА<br>5 МИНУТ</p>
 
                         <p class="text-price">Ежедневные мини-уроки в твоих сообщениях. Это как раз тот вариант, если у тебя совершенно нет времени, а язык ой-как нужен.</p>
@@ -258,7 +214,7 @@
                             <a href=""><button class="price-button">ЗАПИСАТЬСЯ</button></a>
                         </div>
                     </div>
-                    <img src="img/bg5.png" alt="img" class="bg-img">
+                    <img src="{% static 'img/bg5.png' %}" alt="img" class="bg-img">
                 </div>
             </div>
         </div>
@@ -266,9 +222,9 @@
         <div class="price-info-block">
             <div class="container">
                 <div class="price-full">
-                    <img src="img/bg6.png" alt="img" class="bg-img">
+                    <img src="{% static 'img/bg6.png' %}" alt="img" class="bg-img">
                     <div class="price-text-block">
-                        <img src="img/circle.png" alt="circle" class="circle-two">
+                        <img src="{% static 'img/circle.png' %}" alt="circle" class="circle-two">
                         <p class="price-title">РАЗГОВОРНЫЕ<br>КЛУБЫ</p>
 
                         <p class="text-price">Дополние к вашей программе и эффективная практика.</p>
@@ -293,11 +249,11 @@
     <section class="two__block">
         <div class="container margin-arrow-block">
             <p class="title-languages">О Фрегате</p>
-            <img src="img/arrow.png" alt="arrow" class="arrow">
+            <img src="{% static 'img/arrow.png' %}" alt="arrow" class="arrow">
         </div>
         <div class="container">
             <div class="price-full">
-                <img src="img/bg7.png" alt="img" class="bg7-img">
+                <img src="{% static 'img/bg7.png' %}" alt="img" class="bg7-img">
                 <div class="price-text-block-bottom">
                     <p class="price-title-bottom">Языковая школа «Фрегат»<br>- это яркое пространство<br>для изучения языков<br>и обмена опытом. <br></p>
 
@@ -307,35 +263,4 @@
             </div>
         </div>
     </section>
-
-    <footer class="footer">
-        <div class="container-footer">
-            <div class="footer-links">
-                <a href="" class="link-footer">Главная</a>
-                <a href="" class="link-footer">Языки</a>
-                <a href="" class="link-footer">Стоимость</a>
-                <a href="" class="link-footer">Блог</a>
-                <a href="" class="link-footer">Связаться</a>
-            </div>
-            <div class="footer-info">
-                <div class="social-media-icons">
-                        <a href="https://vk.com/frigateschool" target="_blank">
-                            <img src="img/vk.png" class="icon-soc" alt="icon">
-                        </a>
-                        <a href="https://wa.me/+79785502653" target="_blank">
-                            <img src="img/ws.png" class="icon-soc" alt="icon">
-                        </a>
-                        <a href="https://t.me/frigateschool" target="_blank">
-                            <img src="img/tg.png" class="icon-soc" alt="icon" style="margin-top: 3px;">
-                        </a>
-                </div>
-                <p class="footer-text">
-                    © Языковая школа Фрегат 2021 <br> Дизайн - Елизавета Муждабаева <br>
-                    <a href="">Политика конфиденциальности</a><br>
-                    <a href="">Договор оферты</a>
-                </p>
-            </div>
-        </div>
-    </footer>
-</body>
-</html>
+{% endblock %}
