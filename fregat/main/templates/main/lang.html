@@ -3,6 +3,34 @@
 {% block title %}Языки - Учи языки на борту Фрегата!{% endblock %}
 
 {% block content %}
+
+    <div class="dm-overlay" id="win1">
+        <div class="dm-table">
+            <div class="dm-cell">
+                <div class="dm-modal">
+                    <a href="" class="close"></a>
+                    <h3 class="form__title">Заполните форму, мы свяжемся с вами!</h3>
+
+                    <form class="form" action="/sen/" method="POST">  
+                        <input type="text" name="text" required="" placeholder="Ваше имя"><br>        
+                        <input type="text" name="tel" required="" placeholder="Ваш номер телефона"><br>   
+                        <textarea name="mesg" id="" rows="6" required="" placeholder="Комментарий"></textarea>
+                        <div class="form__button">
+                            <button type="submit">Отправить</button>
+                        </div>
+                        <p class="form__title">Напишите нам в мессенджерах:</p>
+                        <div class="form__social">
+                            <a href="https://vk.com/frigateschool" target="_blank"><img src="{% static 'img/vkform.png' %}" alt="vk"></a>
+                            <a href="https://wa.me/+79785502653" target="_blank"><img src="{% static 'img/wsform.png' %}" alt="ws"></a>
+                            <a href="https://t.me/frigateschool" target="_blank"><img src="{% static 'img/tgform.png' %}" alt="tg"></a>
+                        </div>
+                    </form>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
     <section class="english-section">
         <div class="container-footer">
             <img src="{% static 'img/lang-bg-1.png' %}" alt="img" class="lang-bg-img">

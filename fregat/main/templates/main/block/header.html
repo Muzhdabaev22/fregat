@@ -6,7 +6,7 @@
             <a href="#"><img src="{% static 'img/logo.png' %}" alt="logo" class="logo" id="#id"></a>
             <ul class="nav-list">
                 <div class="linehover_block">
-                    <li><a href="{% url 'home' %}" class="nav-link">О ФРЕГАТЕ</a></li>
+                    <li><a href="/#about" class="nav-link">О ФРЕГАТЕ</a></li>
                     <img src="{% static 'img/linehover.png' %}" alt="linehover" class="linehover1">
                 </div>
                 <div class="linehover_block">
@@ -14,25 +14,50 @@
                     <img src="{% static 'img/linehover.png' %}" alt="linehover" class="linehover2">
                 </div>
                 <div class="linehover_block">
-                    <li><a href="" class="nav-link">СТОИМОСТЬ</a></li>
+                    <li><a href="/#price" class="nav-link">СТОИМОСТЬ</a></li>
                     <img src="{% static 'img/linehover.png' %}" alt="linehover" class="linehover3">
                 </div>
                 <div class="linehover_block">
-                    <li><a href="" class="nav-link">БЛОГ</a></li>
+                    <li><a href="{% url 'blog' %}" class="nav-link">БЛОГ</a></li>
                     <img src="{% static 'img/linehover.png' %}" alt="linehover" class="linehover4">
                 </div>
-                <div class="linehover_block">
-                    <li><a href="" class="nav-link">СВЯЗАТЬСЯ</a></li>
+                <div class="linehover_block block__form__hov">
+                    <li><a href="/" class="nav-link">СВЯЗАТЬСЯ</a></li>
                     <img src="{% static 'img/linehover.png' %}" alt="linehover" class="linehover5">
+                    
+
+                    <div class="block__form">
+                        <h1 class="block__form__title">Контакты</h1>
+                        <div class="block__form__mail">
+                            <img src="{% static "img/mailform.png" %}" alt="mail">
+                            <p class="block__form__mail__text">frigateschool@gmail.com</p>
+                        </div>
+                        <form name="contact-form" method="POST" class="block__form__form" action="">
+                            {% csrf_token %}
+                            {{ form.name }}                           
+                            {{ form.tel }}
+                            <div class="block__form__buttonblock">
+                                <button type="submit" name="first" class="block__form__button">Перезвоните мне</button>
+                            </div>                                
+                        </form>
+                        <p class="block__form__buttom__text">Напишите нам в мессенджерах:</p>
+                        <div class="social-media-icons" style="margin-top: 20px;">                           
+                            <a href="https://vk.com/frigateschool" class="icon-soc" target="_blank"><img src="{% static "img/vkform.png" %}" alt="vk"></a>
+                            <a href="https://wa.me/+79785502653" class="icon-soc" target="_blank"><img src="{% static "img/wsform.png" %}" alt="ws"></a>
+                            <a href="https://t.me/frigateschool" class="icon-soc" target="_blank"><img src="{% static "img/tgform.png" %}" alt="tg"></a>        
+                        </div>
+                    </div>
+
+
                 </div>
                 <div class="linehover_block club-padding">
-                    <li><a href="" class="nav-link">КИНОКЛУБ</a></li>
-                    <img src="{% static 'img/linehover.png' %}" alt="linehover" class="linehover3">
+                    <li><a href="/" class="nav-link">КИНОКЛУБ</a></li>
+                    <img src="{% static 'img/linehover.png' %}" alt="linehover" class="linehover6">
                 </div>
             </ul>
 
             <div class="button-nav-block">
-                <a href="">
+                <a href="#win1">
                     <button class="button-nav">ЗАПИСАТЬСЯ НА УРОК</button>
                 </a>
             </div>

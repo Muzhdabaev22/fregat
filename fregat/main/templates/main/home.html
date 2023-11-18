@@ -3,6 +3,36 @@
 {% block title %}Учи языки на борту Фрегата!{% endblock %}
 
 {% block content %}
+
+    <div class="dm-overlay" id="win1">
+        <div class="dm-table">
+            <div class="dm-cell">
+                <div class="dm-modal">
+                    <a href="#close" class="close"></a>
+                    <h3 class="form__title">Заполните форму, мы свяжемся с вами!</h3>
+
+                    <form name="contact-second-form" class="form" action="" method="POST">  
+                        {% csrf_token %}
+                        {{ second_form.name }}                           
+                        {{ second_form.tel }}
+                        {{ second_form.comment}}
+                        <div class="form__button">
+                            <button type="submit" name="second">Отправить</button>
+                        </div>
+
+                        <p class="form__title">Напишите нам в мессенджерах:</p>
+                        <div class="form__social">
+                            <a href="https://vk.com/frigateschool" target="_blank"><img src="{% static 'img/vkform.png' %}" alt="vk"></a>
+                            <a href="https://wa.me/+79785502653" target="_blank"><img src="{% static 'img/wsform.png' %}" alt="ws"></a>
+                            <a href="https://t.me/frigateschool" target="_blank"><img src="{% static 'img/tgform.png' %}" alt="tg"></a>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
     <section class="main-section">
         <div class="text-main-section-div">
             <img class="circle" src="{% static 'img/circle.png' %}" alt="circle">
@@ -10,8 +40,8 @@
             <img class="line" src="{% static 'img/linehover.png' %}" alt="linehover">
             <p class="p-text-main-section">Забудь о языке жестов и онлайн-переводчиках. Скажи сам!</p>
             <div class="buttons-main-section">
-                <a href=""><button class="one-main-section-button">ЗАПИСАТЬСЯ</button></a>
-                <a href=""><button class="two-main-section-button">Узнать больше</button></a>
+                <a href="#win1"><button class="one-main-section-button">ЗАПИСАТЬСЯ</button></a>
+                <a href="#about"><button class="two-main-section-button">Узнать больше</button></a>
             </div>
         </div>
 
@@ -102,7 +132,7 @@
         </div>
     </section>
 
-    <div class="line-section" style="margin-top:70px;"></div>
+    <div class="line-section" style="margin-top:70px;" id='price'></div>
 
     <section class="two__block"> 
         <div class="container margin-arrow-block">
@@ -131,7 +161,7 @@
                             <p class="price-bottom-text">
                                 800<br><span>руб / урок</span>
                             </p>
-                            <a href=""><button class="price-button">ЗАПИСАТЬСЯ</button></a>
+                            <a href="#win1"><button class="price-button">ЗАПИСАТЬСЯ</button></a>
                         </div>
                     </div>
                 </div>
@@ -153,7 +183,7 @@
                             <p class="price-bottom-text">
                                 400<br><span>руб / урок</span>
                             </p>
-                            <a href=""><button class="price-button">ЗАПИСАТЬСЯ</button></a>
+                            <a href="#win1"><button class="price-button">ЗАПИСАТЬСЯ</button></a>
                         </div>
                     </div>
                     <img src="{% static 'img/bg3.png' %}" alt="img" class="bg-img">
@@ -182,7 +212,7 @@
                             <p class="price-bottom-text">
                                 2000<br><span>руб / месяц</span>
                             </p>
-                            <a href=""><button class="price-button">ЗАПИСАТЬСЯ</button></a>
+                            <a href="#win1"><button class="price-button">ЗАПИСАТЬСЯ</button></a>
                         </div>
                     </div>
                 </div>
@@ -211,7 +241,7 @@
                             <p class="price-bottom-text">
                                 1400<br><span>руб / месяц</span>
                             </p>
-                            <a href=""><button class="price-button">ЗАПИСАТЬСЯ</button></a>
+                            <a href="#win1"><button class="price-button">ЗАПИСАТЬСЯ</button></a>
                         </div>
                     </div>
                     <img src="{% static 'img/bg5.png' %}" alt="img" class="bg-img">
@@ -236,7 +266,7 @@
                             <p class="price-bottom-text">
                                 400<br><span>руб / неделя</span>
                             </p>
-                            <a href=""><button class="price-button">ЗАПИСАТЬСЯ</button></a>
+                            <a href="#win1"><button class="price-button">ЗАПИСАТЬСЯ</button></a>
                         </div>
                     </div>
                 </div>
@@ -244,7 +274,7 @@
         </div>
     </section>
 
-    <div class="line-section" style="margin-top:30px;"></div>
+    <div class="line-section" style="margin-top:30px;" id="about"></div>
 
     <section class="two__block">
         <div class="container margin-arrow-block">

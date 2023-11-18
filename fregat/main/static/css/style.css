@@ -72,11 +72,11 @@
 
 .linehover1 {
     position: absolute;
-    margin-top: -10px;
+    margin-top: -11px;
     height: 15px;
-    width: 89px;
+    width: 98px;
     z-index: -1;
-    opacity: 1;
+    opacity: 0;
 }
 
 .linehover2 {
@@ -85,8 +85,8 @@
     height: 14px;
     width: 61px;
     z-index: -1;
-    opacity: 1;
-    margin-left: -2px;   
+    opacity: 0;
+    margin-left: -2px;
 }
 
 .linehover3 {
@@ -95,7 +95,7 @@
     height: 15px;
     width: 106px;
     z-index: -1;
-    opacity: 1;
+    opacity: 0;
     margin-left: -2px;
 }
 
@@ -105,7 +105,7 @@
     height: 13px;
     width: 43px;
     z-index: -1;
-    opacity: 1;
+    opacity: 0;
     margin-left: -1px;
 }
 
@@ -115,7 +115,47 @@
     height: 15px;
     width: 98px;
     z-index: -1;
+    opacity: 0;
+}
+
+.linehover6 {
+    position: absolute;
+    margin-top: -12px;
+    height: 15px;
+    width: 106px;
+    z-index: -1;
+    opacity: 0;
+    margin-left: -2px;
+}
+
+.linehover_block:hover .linehover1 {
     opacity: 1;
+    transition: 1s;
+}
+
+.linehover_block:hover .linehover2 {
+    opacity: 1;
+    transition: 1s;
+}
+
+.linehover_block:hover .linehover3 {
+    opacity: 1;
+    transition: 1s;
+}
+
+.linehover_block:hover .linehover4 {
+    opacity: 1;
+    transition: 1s;
+}
+
+.linehover_block:hover .linehover5 {
+    opacity: 1;
+    transition: 1s;
+}
+
+.linehover_block:hover .linehover6 {
+    opacity: 1;
+    transition: 1s;
 }
 
 .club-padding {
@@ -350,7 +390,7 @@
 .price-text-li {
     font-family: 'Montserrat-light';
     font-size: 21px;
-    list-style-image: url(img/li.png);
+    list-style-image: url("../img/li.png");
 }
 
 .duration-price {
@@ -525,7 +565,7 @@
 .lang-text-li {
     font-family: 'Montserrat-bold';
     font-size: 21px;
-    list-style-image: url(img/li.png);
+    list-style-image: url("../img/li.png");
     font-weight: bold;
 }
 
@@ -584,3 +624,316 @@
     margin-top: -13px;
     margin-bottom: 17px;
 }
+
+.scroll {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    background: #fff;
+    padding-top: 8px;
+}
+ 
+
+.block__form__hov:hover .block__form {
+    display: block;
+    transition: 0.9s;
+    cursor: pointer;
+}
+
+.block__form {
+    display: none;
+    background: #fafee7;
+    max-width: 374px;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    position: absolute;
+    margin-left: -289px;
+    margin-top: 23px;
+    padding: 20px;
+    border-radius: 20px;
+    height: auto;
+    transition: 0.9s;
+}
+
+.block__form::before {
+    content: ''; 
+    position: absolute; 
+    left: 310px;
+    top: -40px; 
+    border: 20px solid transparent; 
+    border-bottom: 20px solid #fafee7; 
+}
+
+.block__form__title {
+    font-family: 'Montserrat-bold';
+    font-size: 18px;
+}
+
+.block__form__mail {
+    display: flex;
+    margin-top: 10px;
+}
+
+.block__form__mail > img {
+    width: 20px;
+    height: 20px;
+    padding-right: 5px;
+}
+
+.block__form__mail__text {
+    font-family: 'Montserrat-light';
+    font-size: 18px;
+}
+
+.block__form__form {
+    max-width: 250px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.block__form__input {
+    width: 100%;
+    color: #000;
+    font-family: 'Montserrat-light';
+    font-size: 14px;
+    background-color: transparent;
+    border: 1px solid #fae300;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    margin-bottom: 15px;
+    border-radius: 100px;
+}
+
+.block__form__button {
+    width: 268px;
+    color: #000;
+    font-family: 'Montserrat-light';
+    font-size: 14px;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background: #fae3008c;
+    border: none;
+    border-radius: 80px;
+    height: auto;
+    cursor: pointer;
+}
+
+.block__form__buttom__text {
+    font-family: 'Montserrat-bold';
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.block__form__buttonblock {
+    width: 100%;
+}
+
+/* Стили модального окна и содержания 
+-------------------------------------------------------------------------------*/
+
+
+/* слой затемнения */
+.dm-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.65);
+    display: none;
+    overflow: auto;
+    width: 100%;
+    height: 100%;
+    z-index: 100000;
+}
+
+/* активируем модальное окно */
+.dm-overlay:target {
+    display: block;
+    -webkit-animation: fade .6s;
+    -moz-animation: fade .6s;
+    animation: fade .6s;
+}
+
+/* блочная таблица */
+.dm-table {
+    display: table;
+    width: 100%;
+    height: 100%;
+}
+
+/* ячейка блочной таблицы */
+.dm-cell {
+    display: table-cell;
+    padding: 0 1em;
+    vertical-align: middle;
+    text-align: center;
+}
+
+/* модальный блок */
+.dm-modal {
+    display: inline-block;
+    padding: 30px;
+    max-width: 25em;
+    background-color: #FAFEE7;;
+    -webkit-box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.22), 0px 19px 60px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.22), 0px 19px 60px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.22), 0px 19px 60px rgba(0, 0, 0, 0.3);
+    color: #cfd8dc;
+    text-align: left;
+    width: auto;
+    border-radius: 10px;
+}
+
+/* изображения в модальном окне */
+.dm-modal img {
+    width: 100%;
+    height: auto;
+}
+
+/* кнопка закрытия */
+.close {
+    z-index: 9999;
+    float: right;
+    width: 30px;
+    height: 30px;
+    color: #cfd8dc;
+    text-align: center;
+    text-decoration: none;
+    line-height: 26px;
+    cursor: pointer;
+}
+
+.close:after {
+    display: block;
+    border: 2px solid #cfd8dc;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    content: 'X';
+    -webkit-transition: all 0.6s;
+    -moz-transition: all 0.6s;
+    transition: all 0.6s;
+    -webkit-transform: scale(0.85);
+    -moz-transform: scale(0.85);
+    -ms-transform: scale(0.85);
+    transform: scale(0.85);
+    margin-top: 6px;
+}
+
+.close:hover:after {
+    border-color: #FAE300;
+    color: #FAE300;
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+}
+
+@-moz-keyframes fade {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1
+    }
+}
+@-webkit-keyframes fade {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1
+    }
+}
+@keyframes fade {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1
+    }
+}
+
+.form {
+    width: 100%;
+    height: 100%;
+}
+
+.form__title {
+    text-align: center;
+    color: #000;
+    font-family: 'Montserrat-bold';
+    margin-bottom: 40px;
+    margin-top: 10px;
+}
+
+.form__social {
+    display: flex;
+    justify-content: center;
+}
+
+.form__social > a > img {
+    width: auto;
+    height: 25px;
+    margin-right: 20px;
+}
+
+.block__form__input_second {
+    width: 100%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-size: 18px;
+    padding-left: 5px;
+    margin-bottom: 30px;
+    font-family: 'Montserrat-light';  
+    border: 1px solid #FAE300;
+    background: transparent;
+    border-radius: 20px;
+}
+
+.comment_form_textarea {
+    width: 100%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-size: 18px;
+    padding-left: 5px;
+    margin-bottom: 30px; 
+    font-family: 'Montserrat-light'; 
+    border: 1px solid #FAE300;
+    background: transparent;
+    border-radius: 10px;
+}
+
+.form > .form__button {
+    display: flex;
+    justify-content: center;
+}
+
+.form__button > button {
+    margin-bottom: 10px;
+    padding: 15px 50px 15px 50px;
+    font-family: 'Montserrat-bold';
+    background-color: #FAE300;
+    border: none;
+    border-radius: 100px;
+    color: #996632;
+    cursor: pointer;
+    width: 100%;
+    -webkit-transition: all 0.6s;
+    -moz-transition: all 0.6s;
+    transition: all 0.6s;
+    -webkit-transform: scale(0.85);
+    -moz-transform: scale(0.85);
+    -ms-transform: scale(0.85);
+    transform: scale(0.85);
+}
+
+.form__button > button:hover {
+    border-color: #FAE300;
+    color: #fff;
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+}
+/* Закончили делать модальное окно /*

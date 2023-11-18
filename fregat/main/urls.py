@@ -1,7 +1,8 @@
 from django.urls import path
-from .views import HomeView, LangView
+from .views import HomeView, LangView, BlogView
 
 urlpatterns = [
     path('', HomeView.as_view(), name='home'),
-    path('lang/', LangView.as_view(), name='lang')
+    path('lang/', LangView.as_view(), name='lang'),
+    path('blog/', BlogView.as_view(), name='blog')
 ]
