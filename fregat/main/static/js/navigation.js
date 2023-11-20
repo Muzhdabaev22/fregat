@@ -12,7 +12,6 @@ function scrollFunction() {
 
 
 var curpath = location.pathname.match(/^\/[^/]+/);
-console.log(new Date);
 if (curpath === null) {
     document.getElementsByClassName('linehover1')[0].style.opacity = "1";
 } else if (curpath[0] === "/lang") {

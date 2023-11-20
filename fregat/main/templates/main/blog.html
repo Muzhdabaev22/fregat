@@ -3,6 +3,35 @@
 
 {% block title %}Блог - Учи языки на борту Фрегата!{% endblock %}
 
-{% block content%}
+{% block content %}
+
+    <div class="blog-background-info-header">
+        <div>
+            <div class="container">
+                <div class="blog-block-text-header">
+                    <img src="{% static 'img/circle.png' %}" alt="circle" class="circle">
+                    <p class="blog__info__header__title">Блог - сундук с сокровищами</p>
+                    <div class="blog__info__two__block">
+                        <p class="two__block__title">
+                            потому что здесь мы храним все секретные знания.
+                            Читай и прокачивай свои навыки.
+                        </p>
+                        <img src="{% static 'img/arrow.png' %}" alt="arrow" class="arrow">
+                    </div>
+                    <p class="text-price">Здесь вы найдёте:</p>
+                    <p class="text-price">
+                        мотивационные статьи <br>
+                        уникальные методы запоминания слов <br>
+                        советы по изучению языков
+                    </p>
+                    <div class="img__bg__top">
+                        <img src="{% static 'img/blog-bg-1.png' %}" alt="animation">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="line-section" style="margin-top: 30px;"></div>
 
 {% endblock %}

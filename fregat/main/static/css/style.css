@@ -70,6 +70,13 @@
     padding: 8px;
 }
 
+.button-nav:hover {
+    background: #FAE300;
+    color: #000;
+    border: 4px solid #fff;
+    transition: 0.7s;
+}
+
 .linehover1 {
     position: absolute;
     margin-top: -11px;
@@ -249,6 +256,24 @@
     box-shadow: 5px 5px 12px -4px #0000007a;
 }
 
+.one-main-section-button:hover {
+    margin-left: 11px;
+    background-color: rgb(255 205 10 / 85%);
+    border: none;
+    border-radius: 100px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-family: 'Montserrat-bold';
+    font-size: 19px;
+    color: #996632;
+    margin-right: 10px;
+    cursor: pointer;
+    box-shadow: 5px 5px 12px -4px #0000007a;
+    transition: 0.7s;
+}
+
 .two-main-section-button {
     background-color: #EAEBED;
     font-family: 'Montserrat-light';
@@ -262,6 +287,22 @@
     border: none;
     font-weight: 600;
     cursor: pointer;
+}
+
+.two-main-section-button:hover {
+    background-color: #ccced1;
+    font-family: 'montserrat-light';
+    font-size: 20px;
+    border-radius: 100px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    color: #fff;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.7s;
 }
 
 .line-section {
@@ -363,15 +404,6 @@
     padding-left: 230px;
 }
 
-.circle-two {
-    position: absolute;
-    margin-top: 8px;
-    margin-left: -17px;
-    z-index: -1;
-    width: 100%;
-    max-width: 40px;
-}
-
 .price-title {
     font-family: 'Montserrat-bold';
     font-size: 23px;
@@ -434,6 +466,24 @@
     font-size: 19px;
     color: #996632;
     cursor: pointer;
+}
+
+.price-button:hover {
+    margin-top: 24px;
+    margin-left: 57px;
+    background-color: rgb(255 205 10 / 85%);
+    border: none;
+    border-radius: 100px;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-family: 'Montserrat-bold';
+    font-size: 19px;
+    color: #996632;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: 0.7s;
 }
 
 .price-text-block-two {
@@ -936,4 +986,77 @@
     -ms-transform: scale(1);
     transform: scale(1);
 }
-/* Закончили делать модальное окно /*
+/* Закончили делать модальное окно */
+
+
+.blog-background-info-header {
+    display: flex;
+    width: 100%;
+    height: auto;
+    justify-content: center;
+    padding-top: 100px;
+}
+
+.blog-block-text-header {
+    margin-top: 45px;
+    margin-left: 45px;
+}
+
+.blog__info__header__title {
+    font-family: 'MontHeavyDEMO';
+    font-size: 4vw;
+    line-height: 110.4px;
+    color: rgb(135, 82, 22, 100%);
+}
+
+.two__block__title {
+    font-family: 'Montserrat-bold';
+    font-size: 27px;
+    color: #000;
+}
+
+.blog__info__two__block {
+    display: grid;
+}
+
+.img__bg__top {
+    display: flex;
+    justify-content: end;
+    position: relative;
+    margin-top: -200px;
+    padding-right: 65px;
+    -webkit-animation: bounce-down 1.6s linear infinite;
+    animation: bounce-down 1.6s linear infinite;
+}
+
+
+@-webkit-keyframes bounce-down {
+    25% {
+            -webkit-transform: translateY(-10px);
+    }
+    50%, 100% {
+            -webkit-transform: translateY(0);
+    }
+    75% {
+            -webkit-transform: translateY(4px);
+    }
+}
+
+
+@keyframes bounce-down {
+        25% {
+            transform: translateY(-10px);
+        }
+        50%, 100% {
+            transform: translateY(0);
+        }
+        75% {
+            transform: translateY(4px);
+        }
+}
+
+
+.img__bg__top > img {
+    max-width: 400px;
+    width: 100%;
+}   
