@@ -3,6 +3,7 @@ from django.views import View
 from .forms import FeedBackForm, FeedBackFormSecond
 from django.http import HttpResponse, HttpResponseRedirect
 from django.core.mail import send_mail, BadHeaderError
+from main.models import PostBlog
 
 class HomeView(View):
     def get(self, request, *args, **kwargs):
@@ -100,4 +101,7 @@ class LangView(View):
 
 class BlogView(View):
     def get(self, request, *args, **kwargs):
-        return render(request, 'main/blog.html')
+        posts = PostBlog.objects.all()
+        return render(request, 'main/blog.html', context={
+            "posts": posts
+            })

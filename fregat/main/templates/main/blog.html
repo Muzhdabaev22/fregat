@@ -19,11 +19,11 @@
                         <img src="{% static 'img/arrow.png' %}" alt="arrow" class="arrow">
                     </div>
                     <p class="text-price">Здесь вы найдёте:</p>
-                    <p class="text-price">
-                        мотивационные статьи <br>
-                        уникальные методы запоминания слов <br>
-                        советы по изучению языков
-                    </p>
+                    <ul style="margin-top: 30px;">
+                        <li class="price-text-li">мотивационные статьи</li>
+                        <li class="price-text-li">уникальные методы запоминания слов</li>
+                        <li class="price-text-li">советы по изучению языков</li>
+                    </ul>
                     <div class="img__bg__top">
                         <img src="{% static 'img/blog-bg-1.png' %}" alt="animation">
                     </div>
@@ -33,5 +33,13 @@
     </div>
 
     <div class="line-section" style="margin-top: 30px;"></div>
+
+    <main class="main-blog">
+        <div class="container">
+            <div class="posts_div">
+                {{ posts }}
+            </div>
+        </div>
+    </main>
 
 {% endblock %}
