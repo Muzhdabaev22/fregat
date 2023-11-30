@@ -35,9 +35,16 @@
     <div class="line-section" style="margin-top: 30px;"></div>
 
     <main class="main-blog">
-        <div class="container">
+        <div>
             <div class="posts_div">
-                {{ posts }}
+                {% for post in posts %}
+                    <a href="{{ post.url }}">
+                        <div class="blog-card">
+                            <img src="../media/{{ post.img }}" alt="">
+                            <p class="blog-card-text">{{ post.title }}</p>
+                        </div>
+                    </a>
+                {% endfor %}
             </div>
         </div>
     </main>
