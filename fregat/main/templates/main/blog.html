@@ -4,7 +4,6 @@
 {% block title %}Блог - Учи языки на борту Фрегата!{% endblock %}
 
 {% block content %}
-
     <div class="blog-background-info-header">
         <div>
             <div class="container">
@@ -38,10 +37,12 @@
         <div>
             <div class="posts_div">
                 {% for post in posts %}
-                    <a href="{{ post.url }}">
+                    <a href="#{{ post.url }}">
                         <div class="blog-card">
                             <img src="../media/{{ post.img }}" alt="">
-                            <p class="blog-card-text">{{ post.title }}</p>
+                            <div>
+                                <p class="blog-card-text">{{ post.title|truncatechars:25 }}</p>
+                            </div>
                         </div>
                     </a>
                 {% endfor %}

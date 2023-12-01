@@ -1,4 +1,34 @@
 {% load static %}
+
+<div class="dm-overlay" id="win1">
+    <div class="dm-table">
+        <div class="dm-cell">
+            <div class="dm-modal">
+                <a href="#close" class="close"></a>
+                <h3 class="form__title">Заполните форму, мы свяжемся с вами!</h3>
+
+                <form name="contact-second-form" class="form" action="" method="POST">  
+                    {% csrf_token %}
+                    {{ second_form.name }}                           
+                    {{ second_form.tel }}
+                    {{ second_form.comment}}
+                    <div class="form__button">
+                        <button type="submit" name="second">Отправить</button>
+                    </div>
+
+                    <p class="form__title">Напишите нам в мессенджерах:</p>
+                    <div class="form__social">
+                        <a href="https://vk.com/frigateschool" target="_blank"><img src="{% static 'img/vkform.png' %}" alt="vk"></a>
+                        <a href="https://wa.me/+79785502653" target="_blank"><img src="{% static 'img/wsform.png' %}" alt="ws"></a>
+                        <a href="https://t.me/frigateschool" target="_blank"><img src="{% static 'img/tgform.png' %}" alt="tg"></a>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
 <header class="header">
     <div class="header_line"></div>
     <div class="container-nav">

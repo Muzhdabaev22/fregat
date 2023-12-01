@@ -1074,12 +1074,16 @@
     gap: 30px;
 }
 
+.posts_div > a {
+    text-decoration: none;
+}
+
 .blog-card {
     max-width: 450px;
     max-height: 600px;
     margin-bottom: 15px;
     box-shadow: 5px 5px 10px 5px rgba(0,0,0,0.2);
-
+    background-color: rgb(223, 150, 2);
 }
 
 .blog-card:hover {
@@ -1093,10 +1097,16 @@
     max-height: 450px;
 }
 
+.blog-card > div {
+    display: flex;
+    justify-content: center;
+}
+
 .blog-card-text {
     text-decoration: none;
-    padding-top: 10px;
-    padding-left: 10px;
-    padding-bottom: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
     font-size: 25px;
+    font-family: 'MontHeavyDEMO';
+    color: white;
 }
