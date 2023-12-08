@@ -108,14 +108,15 @@ class BlogView(View):
     def get(self, request, *args, **kwargs):
         form = FeedBackForm()
         sec_form = FeedBackFormSecond()
-        
         posts = PostBlog.objects.all()
-        # paginator = Paginator(posts, 9)
-        # page_number = request.GET.get('page')
-        # page_obj = paginator.get_page(page_number)
+        paginator = Paginator(posts, 9)
+        
+        page_number = request.GET.get('page')
+        page_obj = paginator.get_page(page_number)
         
         return render(request, 'main/blog.html', context={
-            "posts": posts,
+            # "posts": posts,
+            'page_obj': page_obj,
             'form': form,
             'second_form': sec_form
             })
@@ -164,3 +165,15 @@ class OfertaView(View):
                 'form': form,
                 'second_form': sec_form
             })
+
+
+class CinemaView(View):
+    def get(self, request, *args, **kwargs):
+        form = FeedBackForm
+        sec_form = FeedBackFormSecond
+        return render(request, 
+                'main/cinema.html', context={
+                    'form': form,
+                    'second_form': sec_form
+                })
+        
