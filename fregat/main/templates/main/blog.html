@@ -45,6 +45,19 @@
                             </div>
                         </div>
                     </a>
+                    
+                    <div class="dm-overlay" id="{{ post.url }}">
+                        <div class="dm-table">
+                            <div class="dm-cell">
+                                <div class="dm-modal2">
+                                    <a href="#close" class="close"></a>
+                                    <h1>{{ post.title }}</h1>
+                                    {{ post.text|safe }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 {% endfor %}
             </div>
         </div>

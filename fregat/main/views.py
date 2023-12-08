@@ -4,6 +4,8 @@ from .forms import FeedBackForm, FeedBackFormSecond
 from django.http import HttpResponse, HttpResponseRedirect
 from django.core.mail import send_mail, BadHeaderError
 from main.models import PostBlog
+from django.core.paginator import Paginator
+
 
 class HomeView(View):
     def get(self, request, *args, **kwargs):
@@ -105,8 +107,13 @@ class LangView(View):
 class BlogView(View):
     def get(self, request, *args, **kwargs):
         form = FeedBackForm()
-        posts = PostBlog.objects.all()
         sec_form = FeedBackFormSecond()
+        
+        posts = PostBlog.objects.all()
+        # paginator = Paginator(posts, 9)
+        # page_number = request.GET.get('page')
+        # page_obj = paginator.get_page(page_number)
+        
         return render(request, 'main/blog.html', context={
             "posts": posts,
             'form': form,
@@ -144,6 +151,16 @@ class BlogView(View):
                     return 
                 return HttpResponseRedirect('/blog')
             return render(request, 'main/blog.html', context={
+                'form': form,
+                'second_form': sec_form
+            })
+            
+
+class OfertaView(View):
+    def get(self, request, *args, **kwargs):
+        form = FeedBackForm()
+        sec_form = FeedBackFormSecond()
+        return render(request, 'main/oferta.html', context={
                 'form': form,
                 'second_form': sec_form
             })

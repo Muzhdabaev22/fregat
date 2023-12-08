@@ -3,7 +3,7 @@ from ckeditor_uploader.fields import RichTextUploadingField
 
 
 class PostBlog(models.Model):
-    title = models.CharField(max_length=30)
+    title = models.CharField(max_length=100)
     url = models.SlugField()
     text = RichTextUploadingField()
     img = models.ImageField()
