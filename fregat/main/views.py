@@ -1,9 +1,9 @@
 from django.shortcuts import render
 from django.views import View
 from .forms import FeedBackForm, FeedBackFormSecond
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponseRedirect
 from django.core.mail import send_mail, BadHeaderError
-from main.models import PostBlog
+from main.models import PostBlog, Movie
 from django.core.paginator import Paginator
 
 
@@ -169,11 +169,13 @@ class OfertaView(View):
 
 class CinemaView(View):
     def get(self, request, *args, **kwargs):
-        form = FeedBackForm
-        sec_form = FeedBackFormSecond
+        form = FeedBackForm()
+        sec_form = FeedBackFormSecond()
+        movies_list = Movie.objects.all()
         return render(request, 
                 'main/cinema.html', context={
                     'form': form,
-                    'second_form': sec_form
+                    'second_form': sec_form,
+                    'movies': movies_list
                 })
         
