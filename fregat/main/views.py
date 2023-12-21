@@ -3,7 +3,7 @@ from django.views import View
 from .forms import FeedBackForm, FeedBackFormSecond
 from django.http import HttpResponseRedirect
 from django.core.mail import send_mail, BadHeaderError
-from main.models import PostBlog, Movie
+from main.models import PostBlog, Movie, Episode
 from django.core.paginator import Paginator
 
 
@@ -178,4 +178,15 @@ class CinemaView(View):
                     'second_form': sec_form,
                     'movies': movies_list
                 })
-        
+
+
+class EpisodeView(View):
+    def get(self, request, slug):
+        form = FeedBackForm()
+        sec_form = FeedBackFormSecond()
+        movie = Episode.objects.get(url=slug)
+        return render(request, 'main/episode.html', context={
+            'form': form,
+            'second_form': sec_form,
+            'movie': movie
+        })

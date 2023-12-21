@@ -1228,3 +1228,65 @@
     pointer-events: none;
     cursor: default;
 }
+
+.cinema-page {
+    padding-top: 150px;
+    min-height: 59vh;
+}
+
+.cinema-films {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.cinema-film {
+    flex-basis: 0;
+    text-align: center;
+    margin: 50px 27px;
+}
+
+.cinema-film__linkImg {
+    display: block;
+    width: 282px;
+    height: 282px;
+    border-radius: 14px;
+    box-shadow: 7px 7px 12px rgba(2, 2, 2, 0.58);
+    overflow: hidden;
+    background: #eee;
+}
+
+.cinema-film__linkImg > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* transition: transform 0.3s ease-in-out; */
+}
+
+.cinema-film__linkImg > img:hover {
+    transition: transform 0.3s ease-in-out;
+}
+
+.cinema-film__title {
+    font-size: 27px;
+    text-decoration: none;
+    color: #875216;
+    font-family: 'Montserrat-bold', sans-serif;
+}
+
+.film-episodes {  
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.episode-link {
+    font-size: 17px;
+    font-weight: 600;
+    text-decoration: none;
+    font-family: 'Montserrat-bold', sans-serif;
+    color: #010101;
+}

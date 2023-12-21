@@ -4,14 +4,23 @@
 {% block title %}Киноклуб — Учи языки на борту Фрегата!{% endblock %}
 
 {% block content %}
-    <p style="padding-top: 300px;"></p>
-
-    {% for movie in movies %}
-        <img src="../media/{{ movie.img }}" alt="img">
-        <h1>{{ movie.title }}</h1>
-        {% for i in movie.episodes.all %}
-            <p>{{ i.number_epis }}</p>
-        {% endfor %}
-    {% endfor %}
-
+    <main style="width: 1690px; margin: 0 auto ;">
+        <div class="cinema-page">
+            <div class="cinema-films">
+                {% for movie in movies %}
+                    <div class="cinema-film">
+                        <a href="{% url 'episode' movie.episodes.all.0.url %}" class="cinema-film__linkImg"><img src="../media/{{ movie.img }}" alt="logo_film"></a>
+                        <div style="margin: 18px 0 8px;">
+                            <a href="{% url 'episode' movie.episodes.all.0.url %}" class="cinema-film__title">{{ movie.title }}</a>
+                        </div>
+                         <div class="film-episodes"> 
+                            {% for episode in movie.episodes.all %}
+                                <div style="margin: 0 13px 8px 0;"><a href="{% url 'episode' episode.url %}" class="episode-link">episode {{episode.number_epis}}</a></div>
+                            {% endfor %}
+                        </div> 
+                    </div>
+                {% endfor %} 
+            </div>
+        </div>
+    </main> 
 {% endblock %}

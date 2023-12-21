@@ -1,0 +1,12 @@
+{% extends "./base.html" %}
+{% load static %}
+
+{% block title %}{{ movie.title }}{% endblock %}
+
+{% block content %}
+    <div style="padding-top:180px"></div>
+    {{ movie.title }}
+    {{ movie.level }}
+    {{ movie.accent }}
+    {{ movie.topic }}
+{% endblock %}
