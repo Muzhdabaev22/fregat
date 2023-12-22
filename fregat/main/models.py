@@ -57,6 +57,7 @@ class Author(models.Model):
 class Episode(models.Model):
     title = models.CharField("Название", max_length=100, unique=True)
     number_epis = models.PositiveSmallIntegerField("Номер эпизода")
+    img = models.ImageField("Изображение")
     url = models.SlugField("Ссылка")
     level = models.ManyToManyField(Level, verbose_name="Уровень", related_name="lvl_related")
     accent = models.ManyToManyField(Accent, verbose_name="Акцент", related_name="accent_related")

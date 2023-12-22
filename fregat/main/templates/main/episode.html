@@ -4,9 +4,42 @@
 {% block title %}{{ movie.title }}{% endblock %}
 
 {% block content %}
-    <div style="padding-top:180px"></div>
-    {{ movie.title }}
-    {{ movie.level }}
-    {{ movie.accent }}
-    {{ movie.topic }}
+    <main class="cinema-container">
+        <div class="episode">
+            <div class="episode__left">
+                <div class="episode-wrapper">
+                    <div class="episode-wrapper__header">
+                        <h1>{{ movie.title }}</h1>
+                    </div>
+                    <div class="episode-wrapper__content">
+						<div class="episode-desc">
+							<div class="episode-desc__desc">
+								<p>
+                                    <strong>Level</strong> — {{ movie.level.all.0.level }}<br>
+                                    <strong>Accent</strong> — {{ movie.accent.all.0.accent }}<br>
+                                    <strong>Topic</strong> — {{ movie.topic.all.0.topic }}
+                                </p>
+                                <p>
+                                    Автор материала — <a href="{{ movie.author.all.0.url }}">{{ movie.author.all.0.name}}</a>
+                                </p>
+                                <p>
+                                    Встречи киноклуба каждую неделю.<br>
+                                    Пиши нам для записи.
+                                </p>
+                            </div>
+                            <div class="episode-desc__cover">
+                                <img src="../../media/{{ movie.img }}" alt="logo" class="episode-desc__img">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="episode__right">
+                <div class="episode-player">
+                    <video src="../../media/{{ movie.video }}" class="episode-video" controls></video>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div style="height: 342px;"></div>
 {% endblock %}

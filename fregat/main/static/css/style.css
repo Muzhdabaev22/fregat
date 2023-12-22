@@ -1229,6 +1229,9 @@
     cursor: default;
 }
 
+
+
+/* CINEMACLUB PAGE START */
 .cinema-page {
     padding-top: 150px;
     min-height: 59vh;
@@ -1263,11 +1266,11 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    /* transition: transform 0.3s ease-in-out; */
+    transition: transform 0.3s ease-in-out;
 }
 
 .cinema-film__linkImg > img:hover {
-    transition: transform 0.3s ease-in-out;
+    transform: scale(1.2);
 }
 
 .cinema-film__title {
@@ -1290,3 +1293,90 @@
     font-family: 'Montserrat-bold', sans-serif;
     color: #010101;
 }
+/* CINEMACLUB PAGE END */
+
+
+
+/* EPISODE PAGE START */
+.cinema-container {
+    width: 1690px; 
+    margin: 0 auto;
+}
+
+.episode {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 150px;
+    min-height: 59vh;
+}
+
+.episode-wrapper {
+    margin-bottom: 40px;
+    padding: 30px 30px 50px 30px;
+    border: 2px solid #fafa6b;
+    border-radius: 40px;
+    box-shadow: 7px 7px 12px rgba(2, 2, 2, 0.58);
+}
+
+.episode__left {
+    width: 50%;
+}
+
+.episode__right {
+    width: 47%;
+}
+
+.episode-wrapper__header {
+    display: flex;
+    border-bottom: 2px solid #a7dd97;
+    padding-bottom: 10px;
+}
+
+.episode-wrapper__header > h1 {
+    font-size: 41px;
+    margin: 0;
+    font-family: 'Montserrat-bold', sans-serif;
+}
+
+.episode-desc {
+    display: flex;
+    justify-content: space-between;
+}
+
+.episode-desc__desc {
+    font-size: 21px;
+}
+
+.episode-wrapper p {
+    font-family: 'Montserrat-light', sans-serif;
+    font-size: 18px;
+    line-height: 1.4;
+    margin: 22px 0;
+}
+
+.episode-desc__cover {
+    margin-top: 30px;
+    width: 282px;
+    height: 282px;
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+.episode-desc__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.episode-player {
+    margin-bottom: 40px;
+    height: 455px;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.episode-video {
+    width: 100%;
+    height: 100%;
+}
+/* EPISODE PAGE END */
