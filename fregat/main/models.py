@@ -1,7 +1,7 @@
 from django.db import models
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.urls import reverse
-
+from django_mysql.models import ListCharField
 
 class PostBlog(models.Model):
     title = models.CharField(max_length=100)
@@ -64,6 +64,7 @@ class Episode(models.Model):
     topic = models.ManyToManyField(Topic, verbose_name="Тема", related_name="topic_related")
     author = models.ManyToManyField(Author, verbose_name="Автор", related_name="author_related")
     video = models.FileField("Видео", max_length=100)
+    script = RichTextUploadingField()
     
     def __str__(self):
         return self.title
@@ -72,10 +73,12 @@ class Episode(models.Model):
         verbose_name = "Эпизод"
         verbose_name_plural = "Эпизоды"
         
+        
 class Movie(models.Model):
     title = models.CharField("Название фильма", max_length=100)
     img = models.ImageField("Изображение")
     episodes = models.ManyToManyField(Episode, verbose_name="Эпизод", related_name="ep_related")
+    level = models.ManyToManyField(Level, verbose_name="Уровень", related_name="lvl_movie")
     
     def __str__(self):
         return self.title
@@ -83,3 +86,23 @@ class Movie(models.Model):
         verbose_name = "Фильм"
         verbose_name_plural = "Фильмы"
     
+
+class Vocabulary(models.Model):
+    episode = models.ForeignKey(Episode, null=True, on_delete=models.SET_NULL)
+    word = models.CharField("Слово", max_length=200)
+    
+    def __str__(self) -> str:
+        return f"{self.episode.title}"
+    
+    
+class TestCinema(models.Model):
+    
+    episode = models.ForeignKey(Episode, null=True, on_delete=models.SET_NULL)
+    question = models.CharField("Вопрос", max_length=100)
+    first = models.CharField("Первый ответ", max_length=100)
+    second = models.CharField("Второй ответ", max_length=100)
+    third = models.CharField("Третий ответ", max_length=100)
+    correct = models.SmallIntegerField("Правильный ответ")
+
+    def __str__(self) -> str:
+        return f"{self.episode.title}"

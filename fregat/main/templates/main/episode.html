@@ -1,5 +1,6 @@
 {% extends "./base.html" %}
 {% load static %}
+{% load index %}
 
 {% block title %}{{ movie.title }}{% endblock %}
 
@@ -33,13 +34,155 @@
                         </div>
                     </div>
                 </div>
+                <div class="episode-wrapper open-close-window">
+                    <div class="cinema-block-arrow">
+                        <p class="title-task">Vocabulary box</p>
+                        <svg fill="#a7dd97" height="25px" width="25px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 330 330" xml:space="preserve" data-darkreader-inline-fill="" style="--darkreader-inline-fill:#3e6521;"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path id="XMLID_225_" d="M325.607,79.393c-5.857-5.857-15.355-5.858-21.213,0.001l-139.39,139.393L25.607,79.393 c-5.857-5.857-15.355-5.858-21.213,0.001c-5.858,5.858-5.858,15.355,0,21.213l150.004,150c2.813,2.813,6.628,4.393,10.606,4.393 s7.794-1.581,10.606-4.394l149.996-150C331.465,94.749,331.465,85.251,325.607,79.393z"></path> </g></svg>
+                    </div>
+                    <div class="opened-window">
+                        <p class="text-explanation">Click on the word when you hear it in the video.</p>
+                        {% for i in vocabulary %}
+                            <div class="vocabulary-word-line">
+                                <input type="checkbox" class="input-vocabulary" id="voc_{{ i.id }}">
+                                <label class="label-vocabulary" for="voc_{{ i.id }}">{{ i.word }}<br></label> 
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                
+                <div class="episode-wrapper open-close-window">
+                    <div class="cinema-block-arrow">
+                        <p class="title-task">Test</p>
+                        <svg fill="#a7dd97" height="25px" width="25px" version="1.1" id="Layer_2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 330 330" xml:space="preserve" data-darkreader-inline-fill="" style="--darkreader-inline-fill:#3e6521;"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path id="XMLID_225_" d="M325.607,79.393c-5.857-5.857-15.355-5.858-21.213,0.001l-139.39,139.393L25.607,79.393 c-5.857-5.857-15.355-5.858-21.213,0.001c-5.858,5.858-5.858,15.355,0,21.213l150.004,150c2.813,2.813,6.628,4.393,10.606,4.393 s7.794-1.581,10.606-4.394l149.996-150C331.465,94.749,331.465,85.251,325.607,79.393z"></path> </g></svg>
+                    </div>
+                    <div class="opened-window">
+                        {% if answers %}
+                            <div style="height: 30px;"></div>
+                            {% for i in test %}
+                                {% with outer_counter=forloop.counter0 %}
+                                    <p class="text-explanation">{{ i.id }}. {{ i.question }}</p>
+                                    <div class="test-question-line">
+                                        {% to_list i.first i.second i.third as list %}
+                                        {% for x in list %}
+                                            {% if forloop.counter == answers|index:outer_counter and answers|index:outer_counter == i.correct %}
+                                                <div class="input-label-line">
+                                                    <p class="qsm-text-correct-option">{{ x }}</p>
+                                                </div>
+                                            {% elif forloop.counter == answers|index:outer_counter and answers|index:outer_counter != i.correct %}
+                                                <div class="input-label-line">
+                                                    <p class="qsm-text-wrong-option">{{ x }}</p>
+                                                </div>
+                                            {% else %}
+                                                <div class="input-label-line">
+                                                    <p class="qsm-text-grey-option">{{ x }}</p>
+                                                </div>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </div>
+                                {% endwith %}
+                            {% endfor %}
+                            <form name="again" method="get">
+                                <input type="submit" value="Пройти повторно" class="submit-again">
+                            </form>
+                            
+                            
+                        {% else %}
+                            <form name="test-form" method="post">
+                                {% csrf_token %}
+                                {% for i in test %}
+                                    <p class="text-explanation">{{ i.id }}. {{ i.question }}</p>
+                                    <div class="test-question-line">
+                                        <div class="input-label-line">
+                                            <input type="radio" class="input-test" name="test-{{ i.id }}" id="test_{{ i.id }}_{{ i.first }}" value="1">
+                                            <label class="label-test" for="test_{{ i.id }}_{{ i.first }}">{{ i.first }}<br></label> 
+                                        </div>
+                                        <div class="input-label-line">
+                                            <input type="radio" class="input-test" name="test-{{ i.id }}" id="test_{{ i.id }}_{{ i.second }}" value="2">
+                                            <label class="label-test" for="test_{{ i.id }}_{{ i.second }}">{{ i.second }}<br></label> 
+                                        </div>
+                                        <div class="input-label-line">
+                                            <input type="radio" class="input-test" name="test-{{ i.id }}" id="test_{{ i.id }}_{{ i.third }}" value="3">
+                                            <label class="label-test" for="test_{{ i.id }}_{{ i.third }}">{{ i.third }}<br></label> 
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                                <div class="submit-test-div">           
+                                    <input type="submit" class="" value="Отправить">
+                                </div> 
+                            </form>
+                        {% endif %}
+                    </div>
+                </div>        
+                
             </div>
+<!-- src="../../media/{{ movie.video }}" -->
             <div class="episode__right">
                 <div class="episode-player">
-                    <video src="../../media/{{ movie.video }}" class="episode-video" controls></video>
+                    <video 
+                        
+                        id="my-video"
+                        controls 
+                        preload="auto"
+                        class="episode-video"
+                        id="my-video"
+                        data-setup="{}">
+
+                        <source src="{% url 'stream' movie.id %}" type="video/mp4"/>
+                        <source src="{% url 'stream' movie.id %}" type="video/webm"/>
+                    </video>
                 </div>
+
+                
+                <div class="episode-wrapper open-close-window">
+                    <div class="cinema-block-arrow">
+                        <p class="title-task">Script</p>
+                        <svg fill="#a7dd97" height="25px" width="25px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 330 330" xml:space="preserve" data-darkreader-inline-fill="" style="--darkreader-inline-fill:#3e6521;"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path id="XMLID_225_" d="M325.607,79.393c-5.857-5.857-15.355-5.858-21.213,0.001l-139.39,139.393L25.607,79.393 c-5.857-5.857-15.355-5.858-21.213,0.001c-5.858,5.858-5.858,15.355,0,21.213l150.004,150c2.813,2.813,6.628,4.393,10.606,4.393 s7.794-1.581,10.606-4.394l149.996-150C331.465,94.749,331.465,85.251,325.607,79.393z"></path> </g></svg>
+                    </div>
+                    <div class="opened-window">
+                        {{ movie.script|safe }}
+                    </div>
+                </div>
+                
+
             </div>
         </div>
     </main>
     <div style="height: 342px;"></div>
+    <script>
+        document.querySelectorAll('.cinema-block-arrow').forEach(function(arrow) {
+            arrow.addEventListener('click', function() {
+                var wrapper = this.closest('.episode-wrapper');
+                var window = wrapper.querySelector('.opened-window');
+                var isHidden = window.style.display === 'none' || window.style.display === '';
+        
+                // Переключаем состояние текущего окна и стрелки
+                if (isHidden) {
+                    window.style.display = 'block';
+                    this.classList.add('cinema-block-arrow-open');
+                } else {
+                    window.style.display = 'none';
+                    this.classList.remove('cinema-block-arrow-open');
+                }
+            });
+        });
+                 
+    </script>
+    <script>
+        // При загрузке страницы, установите состояние checkbox из sessionStorage
+        window.onload = function() {
+            var inputs = document.getElementsByTagName("input");
+            for (var i = 0; i < inputs.length; i++) {
+                if (inputs[i].id.startsWith("voc_") && inputs[i].type === "checkbox") {
+                    inputs[i].checked = sessionStorage.getItem(inputs[i].id) === 'true';
+                }
+            }
+        };
+
+        // Когда состояние checkbox изменяется, сохраните его в sessionStorage
+        document.oninput = function(e) {
+            if (e.target.tagName.toLowerCase() === 'input' && e.target.type === "checkbox" && e.target.id.startsWith("voc_")) {
+                sessionStorage.setItem(e.target.id, e.target.checked);
+            }
+        };
+    </script>
 {% endblock %}

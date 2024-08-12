@@ -6,6 +6,12 @@
 {% block content %}
     <main class="cinema-container">
         <div class="cinema-page">
+            <form name="level-form" method="POST">
+                {% csrf_token %}
+                Выбирете уровень {{ choice_level.level }}
+                <input type = "submit" value = "Подтвердить">
+            </form>
+            
             <div class="cinema-films">
                 {% for movie in movies %}
                     <div class="cinema-film">

@@ -46,3 +46,16 @@ class FeedBackFormSecond(forms.Form):
             }
         )
     )     
+
+
+class LevelChoice(forms.Form):
+    choices = (
+        ("-- Все --", 
+            (
+                ("A2", "A2"),
+                ("B1", "B1"),
+                ("B2", "B2"),
+            )
+        ),)
+
+    level = forms.ChoiceField(choices=choices, label='Выбирете уровень')
