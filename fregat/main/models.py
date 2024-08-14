@@ -6,8 +6,8 @@ from django_mysql.models import ListCharField
 class PostBlog(models.Model):
     title = models.CharField(max_length=100)
     url = models.SlugField()
-    text = RichTextUploadingField()
-    img = models.ImageField()
+    text = RichTextUploadingField("Текст")
+    img = models.ImageField("Изображение")
     
     def __str__(self):
         return self.title
@@ -98,11 +98,37 @@ class Vocabulary(models.Model):
 class TestCinema(models.Model):
     
     episode = models.ForeignKey(Episode, null=True, on_delete=models.SET_NULL)
-    question = models.CharField("Вопрос", max_length=100)
+    question = models.CharField("Вопрос", max_length=200)
     first = models.CharField("Первый ответ", max_length=100)
     second = models.CharField("Второй ответ", max_length=100)
     third = models.CharField("Третий ответ", max_length=100)
     correct = models.SmallIntegerField("Правильный ответ")
 
+    def __str__(self) -> str:
+        return f"{self.episode.title}"
+    
+
+class DiscusBoard(models.Model):
+    
+    episode = models.ForeignKey(Episode, null=True, on_delete=models.SET_NULL)
+    question = models.CharField("Вопрос", max_length=300)
+
+    def __str__(self) -> str:
+        return f"{self.episode.title}"
+    
+class SubStory(models.Model):
+    
+    episode = models.ForeignKey(Episode, null=True, on_delete=models.SET_NULL)
+    
+    image = models.ImageField("Изображение")
+    
+    bef_one = models.CharField("before first", max_length=200)
+    bef_two = models.CharField("before second", max_length=200)
+    bef_three = models.CharField("before third", max_length=200)
+    
+    aft_one = models.CharField("after first", max_length=200)
+    aft_two = models.CharField("after second", max_length=200)
+    aft_three = models.CharField("after third", max_length=200)
+    
     def __str__(self) -> str:
         return f"{self.episode.title}"

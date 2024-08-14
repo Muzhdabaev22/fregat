@@ -3,7 +3,7 @@ from django.views import View
 from .forms import FeedBackForm, FeedBackFormSecond, LevelChoice
 from django.http import HttpResponseRedirect, StreamingHttpResponse
 from django.core.mail import send_mail, BadHeaderError
-from main.models import PostBlog, Movie, Episode, Vocabulary, TestCinema
+from main.models import PostBlog, Movie, Episode, Vocabulary, TestCinema, DiscusBoard, SubStory
 from django.core.paginator import Paginator
 from .services import open_file
 
@@ -317,6 +317,8 @@ class EpisodeView(View):
         movie = Episode.objects.get(url=slug)
         vocabulary = Vocabulary.objects.filter(episode__url=slug)
         test = TestCinema.objects.filter(episode__url=slug)
+        discus = DiscusBoard.objects.filter(episode__url=slug)
+        story = SubStory.objects.filter(episode__url=slug)
         # === ===
             
         
@@ -326,7 +328,10 @@ class EpisodeView(View):
             'movie': movie,
             'vocabulary': vocabulary,
             'test': test,
+            'discus': discus,
+            'story': story
         })
+    
     
     def post(self, request, slug):
         

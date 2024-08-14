@@ -1396,6 +1396,7 @@
 .title-task {
     font-size: 21px;
     font-family: 'Montserrat-light', sans-serif;
+    font-weight: 600;
 }
 
 .cinema-block-arrow > svg {
@@ -1565,4 +1566,30 @@
     border: 1px solid #ccc;
     border-radius: 50px
 }
+
+.discus-question {
+    margin-top: 22px;
+    margin-bottom: 22px;
+    font-size: 18px;
+    line-height: 1.4;
+    font-weight: 600;
+}
+
+.container-substory {
+    display: flex;
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+.img-substory {
+    height: auto;
+    max-width: 100%;
+    margin-right: 20px;
+}
+
+
+.substory-text-detail > p {
+    margin: 7px 0;
+}
+
 /* EPISODE PAGE END */
