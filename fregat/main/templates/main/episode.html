@@ -112,9 +112,48 @@
                             </form>
                         {% endif %}
                     </div>
-                </div>  
-                
-                <!-- {% comment %} %%%сделать блок right order%%% {% endcomment %} -->
+                </div>                
+
+                <div class="episode-wrapper open-close-window">
+                    <div class="cinema-block-arrow">
+                        <p class="title-task">Right order</p>
+                        <svg fill="#a7dd97" height="25px" width="25px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 330 330" xml:space="preserve" data-darkreader-inline-fill="" style="--darkreader-inline-fill:#3e6521;"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path id="XMLID_225_" d="M325.607,79.393c-5.857-5.857-15.355-5.858-21.213,0.001l-139.39,139.393L25.607,79.393 c-5.857-5.857-15.355-5.858-21.213,0.001c-5.858,5.858-5.858,15.355,0,21.213l150.004,150c2.813,2.813,6.628,4.393,10.606,4.393 s7.794-1.581,10.606-4.394l149.996-150C331.465,94.749,331.465,85.251,325.607,79.393z"></path> </g></svg>
+                    </div>
+                    <div class="opened-window">
+                        <p class="text-explanation">Put the events in the right order:</p>
+                        <div id="container-order">
+                            <div class="item" data-order="1">
+                                <p class="container-quest-order">Пункт 1</p>
+                                <div class="button-container-order">
+                                    <button onclick="moveUp(this)" class="button-order">⇑</button>
+                                    <button onclick="moveDown(this)" class="button-order">⇓</button>
+                                </div>
+                            </div>
+                            <div class="item" data-order="2">
+                                <p class="container-quest-order">Пункт 2</p>
+                                <div class="button-container-order">
+                                    <button onclick="moveUp(this)" class="button-order">⇑</button>
+                                    <button onclick="moveDown(this)" class="button-order">⇓</button>
+                                </div>
+                            </div>
+                            <div class="item" data-order="3">
+                                <p class="container-quest-order">Пункт 3</p>
+                                <div class="button-container-order">
+                                    <button onclick="moveUp(this)" class="button-order">⇑</button>
+                                    <button onclick="moveDown(this)" class="button-order">⇓</button>
+                                </div>
+                            </div>
+                            <div class="item" data-order="4">
+                                <p class="container-quest-order">Пункт 4</p>
+                                <div class="button-container-order">
+                                    <button onclick="moveUp(this)" class="button-order">⇑</button>
+                                    <button onclick="moveDown(this)" class="button-order">⇓</button>
+                                </div>
+                            </div>
+                        </div>
+                        <button onclick="checkOrder()" class="check-order-btn">Проверить порядок</button>
+                    </div>
+                </div>
 
                 <div class="episode-wrapper open-close-window">
                     <div class="cinema-block-arrow">
@@ -172,7 +211,6 @@
                         controls 
                         preload="auto"
                         class="episode-video"
-                        id="my-video"
                         data-setup="{}">
 
                         <source src="{% url 'stream' movie.id %}" type="video/mp4"/>
@@ -232,5 +270,45 @@
                 sessionStorage.setItem(e.target.id, e.target.checked);
             }
         };
+    </script>
+    <script>
+        function moveUp(button) {
+            const item = button.parentElement.parentElement;
+            const prevItem = item.previousElementSibling;
+            if (prevItem) {
+                item.classList.add('moving-up');
+                prevItem.classList.add('moving-down');
+                setTimeout(() => {
+                    item.classList.remove('moving-up');
+                    prevItem.classList.remove('moving-down');
+                    item.parentNode.insertBefore(item, prevItem);
+                }, 250);
+            }
+        }
+
+        function moveDown(button) {
+            const item = button.parentElement.parentElement;
+            const nextItem = item.nextElementSibling;
+            if (nextItem) {
+                item.classList.add('moving-down');
+                nextItem.classList.add('moving-up');
+                setTimeout(() => {
+                    item.classList.remove('moving-down');
+                    nextItem.classList.remove('moving-up');
+                    item.parentNode.insertBefore(nextItem, item);
+                }, 250);
+            }
+        }
+
+        function checkOrder() {
+            const items = document.querySelectorAll('.item');
+            let correctOrder = true;
+            items.forEach((item, index) => {
+                if (parseInt(item.getAttribute('data-order')) !== index + 1) {
+                    correctOrder = false;
+                }
+            });
+            alert(correctOrder ? 'Порядок правильный!' : 'Порядок неправильный.');
+        }
     </script>
 {% endblock %}
