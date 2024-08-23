@@ -3,9 +3,10 @@ from django.views import View
 from .forms import FeedBackForm, FeedBackFormSecond, LevelChoice
 from django.http import HttpResponseRedirect, StreamingHttpResponse
 from django.core.mail import send_mail, BadHeaderError
-from main.models import PostBlog, Movie, Episode, Vocabulary, TestCinema, DiscusBoard, SubStory
+from main.models import PostBlog, Movie, Episode, Vocabulary, TestCinema, DiscusBoard, SubStory, RightOrder
 from django.core.paginator import Paginator
 from .services import open_file
+from random import shuffle
 
 
 class HomeView(View):
@@ -319,8 +320,10 @@ class EpisodeView(View):
         test = TestCinema.objects.filter(episode__url=slug)
         discus = DiscusBoard.objects.filter(episode__url=slug)
         story = SubStory.objects.filter(episode__url=slug)
-        # === ===
-            
+        order = list(RightOrder.objects.filter(episode__url=slug))
+        # ==========================
+        
+        shuffle(order)
         
         return render(request, 'main/episode.html', context={
             'form': form,
@@ -329,7 +332,8 @@ class EpisodeView(View):
             'vocabulary': vocabulary,
             'test': test,
             'discus': discus,
-            'story': story
+            'story': story,
+            "order": order
         })
     
     
@@ -345,8 +349,12 @@ class EpisodeView(View):
         movie = Episode.objects.get(url=slug)
         vocabulary = Vocabulary.objects.filter(episode__url=slug)
         test = TestCinema.objects.filter(episode__url=slug)
+        discus = DiscusBoard.objects.filter(episode__url=slug)
+        story = SubStory.objects.filter(episode__url=slug)
+        order = list(RightOrder.objects.filter(episode__url=slug))
         # ==========================
         
+        shuffle(order)
         
         # === we check if there are answers to the tests ===    
         if 'test-1' in self.request.POST:
@@ -361,7 +369,10 @@ class EpisodeView(View):
                 'movie': movie,
                 'vocabulary': vocabulary,
                 'test': test,
-                'answers': correct_answers
+                'answers': correct_answers,
+                'discus': discus,
+                'story': story,
+                "order": order
             })
             
             

@@ -132,3 +132,13 @@ class SubStory(models.Model):
     
     def __str__(self) -> str:
         return f"{self.episode.title}"
+    
+class RightOrder(models.Model):
+    episode = models.ForeignKey(Episode, null=True, on_delete=models.SET_NULL)
+    
+    question = models.CharField("Вопрос", max_length=200)
+    priority = models.IntegerField("Приоритет")
+    
+    def __str__(self):
+        return f"{self.episode.title}"
+    

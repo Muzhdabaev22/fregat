@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import PostBlog, Movie, Accent, Author, Topic, Level, Episode, Vocabulary, TestCinema, DiscusBoard, SubStory
+from .models import PostBlog, Movie, Accent, Author, Topic, Level, Episode, Vocabulary, TestCinema, DiscusBoard, SubStory, RightOrder
 
 class PostAdmin(admin.ModelAdmin):
     prepopulated_fields = {'url': ('title',)}
@@ -21,10 +21,14 @@ class SubStoryAdminInline(admin.TabularInline):
     model = SubStory
     extra = 0
     
+class RightOrderInline(admin.TabularInline):
+    model = RightOrder
+    extra = 0
+    
 class EpisodeAdmin(admin.ModelAdmin):
     prepopulated_fields = {'url': ('title',)}
     list_display = [field.name for field in Episode._meta.fields]
-    inlines = [VocabularyAdminInline, TestAdminInline, DiscusAdminInline, SubStoryAdminInline]
+    inlines = [VocabularyAdminInline, TestAdminInline, DiscusAdminInline, SubStoryAdminInline, RightOrderInline]
     
     class Meta:
         model = Episode

@@ -122,34 +122,15 @@
                     <div class="opened-window">
                         <p class="text-explanation">Put the events in the right order:</p>
                         <div id="container-order">
-                            <div class="item" data-order="1">
-                                <p class="container-quest-order">Пункт 1</p>
-                                <div class="button-container-order">
-                                    <button onclick="moveUp(this)" class="button-order">⇑</button>
-                                    <button onclick="moveDown(this)" class="button-order">⇓</button>
+                            {% for i in order %}
+                                <div class="item" data-order="{{ i.priority }}">
+                                    <p class="container-quest-order">{{ i.question }}</p>
+                                    <div class="button-container-order">
+                                        <button onclick="moveUp(this)" class="button-order">⇑</button>
+                                        <button onclick="moveDown(this)" class="button-order">⇓</button>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="item" data-order="2">
-                                <p class="container-quest-order">Пункт 2</p>
-                                <div class="button-container-order">
-                                    <button onclick="moveUp(this)" class="button-order">⇑</button>
-                                    <button onclick="moveDown(this)" class="button-order">⇓</button>
-                                </div>
-                            </div>
-                            <div class="item" data-order="3">
-                                <p class="container-quest-order">Пункт 3</p>
-                                <div class="button-container-order">
-                                    <button onclick="moveUp(this)" class="button-order">⇑</button>
-                                    <button onclick="moveDown(this)" class="button-order">⇓</button>
-                                </div>
-                            </div>
-                            <div class="item" data-order="4">
-                                <p class="container-quest-order">Пункт 4</p>
-                                <div class="button-container-order">
-                                    <button onclick="moveUp(this)" class="button-order">⇑</button>
-                                    <button onclick="moveDown(this)" class="button-order">⇓</button>
-                                </div>
-                            </div>
+                            {% endfor %}
                         </div>
                         <button onclick="checkOrder()" class="check-order-btn">Проверить порядок</button>
                     </div>
