@@ -42,14 +42,14 @@ class HomeView(View):
             })
             
         if 'second' in self.request.POST:
-            form = FeedBackFormSecond(request.POST)
+            form = FeedBackForm(request.POST)
             sec_form = FeedBackFormSecond(request.POST)
-            if form.is_valid():
-                name = form.cleaned_data['name']
-                tel = form.cleaned_data['tel']
-                comment = form.cleaned_data['comment']
+            if sec_form.is_valid():
+                name = sec_form.cleaned_data['name']
+                social = sec_form.cleaned_data['social']
+                lang = sec_form.cleaned_data['lang']
                 try:
-                    send_mail('С вами хотят связаться!', f"{name}. {tel}\n{comment}", 'edik622mujpc@gmail.com', ['edik622mujpc@gmail.com'])
+                    send_mail('С вами хотят связаться!', f"{name}. Социальная сеть: {social}\nЯзык: {lang}", 'edik622mujpc@gmail.com', ['edik622mujpc@gmail.com'])
                 except BadHeaderError:
                     return 
                 return HttpResponseRedirect('/')
@@ -93,14 +93,14 @@ class LangView(View):
             })
             
         if 'second' in self.request.POST:
-            form = FeedBackFormSecond(request.POST)
+            form = FeedBackForm(request.POST)
             sec_form = FeedBackFormSecond(request.POST)
-            if form.is_valid():
-                name = form.cleaned_data['name']
-                tel = form.cleaned_data['tel']
-                comment = form.cleaned_data['comment']
+            if sec_form.is_valid():
+                name = sec_form.cleaned_data['name']
+                social = sec_form.cleaned_data['social']
+                lang = sec_form.cleaned_data['lang']
                 try:
-                    send_mail('С вами хотят связаться!', f"{name}. {tel}\n{comment}", 'edik622mujpc@gmail.com', ['edik622mujpc@gmail.com'])
+                    send_mail('С вами хотят связаться!', f"{name}. Социальная сеть: {social}\nЯзык: {lang}", 'edik622mujpc@gmail.com', ['edik622mujpc@gmail.com'])
                 except BadHeaderError:
                     return 
                 return HttpResponseRedirect('/lang')
@@ -150,14 +150,14 @@ class BlogView(View):
             })
             
         if 'second' in self.request.POST:
-            form = FeedBackFormSecond(request.POST)
+            form = FeedBackForm(request.POST)
             sec_form = FeedBackFormSecond(request.POST)
-            if form.is_valid():
-                name = form.cleaned_data['name']
-                tel = form.cleaned_data['tel']
-                comment = form.cleaned_data['comment']
+            if sec_form.is_valid():
+                name = sec_form.cleaned_data['name']
+                social = sec_form.cleaned_data['social']
+                lang = sec_form.cleaned_data['lang']
                 try:
-                    send_mail('С вами хотят связаться!', f"{name}. {tel}\n{comment}", 'edik622mujpc@gmail.com', ['edik622mujpc@gmail.com'])
+                    send_mail('С вами хотят связаться!', f"{name}. Социальная сеть: {social}\nЯзык: {lang}", 'edik622mujpc@gmail.com', ['edik622mujpc@gmail.com'])
                 except BadHeaderError:
                     return 
                 return HttpResponseRedirect('/blog')
@@ -197,17 +197,17 @@ class OfertaView(View):
             })
             
         if 'second' in self.request.POST:
-            form = FeedBackFormSecond(request.POST)
+            form = FeedBackForm(request.POST)
             sec_form = FeedBackFormSecond(request.POST)
-            if form.is_valid():
-                name = form.cleaned_data['name']
-                tel = form.cleaned_data['tel']
-                comment = form.cleaned_data['comment']
+            if sec_form.is_valid():
+                name = sec_form.cleaned_data['name']
+                social = sec_form.cleaned_data['social']
+                lang = sec_form.cleaned_data['lang']
                 try:
-                    send_mail('С вами хотят связаться!', f"{name}. {tel}\n{comment}", 'edik622mujpc@gmail.com', ['edik622mujpc@gmail.com'])
+                    send_mail('С вами хотят связаться!', f"{name}. Социальная сеть: {social}\nЯзык: {lang}", 'edik622mujpc@gmail.com', ['edik622mujpc@gmail.com'])
                 except BadHeaderError:
                     return 
-                return HttpResponseRedirect('/lang')
+                return HttpResponseRedirect('/oferta')
             return render(request, 'main/lang.html', context={
                 'form': form,
                 'second_form': sec_form
@@ -271,14 +271,14 @@ class CinemaView(View):
             })
             
         if 'second' in self.request.POST:
-            form = FeedBackFormSecond(request.POST)
+            form = FeedBackForm(request.POST)
             sec_form = FeedBackFormSecond(request.POST)
-            if form.is_valid():
-                name = form.cleaned_data['name']
-                tel = form.cleaned_data['tel']
-                comment = form.cleaned_data['comment']
+            if sec_form.is_valid():
+                name = sec_form.cleaned_data['name']
+                social = sec_form.cleaned_data['social']
+                lang = sec_form.cleaned_data['lang']
                 try:
-                    send_mail('С вами хотят связаться!', f"{name}. {tel}\n{comment}", 'edik622mujpc@gmail.com', ['edik622mujpc@gmail.com'])
+                    send_mail('С вами хотят связаться!', f"{name}. Социальная сеть: {social}\nЯзык: {lang}", 'edik622mujpc@gmail.com', ['edik622mujpc@gmail.com'])
                 except BadHeaderError:
                     return 
                 return HttpResponseRedirect('/')
@@ -394,12 +394,14 @@ class EpisodeView(View):
             })
             
         if 'second' in self.request.POST:
+            form = FeedBackForm(request.POST)
+            sec_form = FeedBackFormSecond(request.POST)
             if sec_form.is_valid():
                 name = sec_form.cleaned_data['name']
-                tel = sec_form.cleaned_data['tel']
-                comment = sec_form.cleaned_data['comment']
+                social = sec_form.cleaned_data['social']
+                lang = sec_form.cleaned_data['lang']
                 try:
-                    send_mail('С вами хотят связаться!', f"{name}. {tel}\n{comment}", 'edik622mujpc@gmail.com', ['edik622mujpc@gmail.com'])
+                    send_mail('С вами хотят связаться!', f"{name}. Социальная сеть: {social}\nЯзык: {lang}", 'edik622mujpc@gmail.com', ['edik622mujpc@gmail.com'])
                 except BadHeaderError:
                     return 
                 return HttpResponseRedirect('/')

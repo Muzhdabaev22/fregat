@@ -10,8 +10,11 @@
                 <form name="contact-second-form" class="form" action="" method="POST">  
                     {% csrf_token %}
                     {{ second_form.name }}                           
-                    {{ second_form.tel }}
-                    {{ second_form.comment}}
+                    {{ second_form.social }}
+                    
+                    <h4 class="hint-lang">Выберите язык</h4>
+                    {{ second_form.lang}}
+
                     <div class="form__button">
                         <button type="submit" name="second">Отправить</button>
                     </div>
@@ -88,6 +91,11 @@
             <div class="button-nav-block">
                 <a href="#win1">
                     <button class="button-nav">ЗАПИСАТЬСЯ НА УРОК</button>
+                </a>
+            </div>
+            <div class="button-nav-block">
+                <a href="">
+                    <button class="button-nav">ВХОД</button>
                 </a>
             </div>
         </div>
