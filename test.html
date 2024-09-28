@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Соединение картинок и слов</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsPlumb/2.15.6/js/jsplumb.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="images">
+            <img src="image1.jpg" alt="Image 1" id="img1" class="draggable">
+            <img src="image2.jpg" alt="Image 2" id="img2" class="draggable">
+        </div>
+        <div class="words">
+            <div class="word" id="word1">Слово 1</div>
+            <div class="word" id="word2">Слово 2</div>
+        </div>
+    </div>
+    <button onclick="checkAnswers()">Проверить</button>
+    <script>jsPlumb.ready(function() {
+        jsPlumb.setContainer(document.body);
+    
+        let connections = [];
+    
+        jsPlumb.draggable(document.querySelectorAll('.draggable'));
+    
+        jsPlumb.makeSource(document.querySelectorAll('.draggable'), {
+            filter: "img",
+            anchor: "Continuous",
+            connector: ["Flowchart", { stub: [40, 60], gap: 10, cornerRadius: 5, alwaysRespectStubs: true }],
+            connectorStyle: { stroke: "blue", strokeWidth: 2 },
+            connectorOverlays: [
+                ["Arrow", { width: 10, length: 10, location: 1 }]
+            ]
+        });
+    
+        jsPlumb.makeTarget(document.querySelectorAll('.word'), {
+            anchor: "Continuous",
+            allowLoopback: false
+        });
+    
+        jsPlumb.bind("connection", function(info) {
+            connections.push({
+                source: info.sourceId,
+                target: info.targetId
+            });
+        });
+    
+        window.checkAnswers = function() {
+            // Пример проверки правильности соединений
+            const correctConnections = [
+                { source: "img1", target: "word1" },
+                { source: "img2", target: "word2" }
+            ];
+    
+            let allCorrect = connections.every(conn => {
+                return correctConnections.some(correct => 
+                    correct.source === conn.source && correct.target === conn.target);
+            });
+    
+            if (allCorrect) {
+                alert("Все правильно!");
+            } else {
+                alert("Есть ошибки!");
+            }
+        };
+    });
+    
+    
+    </script>
+</body>
+</html>
+

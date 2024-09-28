@@ -1,0 +1,27 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    width: 600px;
+    margin: 0 auto;
+}
+
+.images, .words {
+    display: flex;
+    flex-direction: column;
+}
+
+img {
+    width: 100px;
+    margin: 10px;
+}
+
+.word {
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #000;
+    cursor: pointer;
+}
+
+.draggable {
+    cursor: move;
+}
