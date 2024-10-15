@@ -1,27 +1,25 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+
+
 .container {
     display: flex;
-    justify-content: space-between;
+    height: 100%;align-items: center;
+    justify-content: center;
+    height: 600px;
     width: 600px;
-    margin: 0 auto;
+    background-color: aqua;
 }
 
-.images, .words {
-    display: flex;
-    flex-direction: column;
-}
-
-img {
+.circle {
     width: 100px;
-    margin: 10px;
-}
-
-.word {
-    margin: 10px;
-    padding: 10px;
-    border: 1px solid #000;
-    cursor: pointer;
-}
-
-.draggable {
-    cursor: move;
+    height: 100px;
+    position: absolute;
+    left: 50px;
+    top: 50px;
+    border-radius: 50%;
+    background: blue;
 }
