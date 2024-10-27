@@ -1,20 +1,51 @@
 @media (min-width: 1441px) and (max-width: 1920px) {
+    /* HEADER */
     .nav {
-        width: 1665px;
+        max-width: 1665px;
     }
+
+    .linehover1, .linehover5 {
+        margin-top: -10px; 
+        height: 15px;
+        width: 110px;
+    }
+
+    .linehover2 {
+        width: 75px;   
+    }
+    
+    .linehover3, .linehover6 {
+        margin-top: -9px;
+        height: 12px;
+        width: 100px;
+    }
+
+    .linehover4 {
+        margin-top: -8px;
+        height: 10px;
+        width: 55px;
+    }
+    /* END HEADER */
 }
 
 
 @media (min-width: 1024px) and (max-width: 1440px) {
-    
+    /* HEADER */
+    .nav {
+        max-width: 1100px;
+        margin: 0;
+    }
+    /* END HEADER */
 }
 
 @media (min-width: 576px) and (max-width: 1023px) {
-    
+    /* HEADER */
+    /* END HEADER */
 }
 
 @media (max-width: 575px) {
-    
+    /* HEADER */
+    /* END HEADER */
 }
 
 .main-section {

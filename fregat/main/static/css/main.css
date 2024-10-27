@@ -84,9 +84,9 @@
 
 .linehover1, .linehover5 {
     position: absolute;
-    margin-top: -11px;
-    height: 15px;
-    width: 98px;
+    margin-top: -14px;
+    height: 25px;
+    width: 120px;
     z-index: -1;
     opacity: 0;
 }
@@ -94,8 +94,8 @@
 .linehover2 {
     position: absolute;
     margin-top: -10px;
-    height: 14px;
-    width: 61px;
+    height: 15px;
+    width: 88px;
     z-index: -1;
     opacity: 0;
     margin-left: -2px;
@@ -104,8 +104,8 @@
 .linehover3, .linehover6 {
     position: absolute;
     margin-top: -12px;
-    height: 15px;
-    width: 106px;
+    height: 17px;
+    width: 136px;
     z-index: -1;
     opacity: 0;
     margin-left: -2px;
@@ -113,9 +113,9 @@
 
 .linehover4 {
     position: absolute;
-    margin-top: -10px;
+    margin-top: -9px;
     height: 13px;
-    width: 43px;
+    width: 63px;
     z-index: -1;
     opacity: 0;
     margin-left: -1px;
@@ -167,3 +167,5 @@
     width: 100%;
     max-width: 131px;
 }
+
+/* END HEADER */
