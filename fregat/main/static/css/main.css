@@ -71,7 +71,8 @@
     border-radius: 100px;
     background: none;
     padding: 8px;
-    margin-left: 10px
+    margin-left: 10px;
+    white-space: nowrap;
 }
 
 
@@ -161,6 +162,7 @@
     color: #875216;
     font-size: 1vw;
     font-family: 'Montserrat-bold', sans-serif;
+    white-space: nowrap;
 }
 
 .logo {

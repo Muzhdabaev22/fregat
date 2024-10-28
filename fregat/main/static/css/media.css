@@ -35,11 +35,91 @@
         max-width: 1100px;
         margin: 0;
     }
+
+    .nav-list {
+        padding-right: 25px;
+    }
+
+    .club-padding {
+        margin-left: 10px;
+    }
+
+    .nav {
+        padding: 0 20px;
+    }
+
+    .linehover1, .linehover5 {
+        margin-top: -9px; 
+        height: 12px;
+        width: 86px;
+    }
+
+    .linehover2 {
+        width: 60px;   
+        height: 12px;
+    }
+    
+    .linehover3, .linehover6 {
+        margin-top: -9px;
+        height: 12px;
+        width: 100px;
+    }
+
+    .linehover4 {
+        margin-top: -8px;
+        height: 10px;
+        width: 42px;
+    }
     /* END HEADER */
 }
 
 @media (min-width: 576px) and (max-width: 1023px) {
     /* HEADER */
+    .nav {
+        max-width: 800px;
+        margin: 0;
+    }
+
+    .nav-list {
+        padding-right: 15px;
+        padding-left: 20px;
+        gap: 15px;
+    }
+
+    .club-padding {
+        margin-left: 10px;
+    }
+
+    .nav {
+        padding: 0 20px;
+    }
+
+    .logo {
+        max-width: 80px;
+    }
+    .linehover1, .linehover5 {
+        margin-top: -9px; 
+        height: 12px;
+        width: 68px;
+    }
+
+    .linehover2 {
+        width: 47px;
+        height: 8px;
+        margin-top: -7px;
+    }
+    
+    .linehover3, .linehover6 {
+        margin-top: -9px;
+        height: 10px;
+        width: 71px;
+    }
+
+    .linehover4 {
+        margin-top: -7px;
+        height: 9px;
+        width: 33px;
+    }
     /* END HEADER */
 }
 
