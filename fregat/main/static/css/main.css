@@ -171,3 +171,122 @@
 }
 
 /* END HEADER */
+
+
+
+/* HOME PAGE */
+.main-section {
+    display: flex;
+    height: auto;
+    width: 100%;
+}
+
+.h1-text-main-section {
+    font-family: 'MontHeavyDEMO';
+    font-size: 5vw;
+    line-height: 110.4px;
+    color: rgb(135, 82, 22, 100%);
+    position: absolute;
+}
+
+.main-section-container-img {
+    width: 50%;
+    display: flex;
+    justify-content: end;
+    z-index: -1;
+}
+
+.main-section-container-img > img {
+    position: absolute;
+    width: 100%;
+    max-width: 800px;
+}
+
+.text-main-section-div {
+    margin-top: 300px;
+    margin-left: 220px;
+    width: 100%;
+}
+
+.circle {
+    position: absolute;
+    margin-top: 8px;
+    margin-left: -17px;
+    z-index: -1;
+    width: 100%;
+    max-width: 40px;
+}
+
+.line {
+    position: absolute;
+    margin-top: 171px;
+    margin-left: 349px;
+    z-index: -1;
+    width: 100%;
+    max-width: 350px;
+}
+
+.p-text-main-section {
+    padding-top: 246px;
+    font-family: 'Montserrat-light';
+    font-size: 24px;
+    line-height: 40.8px;
+    max-width: 900px;
+    padding-bottom: 0px;
+}
+
+.buttons-main-section {
+    margin-top: 30px;
+    min-width: 470px;
+}
+
+.one-main-section-button {
+    margin-left: 11px;
+    background-color: rgba(249, 227, 141, 0.85);
+    border: none;
+    border-radius: 100px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-family: 'Montserrat-bold';
+    font-size: 19px;
+    color: #996632;
+    cursor: pointer;
+    margin-right: 10px;
+    box-shadow: 5px 5px 12px -4px #0000007a;
+}
+
+.one-main-section-button:hover {
+    background-color: rgb(255 205 10 / 85%);
+    transition: 0.7s;
+}
+
+.two-main-section-button {
+    background-color: #EAEBED;
+    font-family: 'Montserrat-light';
+    font-size: 20px;
+    border-radius: 100px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    color: #996632;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.two-main-section-button:hover {
+    background-color: #ccced1;
+    color: #fff;
+    transition: 0.7s;
+}
+
+.line-section {
+    background: linear-gradient(to right, yellow, rgb(223, 150, 2));
+    height: 22px;
+    width: 100%;
+    margin-top: 400px;
+}
+/* END HOME */
