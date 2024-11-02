@@ -144,6 +144,19 @@
     .price-text-block-two {
         padding-right: 120px;
     }
+
+    .price-text-block-bottom {
+        padding-left: 33px;
+    }
+
+    .bg7-img {
+        padding-left: 0;
+    }
+
+    .container-footer {
+        width: 1000px;
+    }
+
     /* END HOME */
 }
 
@@ -251,6 +264,47 @@
         color: #875315;
         padding-top: 10px;
     }
+    
+    .bg-img {
+        display: none;
+    }
+
+    .price-text-block {
+        padding-left: 20px;
+    }
+
+    .price-full {
+        padding-top: 45px;
+        padding-bottom: 45px;
+    }
+
+    .price-text-block-two {
+        padding-left: 20px;
+        padding-right: 0px;
+    }
+
+    .khover {
+        margin-top: -137px;
+        margin-left: -83px;
+        width: 170px;
+    }
+
+    .price-text-block-bottom {
+        padding-top: 20px;
+        padding-left: 0px;
+    }
+
+    .bg7-img {
+        padding-left: 69px;
+    }
+
+    .price-full {
+        display: block;
+    }
+
+    .container-footer {
+        max-width: 600px;
+    }
     /* END HOME */
 }
 
@@ -267,96 +321,6 @@
     margin-bottom: 5px;
 }
 
-
-.price__ot {
-    font-family: 'Montserrat-bold';
-    font-size: 14px;
-    color: #B7DC99;
-    padding-top: 25px;
-    padding-right: 5px;
-}
-
-.bg7-img {
-    max-width: 656px;
-    width: 480px;
-    max-height: 656px;
-    height: 480px;
-    padding-left: 130px;
-}
-
-.price-text-block-bottom {
-    width: 100%;
-    padding-left: 145px;
-}
-
-.price-title-bottom {
-    font-family: 'Montserrat-bold';
-    font-size: 23px;
-    color: #875315;
-}
-
-.text-price-bottom {
-    font-family: 'montserrat-light';
-    font-size: 21px;
-    margin-top: 30px;
-}
-
-.footer {
-    max-height: 331px;
-    height: 100%;
-    width: 100%;
-    background-color: #B7DC99;
-    display: flex;
-    justify-content: center;
-    padding-top: 55px;
-    padding-bottom: 50px;
-}
-
-.container-footer {
-    width: 1110px;
-    display: flex;
-    align-items: center;
-}
-
-.footer-links {
-    display: grid;
-}
-
-.link-footer {
-    font-family: 'MYRIADPRO-REGULAR';
-    font-size: 23px;
-    color: #fff;
-    cursor: pointer;
-    text-decoration: none;
-}
-
-.footer-text {
-    width: 255px;
-    color: #fff;
-    padding-top: 15px;
-    font-family: 'Montserrat-light';
-    font-size: 15px;
-}
-
-.footer-info {
-    display: grid;
-    margin-left: auto;
-}
-
-.footer-text > a {
-    color: #fff;
-    text-decoration:none;
-}
-
-.social-media-icons {
-    display: flex;
-}
-
-.icon-soc {
-    padding-right: 15px;
-    width: auto;
-    height: auto;
-}
 
 .english-section {
     display: flex;
