@@ -7,6 +7,22 @@
 {% block content %}
     <main class="cinema-container">
         <div class="episode">
+            <div class="episode__right">
+                <div class="episode-player">
+                    <video 
+                        
+                        id="my-video"
+                        controls 
+                        preload="auto"
+                        class="episode-video"
+                        data-setup="{}">
+
+                        <source src="{% url 'stream' movie.id %}" type="video/mp4"/>
+                        <source src="{% url 'stream' movie.id %}" type="video/webm"/>
+                    </video>
+                </div>
+
+            </div>
             <div class="episode__left">
                 <div class="episode-wrapper">
                     <div class="episode-wrapper__header">
@@ -204,22 +220,7 @@
 
 
             </div>
-            <div class="episode__right">
-                <div class="episode-player">
-                    <video 
-                        
-                        id="my-video"
-                        controls 
-                        preload="auto"
-                        class="episode-video"
-                        data-setup="{}">
-
-                        <source src="{% url 'stream' movie.id %}" type="video/mp4"/>
-                        <source src="{% url 'stream' movie.id %}" type="video/webm"/>
-                    </video>
-                </div>
-
-            </div>
+            
         </div>
     </main>
     <div style="height: 342px;"></div>
