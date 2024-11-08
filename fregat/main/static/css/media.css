@@ -420,5 +420,75 @@
 
 @media (max-width: 575px) {
     /* HEADER */
+
+    .container-nav {
+        padding-bottom: 0;
+    }
+
+    .click-background {
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+        background: #fff;
+        padding-top: 4px;
+    }
+
+    .button-nav-block {
+        display: none;
+        text-align: center;
+        background: #FAE300;
+        padding: 5px 0;
+    }
+
+    .button-nav {
+        border: 2px solid white;
+        font-size: 3vw;
+        margin: 6px;
+        padding: 5.5px;
+    }
+
+    .div-btn-mobile {
+        display: block;
+    }
+
+    .nav {
+        width: 100%;
+        padding: 0;
+        display: block;
+    }
+
+    .mobile-nav {
+        display: flex;
+        padding: 0 20px;
+        align-items: center; 
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .nav-list {
+        display: none;
+        padding: 0;
+        padding-top: 7px;
+    }
+
+    .linehover1, .linehover2, .linehover3, .linehover4,.linehover5, .linehover6 {
+        display: none;
+    }
+
+    .nav-link {
+        font-size: 3vw;
+    }
+
+    .linehover_block > li{
+        text-align: center;
+        background: #FAE300;
+        padding: 7px 0;
+    }
+    
+    .club-padding {
+        margin: 0;
+    }
+
+    .mobile-padding-nav {
+        padding-top: 23px !important;
+    }
     /* END HEADER */
 }

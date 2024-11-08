@@ -3,13 +3,34 @@ window.onscroll = function() {
 };
 
 function scrollFunction() {
+    let navElement = document.querySelector(".container-nav");
+
     if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
         document.querySelector(".container-nav").classList.add("scroll");
-    } else {
+    } else if (!navElement.classList.contains(".click-background")) {
         document.querySelector(".container-nav").classList.remove("scroll");
     }
 }
 
+function openbox() {
+
+    let navElement = document.querySelector(".container-nav"); 
+    let buttonElements = document.getElementsByClassName('button-nav-block'); 
+    let navListElements = document.getElementsByClassName('nav-list');
+
+    if (navElement.classList.contains("click-background")) {
+        navElement.classList.remove("click-background");
+        buttonElements[0].style.setProperty('display', 'none', 'important');
+        buttonElements[1].style.setProperty('display', 'none', 'important');
+        navListElements[0].style.setProperty('display', 'none', 'important');
+
+    } else {
+        navElement.classList.add("click-background");
+        buttonElements[0].style.setProperty('display', 'block', 'important');
+        buttonElements[1].style.setProperty('display', 'block', 'important');
+        navListElements[0].style.setProperty('display', 'block', 'important');
+    }
+}
 
 var curpath = location.pathname.match(/^\/[^/]+/);
 if (curpath === null) {

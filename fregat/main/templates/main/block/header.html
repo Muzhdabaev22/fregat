@@ -36,10 +36,15 @@
     <div class="header_line"></div>
     <div class="container-nav">
         <div class="nav">
-            <a href="/"><img src="{% static 'img/logo.png' %}" alt="logo" class="logo" id="#id"></a>
+            <div class="mobile-nav">
+                <a href="/"><img src="{% static 'img/logo.png' %}" alt="logo" class="logo" id="#id"></a>
+                <div onclick="openbox()" class="div-btn-mobile">
+                    <img src="{% static 'img/button-mobile.png' %}" alt="btn-img" class="button-mobile">
+                </div>
+            </div>
             <ul class="nav-list">
                 <div class="linehover_block">
-                    <li><a href="/#about" class="nav-link">О ФРЕГАТЕ</a></li>
+                    <li class="mobile-padding-nav"><a href="/#about" class="nav-link">О ФРЕГАТЕ</a></li>
                     <img src="{% static 'img/linehover.png' %}" alt="linehover" class="linehover1">
                 </div>
                 <div class="linehover_block">

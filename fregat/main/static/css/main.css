@@ -25,8 +25,11 @@
 }
 
 
-
 /* HEADER */
+.div-btn-mobile {
+    display: none;
+}
+
 .header_line {
     background: linear-gradient(to right, yellow, rgb(223, 150, 2));
     height: 22px;
