@@ -20,15 +20,15 @@ function openbox() {
 
     if (navElement.classList.contains("click-background")) {
         navElement.classList.remove("click-background");
-        buttonElements[0].style.setProperty('display', 'none', 'important');
-        buttonElements[1].style.setProperty('display', 'none', 'important');
-        navListElements[0].style.setProperty('display', 'none', 'important');
+        buttonElements[0].classList.remove("visible");
+        buttonElements[1].classList.remove("visible");
+        navListElements[0].classList.remove("visible");
 
     } else {
         navElement.classList.add("click-background");
-        buttonElements[0].style.setProperty('display', 'block', 'important');
-        buttonElements[1].style.setProperty('display', 'block', 'important');
-        navListElements[0].style.setProperty('display', 'block', 'important');
+        buttonElements[0].classList.add("visible");
+        buttonElements[1].classList.add("visible");
+        navListElements[0].classList.add("visible");
     }
 }
 

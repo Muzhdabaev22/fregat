@@ -420,7 +420,9 @@
 
 @media (max-width: 575px) {
     /* HEADER */
-
+    .visible { 
+        display: block !important; 
+    }
     .container-nav {
         padding-bottom: 0;
     }
