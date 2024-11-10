@@ -26,11 +26,6 @@
         width: 55px;
     }
     /* END HEADER */
-
-
-    /* HOME PAGE */
-
-    /* END HOME */
 }
 
 
@@ -137,7 +132,7 @@
         padding-left: 120px;
     }
 
-    .price-full {
+    .price-full, .price-full-two {
         margin-left: 30px;
     }
 
@@ -191,7 +186,7 @@
     /* END CINEMA */
 }
 
-@media (min-width: 576px) and (max-width: 1023px) {
+@media (min-width: 600px) and (max-width: 1023px) {
     /* HEADER */
     .nav {
         max-width: 800px;
@@ -308,11 +303,12 @@
         padding-left: 20px;
     }
 
-    .price-full {
+    .price-full, .price-full-two {
         padding-top: 45px;
         padding-bottom: 45px;
     }
 
+    
     .price-text-block-two {
         padding-left: 20px;
         padding-right: 0px;
@@ -418,7 +414,7 @@
     /* END CINEMA */
 }
 
-@media (max-width: 575px) {
+@media (max-width: 599px) {
     /* HEADER */
     .visible { 
         display: block !important; 
@@ -449,6 +445,7 @@
 
     .div-btn-mobile {
         display: block;
+        margin-right: 20px;
     }
 
     .nav {
@@ -493,4 +490,185 @@
         padding-top: 23px !important;
     }
     /* END HEADER */
+
+    /* HOME PAGE */
+    .main-section-container-img {
+        width: 100%;
+    }
+
+    .main-section-container-img > img {
+        max-width: 550px;
+        position: unset;
+    }
+
+    .main-section {
+        flex-direction: column-reverse;
+    }
+
+    .text-main-section-div {
+        margin-left: 20px;
+        margin-top: 0px;
+        width: unset;
+    }
+
+    .circle {
+        margin-top: -3px;
+        margin-left: -6px;
+    }
+
+    .h1-text-main-section {
+        font-size: 9vw;
+        line-height: 57.4px;
+    }
+
+    .line {
+        display: none;
+    }
+
+    .p-text-main-section {
+        padding-top: 150px;
+        line-height: 34.8px;
+        max-width: 90%;
+    }
+
+    .buttons-main-section {
+        width: 100%;
+        min-width: unset;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .one-main-section-button {
+        margin-left: 0px;
+        padding: 22px 40px;
+        font-size: 21px;
+        margin-bottom: 20px;
+    }
+
+    .two-main-section-button {
+        padding: 22px 40px;
+        font-size: 21px;
+    }
+
+    .line-section {
+        margin-top: 100px;
+    }
+
+    .margin-arrow-block {
+        margin-left: 20px;
+    }
+
+    .container {
+        width: unset;
+    }
+
+    .title-languages {
+        font-size: 24px;
+    }
+
+    .block-languages {
+        display: unset;
+    }
+
+    .img-card-languages {
+        max-width: 200px;
+        max-height: 200px;
+    }
+
+    .languages-card {
+        margin-bottom: 20px;
+    }
+
+    .khover {
+        max-width: 250px;
+        margin-top: -200px;
+        margin-left: -125px;
+    }
+
+    .price-full {
+        padding-top: 50px;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .bg-img {
+        max-width: 99%;
+    }
+    
+    .price-text-block {
+        margin-top: 10px;
+        padding-left: 30px;
+        width: auto;
+    }
+    
+
+    .price-title {
+        letter-spacing: 5px;
+        padding-top: 14px;
+        font-size: 4.5vw;
+    }
+
+    .price-and-button {
+        display: unset;
+    }
+
+    .price-button {
+        margin-left: 0px;
+    }
+
+    .price-full-two {
+        padding-top: 50px;
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+
+    .price-text-block-two {
+        margin-top: 10px;
+        padding-right: 0px;
+        padding-left: 30px;
+        width: auto;
+    }
+
+    .bg7-img {
+        max-width: 100%;
+        max-height: unset;
+        padding-left: 0px;
+        width: unset;
+        height: unset;
+    }
+
+    .price-text-block-bottom {
+        width: auto;
+        padding-left: 30px;
+    }
+
+    .container-footer {
+        width: unset;
+        flex-direction: column;
+    }
+
+    .footer-links {
+        display: grid;
+        justify-items: center;
+    }
+
+    .footer-info {
+        margin-top: 30px;
+        justify-items: center;
+    }
+
+    .footer-text {
+        text-align: center;
+        width: auto;
+    }
+
+    .text-price-bottom {
+        font-size: 20px;
+    }
+
+    .price-title-bottom {
+        font-size: 20px;
+    }
+    /* END HOME */
 }

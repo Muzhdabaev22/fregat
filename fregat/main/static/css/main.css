@@ -534,7 +534,6 @@
     font-size: 24px;
     line-height: 40.8px;
     max-width: 900px;
-    padding-bottom: 0px;
 }
 
 .buttons-main-section {
@@ -637,7 +636,7 @@
     max-width: 150px;
     margin: 0 auto;
     cursor: pointer;
-    height: 150px;
+    max-height: 150px;
 }
 
 .text-card-languages {
@@ -650,7 +649,7 @@
 .khover {
     opacity: 0;
     position: absolute;
-    width: 200px;
+    max-width: 200px;
     z-index: -1;
     margin-top: -165px;
     margin-left: -98px;
@@ -673,8 +672,14 @@
     padding-bottom: 30px;
 }
 
+.price-full-two {
+    display: flex;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
 .bg-img {
-    width: 480px;
+    max-width: 480px;
 }
 
 .price-text-block {
