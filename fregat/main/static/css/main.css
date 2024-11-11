@@ -876,7 +876,6 @@
 .english-section {
     display: flex;
     width: 100%;
-    height: auto;
     justify-content: center;
     padding-top: 100px;
 }

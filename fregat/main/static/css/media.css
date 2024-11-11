@@ -671,4 +671,37 @@
         font-size: 20px;
     }
     /* END HOME */
+
+    /* LANG */
+    .container-lang {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .lang-bg-img {
+        width:90%;
+    }
+
+    .text-block-lang {
+        padding-left: 20px;
+        margin-top: 20px;
+    }
+
+    .title-lang {
+        font-size: 8vw;
+        line-height: 59.4px;
+    }
+
+    .button-lang {
+        justify-content: center;
+    }
+
+    .lang-price-full-two {
+        display: unset;
+    }
+
+    .none-tablet-size {
+        margin-top: 20px;
+    }
+    /* END LANG */
 }
