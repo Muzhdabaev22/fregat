@@ -701,7 +701,85 @@
     }
 
     .none-tablet-size {
+        margin-top: 40px;
+    }
+
+    .lang__price__text__block {
+        width: auto;
+        padding-left: 20px;
         margin-top: 20px;
     }
+
+    .lang-price-full {
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+
+    .button-lang2 {
+        margin-top: 30px;
+    }
+
+    .lang__price__text__block__two {
+        width: auto;
+        padding-left: 20px;
+        margin-top: 20px;
+    }
+
+    .container-lang {
+        width: 100%;
+    }
     /* END LANG */
+
+
+    /* BLOG PAGE */
+    .blog-block-text-header {
+        margin-left: 21px;
+    }
+
+    .blog__info__header__title {
+        font-size: 9vw;
+        line-height: 42px;
+    }
+
+    .blog__info__two__block {
+        margin-top: 30px;
+    }
+
+    .two__block__title {
+        font-size: 21px;
+    }
+
+    .img__bg__top {
+        margin-top: 0px;
+        padding-right: 0px;
+    }
+
+    .posts_div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .posts_div > a {
+        display: contents;
+        margin: auto;
+    }
+
+    .blog-card {
+        width: 90%;
+        max-width: unset;
+        max-height: unset;
+    }
+
+    .blog-card > div {
+        text-align: center;
+    }
+    /* END BLOG */
+
+    /* CINEMA PAGE */
+
+    .level-form {
+        text-align: center;
+    }
+    /* END CINEMA */
 }
