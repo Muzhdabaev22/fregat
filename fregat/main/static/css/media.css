@@ -781,5 +781,72 @@
     .level-form {
         text-align: center;
     }
+
+    .cinema-film__linkImg {
+        display: block;
+        width: auto;
+        height: auto;
+    }
+
+    .cinema-film__linkImg > img {
+        width: auto;
+        height: auto;
+    }
     /* END CINEMA */
+
+    /* EPISODE PAGE */
+    .episode {
+        flex-direction: column;
+        padding-top: 80px;
+    }
+
+    .episode-player {
+        position: unset;
+        height: unset;
+        margin-top: 40px;
+    }
+
+    .episode__left {
+        width: 80%;
+        margin: 0 auto;
+    }
+    
+    .episode__right {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .container-substory {
+        flex-direction: column;
+    }
+
+    .img-substory {
+        margin: 0 auto;
+    }
+
+    .substory-text-detail {
+        margin-bottom: 30px;
+        margin-top: 20px;
+    }
+
+    .episode-desc {
+        flex-direction: column-reverse;
+    }
+
+    .episode-desc__cover {
+        width: unset;
+        height: unset;
+    }
+
+    .button-container-order {
+        flex-direction: column;
+        margin-left: auto;
+    }
+
+    .item button {
+        width: 1.75em;
+        height: 1.75em;
+        margin: 5px 3px;
+    }
+    /* END EPISODE */
 }
