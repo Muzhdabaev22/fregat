@@ -848,5 +848,9 @@
         height: 1.75em;
         margin: 5px 3px;
     }
+
+    .container-quest-order {
+        max-width: 62%;
+    }
     /* END EPISODE */
 }
