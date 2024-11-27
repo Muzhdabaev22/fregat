@@ -420,6 +420,58 @@ class EpisodeView(View):
                 'test': test,
             })
 
+
+class SignIn(View):
+    def get(self, request):
+         # === forms of communication ===
+        form = FeedBackForm() 
+        sec_form = FeedBackFormSecond() 
+        # ===             ===
+
+        
+        return render(request, 'main/signin.html', context={
+            'form': form,
+            'second_form': sec_form,
+        })
+        
+        
+    def post(self, request):
+         # === processing forms of communication ===
+        if 'first' in self.request.POST:
+            
+            if form.is_valid():
+                name = form.cleaned_data['name']
+                tel = form.cleaned_data['tel']
+                try:
+                    send_mail('С вами хотят связаться!', f"{name}. {tel}", 'edik622mujpc@gmail.com', ['edik622mujpc@gmail.com'])
+                except BadHeaderError:
+                    return 
+                return HttpResponseRedirect('/')
+            
+            return render(request, 'main/home.html', context={
+                'form': form,
+                'second_form': sec_form
+            })
+            
+        if 'second' in self.request.POST:
+            form = FeedBackForm(request.POST)
+            sec_form = FeedBackFormSecond(request.POST)
+            if sec_form.is_valid():
+                name = sec_form.cleaned_data['name']
+                social = sec_form.cleaned_data['social']
+                lang = sec_form.cleaned_data['lang']
+                try:
+                    send_mail('С вами хотят связаться!', f"{name}. Социальная сеть: {social}\nЯзык: {lang}", 'edik622mujpc@gmail.com', ['edik622mujpc@gmail.com'])
+                except BadHeaderError:
+                    return 
+                return HttpResponseRedirect('/')
+            return render(request, 'main/home.html', context={
+                'form': form,
+                'second_form': sec_form
+            })
+        # ====================================
+    
+
 def get_streaming_video(request, slug):
     file, status_code, content_length, content_range = open_file(request, slug)
     response = StreamingHttpResponse(file, status=status_code, content_type='video/mp4')

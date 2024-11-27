@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import HomeView, LangView, BlogView, OfertaView, CinemaView, EpisodeView, get_streaming_video
+from .views import HomeView, LangView, BlogView, OfertaView, CinemaView, EpisodeView, get_streaming_video, SignIn
 
 urlpatterns = [
     path('', HomeView.as_view(), name='home'),
@@ -9,4 +9,5 @@ urlpatterns = [
     path('cinema/', CinemaView.as_view(), name='cinema'),
     path('cinema/<slug:slug>/', EpisodeView.as_view(), name='episode'),
     path('cinema/stream/<slug:slug>/', get_streaming_video, name='stream'),
+    path('signin/', SignIn.as_view(), name='signin'),
 ]
