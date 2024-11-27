@@ -59,7 +59,7 @@
                     <li><a href="{% url 'blog' %}" class="nav-link">БЛОГ</a></li>
                     <img src="{% static 'img/linehover.png' %}" alt="linehover" class="linehover4">
                 </div>
-                <div class="linehover_block block__form__hov">
+                <div class="linehover_block block__form__hov  mobile-link">
                     <li><a href="/" class="nav-link">СВЯЗАТЬСЯ</a></li>
                     <img src="{% static 'img/linehover.png' %}" alt="linehover" class="linehover5">
                     
@@ -75,7 +75,7 @@
                             {{ form.name }}                           
                             {{ form.tel }}
                             <div class="block__form__buttonblock">
-                                <button type="submit" name="first" class="block__form__button">Перезвоните мне</button>
+                                <button type="submit" name="first" class="block__form__button">Записаться</button>
                             </div>                                
                         </form>
                         <p class="block__form__buttom__text">Напишите нам в мессенджерах:</p>
@@ -100,7 +100,7 @@
             </div>
             <div class="button-nav-block">
                 <a href="">
-                    <button class="button-nav">ВХОД</button>
+                    <button class="button-nav entrence">ВХОД</button>
                 </a>
             </div>
         </div>

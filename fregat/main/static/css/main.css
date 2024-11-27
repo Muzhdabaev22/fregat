@@ -83,14 +83,18 @@
     padding: 8px;
     margin-left: 10px;
     white-space: nowrap;
+    transition: 0.4s;
 }
 
 
+.entrence {
+    margin-left: 20px;
+    transition: 0.1s;
+    border: none;
+}
+
 .button-nav:hover {
-    background: #FAE300;
-    color: #875216;
-    border: 4px solid #FAE300;
-    transition: 0.7s;
+    background-color: #FAE300;
 }
 
 .linehover1, .linehover5 {

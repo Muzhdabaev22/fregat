@@ -32,7 +32,7 @@ class FeedBackFormSecond(forms.Form):
         max_length=100,
         widget=forms.TextInput(attrs={
             'class': 'block__form__input_second',
-            'placeholder': "Ваша соц. сеть VK/TG/WTSP"
+            'placeholder': "Ваша соц. сеть VK/TELEGRAM/WHATSAPP"
         })
     )
     

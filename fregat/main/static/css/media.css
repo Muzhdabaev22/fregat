@@ -489,6 +489,21 @@
     .mobile-padding-nav {
         padding-top: 23px !important;
     }
+    
+    .entrence {
+        cursor: pointer;
+        margin: 6px;
+        padding: 5.5px;
+        border-radius: 100px;
+    }
+    
+    .button-nav:hover {
+        border: 2px solid white;
+    }
+    
+    .mobile-link {
+        display: none;
+    }
     /* END HEADER */
 
     /* HOME PAGE */
@@ -685,6 +700,7 @@
     .text-block-lang {
         padding-left: 20px;
         margin-top: 20px;
+        padding-top: 50px;
     }
 
     .title-lang {
