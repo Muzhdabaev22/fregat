@@ -1,13 +1,12 @@
 from django.db import models
 from ckeditor_uploader.fields import RichTextUploadingField
-from django.urls import reverse
-from django_mysql.models import ListCharField
 
 class PostBlog(models.Model):
-    title = models.CharField(max_length=100)
+    title = models.CharField(max_length=300)
     url = models.SlugField()
     text = RichTextUploadingField("Текст")
     img = models.ImageField("Изображение")
+    created_at = models.DateTimeField(auto_now_add=True)
     
     def __str__(self):
         return self.title

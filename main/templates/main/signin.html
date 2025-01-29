@@ -5,5 +5,18 @@
 
 
 {% block content %}
-    
+    <div class="container-signin">
+        <div class="card-signin">
+            <p class="signin-header">ВХОД</p>
+            <form name="sign_in_form" class="signin-form" method="POST">
+                {% csrf_token %}
+                {{ sign_form.username }}
+                {{ sign_form.password }}
+                
+                <div class="form__button">
+                    <button type="submit" name="signin">Отправить</button>
+                </div>
+            </form>
+        </div>
+    </div>
 {% endblock %}

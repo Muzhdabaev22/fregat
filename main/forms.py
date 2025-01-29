@@ -1,5 +1,5 @@
 from django import forms
-
+from django.contrib.auth.forms import AuthenticationForm
 
 class FeedBackForm(forms.Form):
     name = forms.CharField(
@@ -10,11 +10,11 @@ class FeedBackForm(forms.Form):
         })
     )
     
-    tel = forms.CharField(
+    social = forms.CharField(
         max_length=100,
         widget=forms.TextInput(attrs={
             'class': 'block__form__input',
-            'placeholder': "Ваш номер телефона"
+            'placeholder': "Ваша соц. сеть VK/Telegram/Whatsapp"
         })
     )
 
@@ -32,7 +32,7 @@ class FeedBackFormSecond(forms.Form):
         max_length=100,
         widget=forms.TextInput(attrs={
             'class': 'block__form__input_second',
-            'placeholder': "Ваша соц. сеть VK/TELEGRAM/WHATSAPP"
+            'placeholder': "Ваша соц. сеть VK/Telegram/Whatsapp"
         })
     )
     
@@ -67,3 +67,20 @@ class LevelChoice(forms.Form):
         ),)
 
     level = forms.ChoiceField(choices=choices, label='Выбирете уровень')
+    
+
+class SignInForm(AuthenticationForm):
+    username = forms.CharField(
+        max_length=200,
+        widget=forms.TextInput(attrs={
+            "class": "block__form__input_second",
+            "placeholder": "Логин"})
+        )
+    password = forms.CharField(
+        max_length=200, 
+        widget=forms.PasswordInput(attrs={
+            "class": "block__form__input_second",
+            "placeholder": "Пароль"
+        })
+    )
+

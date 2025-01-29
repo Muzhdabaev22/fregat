@@ -42,4 +42,3 @@ admin.site.register(Accent)
 admin.site.register(Author)
 admin.site.register(Level)
 admin.site.register(Topic)
-

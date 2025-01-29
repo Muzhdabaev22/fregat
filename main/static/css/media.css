@@ -44,6 +44,9 @@
         margin-left: 10px;
     }
 
+    .nav-link {
+        font-size: 1.15vw;
+    }
     .nav {
         padding: 0 20px;
     }
@@ -79,7 +82,7 @@
     }
 
     .h1-text-main-section {
-        font-size: 4vw;
+        font-size: 6vw;
         line-height: 53.4px;
     }
 
@@ -93,11 +96,14 @@
         margin-left: 87px;
     }
 
+    .other-text-home {
+        padding-top: 135px;
+    }
+
     .p-text-main-section {
         font-size: 19px;
         line-height: 24.8px;
         max-width: 454px;
-        padding-top: 135px;
     }
 
     .one-main-section-button {
@@ -128,6 +134,21 @@
         width: 400px;
     }
 
+    .card-laptop {
+        max-width: 277px;
+    }
+
+    .container-ind-lessons {
+        gap: 20px;
+        justify-content: center;
+    }
+
+    
+    .yellow-card, .pink-card {
+        width: 28%;
+        padding-right: 20px;
+    }
+
     .price-text-block {
         padding-left: 120px;
     }
@@ -136,8 +157,12 @@
         margin-left: 30px;
     }
 
-    .price-text-block-two {
-        padding-right: 120px;
+    .price-title {
+        padding-left: 0px;
+    }
+    
+    .circle-two {
+        margin-left: -17px;
     }
 
     .price-text-block-bottom {
@@ -152,6 +177,20 @@
         width: 1000px;
     }
 
+    .green-card {
+        height: 66%;
+        width: 27%;
+    }
+
+    .loop-left {
+        margin-left: -329px;
+    }
+    
+    
+    .loop-right {
+        margin-left: 328px;
+    }
+
     /* END HOME */
 
     /* LANG PAGE */
@@ -163,6 +202,15 @@
         width: 1000px;
     }
     /* END LANG PAGE */
+
+
+    /* BLOG PAGE*/
+    .circle-blog {
+        margin-top: 25px;
+    }
+
+
+    /* END BLOG*/
 
     /* CINEMA PAGE */
     .episode {
@@ -188,15 +236,14 @@
 
 @media (min-width: 600px) and (max-width: 1023px) {
     /* HEADER */
-    .nav {
-        max-width: 800px;
-        margin: 0;
-    }
-
     .nav-list {
         padding-right: 15px;
-        padding-left: 20px;
+        padding-left: 0px;
         gap: 15px;
+    }
+
+    .mobile-link {
+        display: none;
     }
 
     .club-padding {
@@ -204,11 +251,11 @@
     }
 
     .nav {
-        padding: 0 20px;
+        padding: 0;
     }
 
     .logo {
-        max-width: 80px;
+        display: none
     }
 
     .linehover1, .linehover5 {
@@ -238,6 +285,12 @@
     .logo {
         height: 45px;
     }
+
+    .button-nav, .nav-link  {
+        font-size: 1.7vw;
+    }
+
+
     /* END HEADER */
 
     /* HOME PAGE */
@@ -246,25 +299,29 @@
     }
 
     .h1-text-main-section {
-        font-size: 3vw;
+        font-size: 4vw;
         line-height: 53.4px;
     }
 
     .text-main-section-div {
         margin-top: 185px;
-        margin-left: 140px;
+        margin-left: 60px;
     }
 
     .line {
         margin-top: 72px;
         margin-left: 28px;
+        width: 34%;
+    }
+
+    .other-text-home {
+        padding-top: 135px;
     }
 
     .p-text-main-section {
         font-size: 19px;
         line-height: 23.8px;
-        max-width: 450px;
-        padding-top: 125px;
+        max-width: 320px;
     }
 
     .one-main-section-button {
@@ -277,6 +334,24 @@
 
     .container {
         max-width: 650px;
+    }
+    
+
+    .container-ind-lessons {
+        gap: 30px;
+        justify-content: center;
+    }
+
+    .yellow-card, .pink-card {
+        width: 282px;
+    }
+
+    .green-card {
+        height: unset;
+    }
+    
+    .text-feedback {
+        width: 567px;
     }
 
     .block-languages {
@@ -295,8 +370,20 @@
         padding-top: 10px;
     }
     
+    .anim-arrow {
+        margin: auto !important;
+    }
+    
     .bg-img {
         display: none;
+    }
+
+    .price-title {
+        padding-left: 0px;
+    }
+    
+    .circle-two {
+        margin-left: -17px;
     }
 
     .price-text-block {
@@ -308,10 +395,8 @@
         padding-bottom: 45px;
     }
 
-    
     .price-text-block-two {
-        padding-left: 20px;
-        padding-right: 0px;
+        padding-left: 0px;
     }
 
     .khover {
@@ -323,6 +408,15 @@
     .price-text-block-bottom {
         padding-top: 20px;
         padding-left: 0px;
+    }
+
+    .loop-left {
+        display: none;
+    }
+    
+    
+    .loop-right {
+       display: none;
     }
 
     .bg7-img {
@@ -375,8 +469,13 @@
     }
 
     .posts_div {
-        grid-template-columns: unset;
+        grid-template-columns: auto auto;
     }
+
+    .blog-title {
+        font-size: 17px;
+    }
+
     /* END BLOG */
 
     /* CINEMA PAGE */
@@ -438,9 +537,7 @@
 
     .button-nav {
         border: 2px solid white;
-        font-size: 3vw;
-        margin: 6px;
-        padding: 5.5px;
+        font-size: 5vw;
     }
 
     .div-btn-mobile {
@@ -473,7 +570,7 @@
     }
 
     .nav-link {
-        font-size: 3vw;
+        font-size: 5vw;
     }
 
     .linehover_block > li{
@@ -494,11 +591,7 @@
         cursor: pointer;
         margin: 6px;
         padding: 5.5px;
-        border-radius: 100px;
-    }
-    
-    .button-nav:hover {
-        border: 2px solid white;
+        border: none;
     }
     
     .mobile-link {
@@ -526,25 +619,94 @@
         width: unset;
     }
 
-    .circle {
+    .circle, .circle-two {
         margin-top: -3px;
         margin-left: -6px;
     }
 
     .h1-text-main-section {
-        font-size: 9vw;
-        line-height: 57.4px;
+        font-size: 10vw;
+        line-height: 48.4px;
     }
 
     .line {
         display: none;
     }
 
+    .container-ind-lessons {
+        gap: 30px;
+        justify-content: center;
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+
+    .green-card {
+        height: unset;
+    }
+    
+    .text-feedback {
+        width: 205px;
+        margin-top: 60px;
+        margin-left: 33px;
+    }
+
+    .bg-feedback {
+        display: none;
+    }
+
+    .bg-feedback-mbl {
+        display: block;
+        width: 99%;
+        height: 900px;
+    }
+
+    .home-card{
+        margin: 0px 10px;
+    }
+
+    .white-card {
+        max-width: unset;
+    }
+
+    .anim-arrow {
+        margin: auto !important;
+    }
+
+    .container-groups-card {
+        flex-direction: column;
+        margin-left: 5px;
+        margin-right: 5px; 
+    }
+
+    .middle-group-card {
+        width: 80%;
+        height: 10px;
+    }
+
+    .loop-left, .loop-right {
+        display: none;
+    }
+
+    .group-card-description {
+        width: auto;
+    }
+
+    .other-text-home {
+        padding-top: 104px;
+        font-size: 5.8vw;
+    }
+
     .p-text-main-section {
-        padding-top: 150px;
         line-height: 34.8px;
         max-width: 90%;
     }
+
+    .mobile-btn-home {
+        text-align: center;
+        display: block;
+        margin-left: -20px;
+    }
+
 
     .buttons-main-section {
         width: 100%;
@@ -559,11 +721,6 @@
         padding: 22px 40px;
         font-size: 21px;
         margin-bottom: 20px;
-    }
-
-    .two-main-section-button {
-        padding: 22px 40px;
-        font-size: 21px;
     }
 
     .line-section {
@@ -613,15 +770,16 @@
     
     .price-text-block {
         margin-top: 10px;
-        padding-left: 30px;
+        padding-left: 20px;
         width: auto;
     }
     
 
-    .price-title {
+    .price-title, .price-title-two {
         letter-spacing: 5px;
         padding-top: 14px;
-        font-size: 4.5vw;
+        font-size: 5.5vw;
+        padding-left: 0px;
     }
 
     .price-and-button {
@@ -636,12 +794,13 @@
         padding-top: 50px;
         flex-direction: column-reverse;
         align-items: center;
+        margin-left: 0px;
     }
 
     .price-text-block-two {
         margin-top: 10px;
         padding-right: 0px;
-        padding-left: 30px;
+        padding-left: 20px;
         width: auto;
     }
 
@@ -655,7 +814,7 @@
 
     .price-text-block-bottom {
         width: auto;
-        padding-left: 30px;
+        padding-left: 20px;
     }
 
     .container-footer {
@@ -684,6 +843,10 @@
 
     .price-title-bottom {
         font-size: 20px;
+    }
+
+    .card-add {
+        padding-left: 0px;
     }
     /* END HOME */
 
@@ -753,7 +916,7 @@
     }
 
     .blog__info__header__title {
-        font-size: 9vw;
+        font-size: 12vw;
         line-height: 42px;
     }
 
@@ -771,9 +934,7 @@
     }
 
     .posts_div {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        display: block;
     }
 
     .posts_div > a {
@@ -781,14 +942,26 @@
         margin: auto;
     }
 
-    .blog-card {
-        width: 90%;
-        max-width: unset;
-        max-height: unset;
+    .main-blog {
+        margin:0px 5px;
     }
 
-    .blog-card > div {
-        text-align: center;
+    .blog-card {
+        max-width: 230px;
+        border: 20px solid #FEEB8F;
+        margin-top: 100px
+    }
+
+    .blog-title {
+        font-size: 18px;
+        bottom: -200px;
+        padding: 10px 19px;
+        padding-top: 45px;
+        min-height: 51px;
+    }
+
+    .circle-blog {
+        margin-left: -17px !important;
     }
     /* END BLOG */
 

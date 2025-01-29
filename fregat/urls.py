@@ -21,7 +21,8 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('', include('main.urls')),
+    path('', include('main.urls', namespace='main')),
+    path('school/', include('crm.urls', namespace='crm')),
     path('admin/', admin.site.urls),
     path("ckeditor/", include('ckeditor_uploader.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

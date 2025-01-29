@@ -21,10 +21,11 @@
     <div class="container-footer">
         <div class="footer-links">
             <a href="/" class="link-footer">Главная</a>
-            <a href="{% url 'lang' %}" class="link-footer">Языки</a>
+            <a href="{% url 'main:lang' %}" class="link-footer">Языки</a>
             <a href="/#price" class="link-footer">Стоимость</a>
-            <a href="{% url 'blog' %}" class="link-footer">Блог</a>
+            <a href="{% url 'main:blog' %}" class="link-footer">Блог</a>
             <a href="#win1" class="link-footer">Связаться</a>
+            <a href="{% url 'main:cinema' %}" class="link-footer">Киноклуб</a>
         </div>
         <div class="footer-info">
             <div class="social-media-icons">
@@ -39,10 +40,10 @@
                     </a>
             </div>
             <p class="footer-text">
-                © Языковая школа Фрегат 2021 <br> Дизайн - Елизавета Муждабаева <br> 
-                <a href="https://vk.com/hurricane_chroniclenr">Программист - Муждабаев Эдем</a>
+                © Языковая школа Фрегат 2021 <a href="https://vk.com/lizulya_mahboula?from=search"><br> Дизайн - Елизавета Муждабаева <br></a> 
+                <a href="https://vk.com/hurricane_chroniclenr">Разработка - Муждабаев Эдем</a>
                 <a href="#politica">Политика конфиденциальности</a><br>
-                <a href="{% url 'oferta' %}">Договор оферты</a>
+                <a href="{% url 'main:oferta' %}">Договор оферты</a>
             </p>
         </div>
     </div>

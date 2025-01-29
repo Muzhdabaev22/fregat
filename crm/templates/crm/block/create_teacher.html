@@ -1,0 +1,18 @@
+<h1>Добавить учителя</h1>
+
+<!-- Блок для сообщений -->
+<div id="message-container">
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</div>
+
+<form id="create-teacher-form" class="ajax-form" method="post" action="{% url 'crm:create_teacher' %}">
+    {% csrf_token %}
+    {{ create_form.as_p }}
+    <button type="submit" name="submit_button">Сохранить</button>
+</form>

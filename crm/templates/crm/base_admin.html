@@ -1,0 +1,84 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}" type="image/png">
+    <link rel="stylesheet" href="{% static '/css/crm_media.css' %}">
+    <link rel="stylesheet" href="{% static '/css/crm.css' %}">
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Личный кабинет</title>
+</head>
+<body>
+    <main class="container">
+        <div class="content" id="content">
+            
+        </div>
+        <div class="menu-container">
+            <div class="menu">
+                <button class="btn-menu" onclick="loadContent('{% url "crm:lessons" %}')">Занятия</button>
+                <button class="btn-menu" onclick="loadContent('{% url "crm:teachers" %}')">Учителя</button> 
+                <button class="btn-menu" onclick="loadContent('{% url "crm:students" %}')">Ученики</button> 
+                <button class="btn-menu" onclick="loadContent('{% url "crm:create_student" %}')">Добавить ученика</button> 
+                <button class="btn-menu" onclick="loadContent('{% url "crm:create_teacher" %}')">Добавить учителя</button>
+                <button class="btn-menu" onclick="loadContent('{% url "crm:materials" %}')">Материалы</button>
+            </div>
+        </div>
+    </main>
+    <script>
+        // Функция для загрузки контента через AJAX
+        function loadContent(url) {
+            $.ajax({
+                url: url,
+                method: 'GET',
+                success: function(data) {
+                    $('#content').html(data);
+                },
+                error: function() {
+                    $('#content').html('<p>Ошибка загрузки данных</p>');
+                }
+            });
+        }
+
+        $(document).ready(function() {
+            // Обработка отправки всех форм с классом ajax-form
+            $(document).on('submit', '.ajax-form', function(e) {
+                e.preventDefault(); // Предотвращаем стандартную отправку формы
+                var form = $(this);
+                var url = form.attr('action');
+                var formData = form.serialize();
+        
+                $.ajax({
+                    url: url,
+                    method: 'POST',
+                    data: formData,
+                    success: function(response) {
+                        if (response.status === 'success') {
+                            // Очищаем форму
+                            form[0].reset();
+                            // Очищаем ошибки валидации
+                            form.find('.errorlist').remove();
+                            // Отображаем сообщение об успехе
+                            $('#message-container').html(
+                                '<div class="messages success">' + response.message + '</div>'
+                            );
+                        } else if (response.status === 'error') {
+                            // Обновляем контент формы (с ошибками валидации)
+                            $('#content').html(response.html);
+                            // Отображаем сообщение об ошибке
+                            $('#message-container').html(
+                                '<div class="messages error">' + response.message + '</div>'
+                            );
+                        }
+                    },
+                    error: function() {
+                        alert('Ошибка при отправке формы');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

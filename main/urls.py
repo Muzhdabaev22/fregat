@@ -1,5 +1,7 @@
 from django.urls import path
-from .views import HomeView, LangView, BlogView, OfertaView, CinemaView, EpisodeView, get_streaming_video, SignIn
+from .views import *
+
+app_name = 'main'
 
 urlpatterns = [
     path('', HomeView.as_view(), name='home'),

@@ -1,12 +1,13 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.views import View
-from .forms import FeedBackForm, FeedBackFormSecond, LevelChoice
+from .forms import FeedBackForm, FeedBackFormSecond, LevelChoice, SignInForm
 from django.http import HttpResponseRedirect, StreamingHttpResponse
 from django.core.mail import send_mail, BadHeaderError
 from main.models import PostBlog, Movie, Episode, Vocabulary, TestCinema, DiscusBoard, SubStory, RightOrder
 from django.core.paginator import Paginator
 from .services import open_file
 from random import shuffle
+from django.contrib.auth import login, authenticate
 
 
 class HomeView(View):
@@ -25,39 +26,29 @@ class HomeView(View):
         
         
         # === processing forms of communication ===
+        form = FeedBackForm(request.POST)
+        sec_form = FeedBackFormSecond(request.POST)
+        
         if 'first' in self.request.POST:
-            form = FeedBackForm(request.POST)
-            sec_form = FeedBackFormSecond(request.POST)
             if form.is_valid():
                 name = form.cleaned_data['name']
-                tel = form.cleaned_data['tel']
-                try:
-                    send_mail('С вами хотят связаться!', f"{name}. {tel}", 'edik622mujpc@gmail.com', ['edik622mujpc@gmail.com'])
-                except BadHeaderError:
-                    return 
-                return HttpResponseRedirect('/')
-            return render(request, 'main/home.html', context={
-                'form': form,
-                'second_form': sec_form
-            })
+                social = form.cleaned_data['social']
+                if send_mail_first(name, social):
+                    return HttpResponseRedirect('/')
+            
             
         if 'second' in self.request.POST:
-            form = FeedBackForm(request.POST)
-            sec_form = FeedBackFormSecond(request.POST)
             if sec_form.is_valid():
                 name = sec_form.cleaned_data['name']
                 social = sec_form.cleaned_data['social']
                 lang = sec_form.cleaned_data['lang']
-                try:
-                    send_mail('С вами хотят связаться!', f"{name}. Социальная сеть: {social}\nЯзык: {lang}", 'edik622mujpc@gmail.com', ['edik622mujpc@gmail.com'])
-                except BadHeaderError:
-                    return 
-                return HttpResponseRedirect('/')
-            return render(request, 'main/home.html', context={
+                if send_mail_second(name, social, lang):
+                    return HttpResponseRedirect('/')
+        
+        return render(request, 'main/home.html', context={
                 'form': form,
                 'second_form': sec_form
             })
-        
 
 class LangView(View):
     def get(self, request, *args, **kwargs):
@@ -76,35 +67,24 @@ class LangView(View):
         
         
         # === processing forms of communication ===
+        form = FeedBackForm(request.POST)
+        sec_form = FeedBackFormSecond(request.POST)
         if 'first' in self.request.POST:
-            form = FeedBackForm(request.POST)
-            sec_form = FeedBackFormSecond(request.POST)
             if form.is_valid():
                 name = form.cleaned_data['name']
-                tel = form.cleaned_data['tel']
-                try:
-                    send_mail('С вами хотят связаться!', f"{name}. {tel}", 'edik622mujpc@gmail.com', ['edik622mujpc@gmail.com'])
-                except BadHeaderError:
-                    return 
-                return HttpResponseRedirect('/lang')
-            return render(request, 'main/lang.html', context={
-                'form': form,
-                'second_form': sec_form
-            })
+                social = form.cleaned_data['social']
+                if send_mail_first(name, social):
+                    return HttpResponseRedirect('/')
             
         if 'second' in self.request.POST:
-            form = FeedBackForm(request.POST)
-            sec_form = FeedBackFormSecond(request.POST)
             if sec_form.is_valid():
                 name = sec_form.cleaned_data['name']
                 social = sec_form.cleaned_data['social']
                 lang = sec_form.cleaned_data['lang']
-                try:
-                    send_mail('С вами хотят связаться!', f"{name}. Социальная сеть: {social}\nЯзык: {lang}", 'edik622mujpc@gmail.com', ['edik622mujpc@gmail.com'])
-                except BadHeaderError:
-                    return 
-                return HttpResponseRedirect('/lang')
-            return render(request, 'main/lang.html', context={
+                if send_mail_second(name, social, lang):
+                    return HttpResponseRedirect('/')
+            
+        return render(request, 'main/lang.html', context={
                 'form': form,
                 'second_form': sec_form
             })
@@ -116,8 +96,8 @@ class BlogView(View):
         sec_form = FeedBackFormSecond()
         
         # === setting up navigation === 
-        posts = PostBlog.objects.all()
-        paginator = Paginator(posts, 9)
+        posts = PostBlog.objects.all().order_by('-created_at')
+        paginator = Paginator(posts, 12)
         
         page_number = request.GET.get('page')
         page_obj = paginator.get_page(page_number)
@@ -133,35 +113,24 @@ class BlogView(View):
         
         
         # === processing forms of communication ===
+        form = FeedBackForm(request.POST)
+        sec_form = FeedBackFormSecond(request.POST)
         if 'first' in self.request.POST:
-            form = FeedBackForm(request.POST)
-            sec_form = FeedBackFormSecond(request.POST)
             if form.is_valid():
                 name = form.cleaned_data['name']
-                tel = form.cleaned_data['tel']
-                try:
-                    send_mail('С вами хотят связаться!', f"{name}. {tel}", 'edik622mujpc@gmail.com', ['edik622mujpc@gmail.com'])
-                except BadHeaderError:
-                    return 
-                return HttpResponseRedirect('/blog')
-            return render(request, 'main/blog.html', context={
-                'form': form,
-                'second_form': sec_form
-            })
+                social = form.cleaned_data['social']
+                if send_mail_first(name, social):
+                    return HttpResponseRedirect('/')
             
         if 'second' in self.request.POST:
-            form = FeedBackForm(request.POST)
-            sec_form = FeedBackFormSecond(request.POST)
             if sec_form.is_valid():
                 name = sec_form.cleaned_data['name']
                 social = sec_form.cleaned_data['social']
                 lang = sec_form.cleaned_data['lang']
-                try:
-                    send_mail('С вами хотят связаться!', f"{name}. Социальная сеть: {social}\nЯзык: {lang}", 'edik622mujpc@gmail.com', ['edik622mujpc@gmail.com'])
-                except BadHeaderError:
-                    return 
-                return HttpResponseRedirect('/blog')
-            return render(request, 'main/blog.html', context={
+                if send_mail_second(name, social, lang):
+                    return HttpResponseRedirect('/')
+            
+        return render(request, 'main/blog.html', context={
                 'form': form,
                 'second_form': sec_form
             })
@@ -180,38 +149,27 @@ class OfertaView(View):
         
         
         # === processing forms of communication ===
+        form = FeedBackForm(request.POST)
+        sec_form = FeedBackFormSecond(request.POST)
         if 'first' in self.request.POST:
-            form = FeedBackForm(request.POST)
-            sec_form = FeedBackFormSecond(request.POST)
             if form.is_valid():
                 name = form.cleaned_data['name']
-                tel = form.cleaned_data['tel']
-                try:
-                    send_mail('С вами хотят связаться!', f"{name}. {tel}", 'edik622mujpc@gmail.com', ['edik622mujpc@gmail.com'])
-                except BadHeaderError:
-                    return 
-                return HttpResponseRedirect('/lang')
-            return render(request, 'main/lang.html', context={
-                'form': form,
-                'second_form': sec_form
-            })
+                social = form.cleaned_data['social']
+                if send_mail_first(name, social):
+                    return HttpResponseRedirect('/')
             
         if 'second' in self.request.POST:
-            form = FeedBackForm(request.POST)
-            sec_form = FeedBackFormSecond(request.POST)
             if sec_form.is_valid():
                 name = sec_form.cleaned_data['name']
                 social = sec_form.cleaned_data['social']
                 lang = sec_form.cleaned_data['lang']
-                try:
-                    send_mail('С вами хотят связаться!', f"{name}. Социальная сеть: {social}\nЯзык: {lang}", 'edik622mujpc@gmail.com', ['edik622mujpc@gmail.com'])
-                except BadHeaderError:
-                    return 
-                return HttpResponseRedirect('/oferta')
-            return render(request, 'main/lang.html', context={
-                'form': form,
-                'second_form': sec_form
-            })
+                if send_mail_second(name, social, lang):
+                    return HttpResponseRedirect('/')
+                
+        return render(request, 'main/oferta.html', context={
+            'form': form,
+            'second_form': sec_form
+        })
 
 class CinemaView(View):
     def get(self, request, *args, **kwargs):
@@ -254,39 +212,31 @@ class CinemaView(View):
         
         
         # === processing forms of communication ===
+        form = FeedBackForm(request.POST)
+        sec_form = FeedBackFormSecond(request.POST)
         if 'first' in self.request.POST:
-            form = FeedBackForm(request.POST)
-            sec_form = FeedBackFormSecond(request.POST)
             if form.is_valid():
                 name = form.cleaned_data['name']
-                tel = form.cleaned_data['tel']
-                try:
-                    send_mail('С вами хотят связаться!', f"{name}. {tel}", 'edik622mujpc@gmail.com', ['edik622mujpc@gmail.com'])
-                except BadHeaderError:
-                    return 
-                return HttpResponseRedirect('/')
+                social = form.cleaned_data['social']
+                if send_mail_first(name, social):
+                    return HttpResponseRedirect('/')
             return render(request, 'main/home.html', context={
                 'form': form,
                 'second_form': sec_form
             })
             
         if 'second' in self.request.POST:
-            form = FeedBackForm(request.POST)
-            sec_form = FeedBackFormSecond(request.POST)
             if sec_form.is_valid():
                 name = sec_form.cleaned_data['name']
                 social = sec_form.cleaned_data['social']
                 lang = sec_form.cleaned_data['lang']
-                try:
-                    send_mail('С вами хотят связаться!', f"{name}. Социальная сеть: {social}\nЯзык: {lang}", 'edik622mujpc@gmail.com', ['edik622mujpc@gmail.com'])
-                except BadHeaderError:
-                    return 
-                return HttpResponseRedirect('/')
+                if send_mail_second(name, social, lang):
+                    return HttpResponseRedirect('/')
             return render(request, 'main/home.html', context={
                 'form': form,
                 'second_form': sec_form
             })
-        # =====================================
+        
         
         
         # === we check whether the user has selected the language level ===
@@ -378,40 +328,20 @@ class EpisodeView(View):
             
         # === processing forms of communication ===
         if 'first' in self.request.POST:
-            
             if form.is_valid():
                 name = form.cleaned_data['name']
-                tel = form.cleaned_data['tel']
-                try:
-                    send_mail('С вами хотят связаться!', f"{name}. {tel}", 'edik622mujpc@gmail.com', ['edik622mujpc@gmail.com'])
-                except BadHeaderError:
-                    return 
-                return HttpResponseRedirect('/')
-            
-            return render(request, 'main/home.html', context={
-                'form': form,
-                'second_form': sec_form
-            })
+                social = form.cleaned_data['social']
+                if send_mail_first(name, social):
+                    return HttpResponseRedirect('/')
             
         if 'second' in self.request.POST:
-            form = FeedBackForm(request.POST)
-            sec_form = FeedBackFormSecond(request.POST)
             if sec_form.is_valid():
                 name = sec_form.cleaned_data['name']
                 social = sec_form.cleaned_data['social']
                 lang = sec_form.cleaned_data['lang']
-                try:
-                    send_mail('С вами хотят связаться!', f"{name}. Социальная сеть: {social}\nЯзык: {lang}", 'edik622mujpc@gmail.com', ['edik622mujpc@gmail.com'])
-                except BadHeaderError:
-                    return 
-                return HttpResponseRedirect('/')
-            return render(request, 'main/home.html', context={
-                'form': form,
-                'second_form': sec_form
-            })
-        # ====================================
-            
-            
+                if send_mail_second(name, social, lang):
+                    return HttpResponseRedirect('/')
+                   
         return render(request, 'main/episode.html', context={
                 'form': form,
                 'second_form': sec_form,
@@ -423,55 +353,65 @@ class EpisodeView(View):
 
 class SignIn(View):
     def get(self, request):
-         # === forms of communication ===
+        # === forms of communication ===
         form = FeedBackForm() 
         sec_form = FeedBackFormSecond() 
-        # ===             ===
+        sign_form = SignInForm()
 
-        
         return render(request, 'main/signin.html', context={
             'form': form,
             'second_form': sec_form,
+            'sign_form': sign_form
         })
         
-        
     def post(self, request):
-         # === processing forms of communication ===
+        # Создаем формы
+        form = FeedBackForm(request.POST) 
+        sec_form = FeedBackFormSecond(request.POST) 
+        sign_form = SignInForm(request, data=request.POST)
+        
+        if 'signin' in request.POST:
+            if sign_form.is_valid():
+                username = sign_form.cleaned_data['username'] 
+                password = sign_form.cleaned_data['password']
+                
+                user = authenticate(request, username=username, password=password)
+                
+                if user is not None:
+                    login(request, user)
+                    if username.startswith('admin'):
+                        return redirect('/school/adminschool')
+                    elif username.startswith('teacher'):
+                        return redirect('/school/teacher')
+                    elif username.startswith('student'):
+                        return redirect('/school/student')   
+                else:
+                    sign_form.add_error(None, 'Неправильный логин или пароль')        
+
+
         if 'first' in self.request.POST:
-            
             if form.is_valid():
                 name = form.cleaned_data['name']
-                tel = form.cleaned_data['tel']
-                try:
-                    send_mail('С вами хотят связаться!', f"{name}. {tel}", 'edik622mujpc@gmail.com', ['edik622mujpc@gmail.com'])
-                except BadHeaderError:
-                    return 
-                return HttpResponseRedirect('/')
-            
-            return render(request, 'main/home.html', context={
-                'form': form,
-                'second_form': sec_form
-            })
+                social = form.cleaned_data['social']
+                if send_mail_first(name, social):
+                    return HttpResponseRedirect('/')
             
         if 'second' in self.request.POST:
-            form = FeedBackForm(request.POST)
-            sec_form = FeedBackFormSecond(request.POST)
             if sec_form.is_valid():
                 name = sec_form.cleaned_data['name']
                 social = sec_form.cleaned_data['social']
                 lang = sec_form.cleaned_data['lang']
-                try:
-                    send_mail('С вами хотят связаться!', f"{name}. Социальная сеть: {social}\nЯзык: {lang}", 'edik622mujpc@gmail.com', ['edik622mujpc@gmail.com'])
-                except BadHeaderError:
-                    return 
-                return HttpResponseRedirect('/')
-            return render(request, 'main/home.html', context={
-                'form': form,
-                'second_form': sec_form
-            })
-        # ====================================
-    
+                if send_mail_second(name, social, lang):
+                    return HttpResponseRedirect('/')
 
+
+        return render(request, 'main/signin.html', context={
+            'form': form,
+            'second_form': sec_form,
+            'sign_form': sign_form
+        })    
+        
+        
 def get_streaming_video(request, slug):
     file, status_code, content_length, content_range = open_file(request, slug)
     response = StreamingHttpResponse(file, status=status_code, content_type='video/mp4')
@@ -481,3 +421,20 @@ def get_streaming_video(request, slug):
     response['Cache-Control'] = 'no-cache'
     response['Content-Range'] = content_range
     return response
+
+
+def send_mail_first(name, social):
+    try:
+        send_mail('С вами хотят связаться!', f"{name}. {social}", 'edik622mujpc@gmail.com', ['edik622mujpc@gmail.com'])
+    except BadHeaderError:
+        return False
+    return True
+
+
+def send_mail_second(name, social, lang):
+    try:
+        send_mail('С вами хотят связаться!', f"{name}. Социальная сеть: {social}\nЯзык: {lang}", 'edik622mujpc@gmail.com', ['edik622mujpc@gmail.com'])
+    except BadHeaderError:
+        return False
+    return True
+  

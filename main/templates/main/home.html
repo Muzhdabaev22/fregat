@@ -8,11 +8,11 @@
             <img class="circle" src="{% static 'img/circle.png' %}" alt="circle">
             <h1 class="h1-text-main-section">Учи языки<br>на борту Фрегата!</h1>
             <img class="line" src="{% static 'img/linehover.png' %}" alt="linehover">
-            <p class="p-text-main-section">Забудь о языке жестов и онлайн-переводчиках. Скажи сам!</p>
-            <div class="buttons-main-section">
-                <a href="#win1"><button class="one-main-section-button">ЗАПИСАТЬСЯ</button></a>
-                <a href="#about"><button class="two-main-section-button">Узнать больше</button></a>
-            </div>
+            <p class="other-text-home">все языки в одном месте</p>
+            <p class="p-text-main-section">Забудь о языке жестов и онлайн-переводчиках!</p>
+             
+            <a href="#win1" class="mobile-btn-home"><button class="one-main-section-button">ЗАПИСАТЬСЯ</button></a>
+            
         </div>
 
         <div class="main-section-container-img">
@@ -20,7 +20,7 @@
         </div>
     </section> 
 
-    <div class="line-section"></div>
+    <div class="line-section" style="background: #f8abbf;"></div>
   
     <!-- languages section -->
     <section class="two__block">
@@ -102,7 +102,7 @@
         </div>
     </section>
     
-    <div class="line-section" style="margin-top:70px;" id='price'></div>
+    <div class="line-section" style="margin-top:70px;background: #efb341;" id="price"></div>
  
     <section class="two__block"> 
         <div class="container margin-arrow-block">
@@ -115,21 +115,26 @@
                 <div class="price-full">
                     <img src="{% static 'img/bg2.png' %}" alt="img" class="bg-img">
                     <div class="price-text-block">
-                        <img src="{% static 'img/circle.png' %}" alt="circle" class="circle">
-                        <p class="price-title">ИНДИВИДУАЛЬНЫЕ<br>ЗАНЯТИЯ</p>
 
-                        <p class="text-price">На занятиях вам гарантировано:</p>
+                        <img src="{% static 'img/circle.png' %}" alt="circle" class="circle-two">
+                        <p class="price-title">ИНДИВИДУАЛЬНЫЕ<br>ЗАНЯТИЯ</p>
+                        
+                        <p class="text-price" style="font-family:Montserrat-bold;">Преимущества индивидуального обучения:</p>
                         <ul style="margin-top: 30px;">
+                            <li class="price-text-li">гибкое расписание</li>
                             <li class="price-text-li">полное внимание преподавателя</li>
-                            <li class="price-text-li">максимум обратной связи</li>
+                            <li class="price-text-li">возможность советоваться с преподавателем вне занятий</li>
+                            <li class="price-text-li">программа может быть изменена или адаптирована согласно вашему запросу</li>
                             <li class="price-text-li">конфиденциальность</li>
-                            <li class="price-text-li">и много улыбок</li>
+                            <li class="price-text-li">много улыбок</li>
                         </ul>
-                        <p class="text-price">Преподаватели школы используют авторскую методику «Круглого стола» и дополнительные материалы согласно пожеланиям студента.</p>
-                        <p class="duration-price">Длительность: 50 минут</p>
+                        <div>
+                            <p class="duration-price" style="margin-top: 30px">Абонемент: 4, 6, или 12 занятий</p>
+                            <p class="duration-price">Длительность: 50 минут</p>
+                        </div>
                         <div class="price-and-button">
                             <p class="price-bottom-text">
-                                900<br><span>руб / урок</span>
+                                1000<br><span>руб / урок</span>
                             </p>
                             <a href="#win1"><button class="price-button">ЗАПИСАТЬСЯ</button></a>
                         </div>
@@ -138,20 +143,50 @@
             </div>
         </div>
         
+        <img src="{% static 'img/anim-arrow.png'%}" alt="arrow" class="anim-arrow">
+
+        <div class="container-ind-lessons container">
+            <div class="yellow-card home-card">
+                <p class="text-price" style="font-family:Montserrat-bold;">Как проходят занятия?</p>
+                <li class="li-arrow text-price">на интерактивной платформе и в Telegram</li>
+                <li class="li-arrow text-price">максимум речи на изучаемом языке, минимум родного языка</li>                 
+            </div>
+            <div class="pink-card home-card">
+                <p class="text-price" style="font-family:Montserrat-bold;">Программа обучения:</p> 
+                <li class="li-arrow-yellow text-price">занятия проходят по структурированной программе, разработанной профессиональным методистом и дизайнером</li> 
+            </div>
+            <div class="yellow-card home-card">
+                <p class="text-price" style="font-family:Montserrat-bold;">Почему стоит выбрать?</p>
+                <li class="li-arrow text-price">коммуникативный подход - главное говорить</li> 
+                <li class="li-arrow text-price">геймификация на уроках - интересно и увлекательно</li>  
+            </div>
+        </div>
+
         <div class="price-info-block">
             <div class="container">
                 <div class="price-full-two">
                     <div class="price-text-block-two">
                         <img src="{% static 'img/circle.png' %}" alt="circle" class="circle">
-                        <p class="price-title">ЗАНЯТИЯ<br>В ГРУППАХ</p>
-                        <p class="text-price">Формат занятий гарантирует языковую практику и позволяет использовать язык для общения вне занятий.</p>
-                        <p class="text-price">Группы формируются согласно возрастам и целям студентов. Занятия проводятся один или два раза в неделю. При пропуске занятий есть возможность его отработки в другой группе.</p>
-                        <p class="duration-price">Длительность: 60 минут</p>
-
+                        <p class="price-title-two">ЗАНЯТИЯ<br>В ГРУППАХ</p>
+                        <p class="text-price" style="font-family:Montserrat-bold;">Преимущества группового обучения:</p>
+                        
+                        
+                        <ul style="margin-top: 30px;">
+                            <li class="price-text-li-yellow">четкое расписание</li>
+                            <li class="price-text-li-yellow">дисциплина обучения</li>
+                            <li class="price-text-li-yellow">разговорная практика с участниками группы</li>
+                            <li class="price-text-li-yellow">более активные занятия</li>
+                            <li class="price-text-li-yellow">чат группы с преподавателем, <br>чтобы задавать доп. вопросы вне занятий</li>
+                            <li class="price-text-li-yellow">видеозаписи пропущенных уроков</li>
+                        </ul>
+                        <div>
+                            <p class="duration-price" style="margin-top: 30px">Абонемент: 4 или 8 занятий</p>
+                            <p class="duration-price">Длительность: 60 или 90 минут</p>
+                        </div>
                         <div class="price-and-button">
                             <p class="price__ot">от</p>
                             <p class="price-bottom-text">
-                                450<br><span>руб / урок</span>
+                                600<br><span>руб / урок</span>
                             </p>
                             <a href="#win1"><button class="price-button">ЗАПИСАТЬСЯ</button></a>
                         </div>
@@ -161,26 +196,57 @@
             </div>
         </div>
 
+        <img src="{% static 'img/anim-arrow.png'%}" alt="arrow" class="anim-arrow" style="margin-left: 90%">
+
+        <div class="container container-groups-card">
+            <div class="group-card-description">
+                <p class="text-price" style="font-family:Montserrat-bold;">Почему выбрать группу?</p>
+
+                <p class="text-price" style="margin-top: 30px;">это возможность находиться рядом и общаться с теми:</p>
+                
+                <li class="li-arrow">кто занимается тем же, что и ты,</li>
+                <li class="li-arrow">кто спотыкается на тех же граблях,</li>
+                <li class="li-arrow">кто имеет те же страхи и препятствия,</li>
+                <li class="li-arrow">кто так же, как и ты, делает маленькие шажки на пути к цели!</li>
+                
+            </div>
+
+            <div class="middle-group-card"></div>
+
+            <div class="group-card-description"> 
+                <p class="text-price" style="font-family:Montserrat-bold;">Как собирается группа?</p>
+
+                <li class="li-arrow" style="margin-top: 30px">вы проходите вводную встречу-знакомство с методистом</li>
+                <li class="li-arrow">после выбираете подходящее время</li>
+                <li class="li-arrow">группа собирается по возрасту, уровню, полу, целям, а также скорости обучения</li>
+                <li class="li-arrow">количество человек от 2 до 5</li>
+            </div>
+        </div>
+
         <div class="price-info-block">
             <div class="container">
                 <div class="price-full">
-                    <img src="{% static 'img/bg4.png' %}" alt="img" class="bg-img">
+                    <img src="{% static 'img/bg-6.png' %}" alt="img" class="bg-img">
                     <div class="price-text-block">
-                        <img src="{% static 'img/circle.png' %}" alt="circle" class="circle">
-                        <p class="price-title">САМОСТОЯТЕЛЬНЫЙ<br>КУРС</p>
+                        <img src="{% static 'img/circle.png' %}" alt="circle" class="circle-two">
+                        <p class="price-title">РАЗГОВОРНЫЕ<br>КЛУБЫ</p>
 
-                        <p class="text-price">Курс для любителей самостоятельности и отсутствия дедлайнов.</p>
-                        <p class="text-price">Месячный абонемент включает:</p>
-                        <ul style="margin-top: 30px; padding-bottom: 30px;">
-                            <li class="price-text-li">самоучитель (еженедельные инструкции)</li>
-                            <li class="price-text-li">проверку домашних заданий в формате аудио - и текстовых сообщений</li>
-                            <li class="price-text-li">индивидуальное занятие с преподавателем</li>
+                        <p class="text-price" style="font-family:Montserrat-bold;">Преимущества разговорных клубов:</p>
+
+                        <ul>
+                            <li class="price-text-li-yellow">эффективная практика вне уроков</li>
+                            <li class="price-text-li-yellow">возможность избавиться от барьера</li>
+                            <li class="price-text-li-yellow">способ провериить себя в «реальном мире»</li>
+                            <li class="price-text-li-yellow">возможность общаться не только с учителем</li>
+                            <li class="price-text-li-yellow">возможность сравнить себя с другими изучающими</li>
                         </ul>
-    
+                        <div style="margin-top: 30px;">
+                            <p class="duration-price">Формат: speed date/смена собеседника каждые 20 минут</p>
+                            <p class="duration-price">Длительность: 60 минут</p>
+                        </div>
                         <div class="price-and-button">
-                            <p class="price__ot">от</p>
                             <p class="price-bottom-text">
-                                3000<br><span>руб / месяц</span>
+                                500<br><span>руб / встреча</span>
                             </p>
                             <a href="#win1"><button class="price-button">ЗАПИСАТЬСЯ</button></a>
                         </div>
@@ -188,63 +254,90 @@
                 </div>
             </div>
         </div>
+
+        <img src="{% static 'img/anim-arrow.png'%}" alt="arrow" class="anim-arrow">
+
+
+        <div class="container-ind-lessons container">
+            <div class="green-card home-card">
+                <p class="text-price" style="font-family:Montserrat-bold;">Как проходят клубы?</p>
+                <li class="li-arrow" style="margin-top: 30px;">В виртуальном кабинете, где находясь в одном звонке, вы слишите только того, кто сидит рядом.</li>
+                <li class="li-arrow">Это позволяет общаться 100% встречи один на один с собеседником.</li>                 
+            </div>
+            <div>
+                <div class="text-feedback">
+                    <p class="text-price" style="font-family:Montserrat-bold;">Отзыв от ученицы:</p>
+                    <p class="text-price">Впервые посетила разговорный клуб на арабском языке, <b style="font-family: Montserrat-bold">мне понравилось!</b> Интересно было потренировать язык вне урока и в непринужденной обстановке. Собеседники попались приятные, иногда помогали мне сформулировать предложения. Еще <b style="font-family: Montserrat-bold;">мне понравилась платформа</b>, создаётся ощущение, что <b style="font-family: Montserrat-bold;">ты в самом деле сидишь в кресле</b> и разговариваешь на различные темы.</p>
+                </div>
+                <img src="{% static 'img/white-card.png' %}" alt="" class="bg-feedback">
+                <img src="{% static 'img/white-card-mbl.png' %}" alt="" class="bg-feedback-mbl">
+            </div>   
+        </div>
+
 
         <div class="price-info-block">
             <div class="container">
                 <div class="price-full-two">
                     <div class="price-text-block-two">
                         <img src="{% static 'img/circle.png' %}" alt="circle" class="circle">
-                        <p class="price-title">ПОДПИСКА<br>5 МИНУТ</p>
-
-                        <p class="text-price">Ежедневные мини-уроки в твоих сообщениях. Это как раз тот вариант, если у тебя совершенно нет времени, а язык ой-как нужен.</p>
-                        <p class="text-price">Подписка 5 минут включает:</p>
-
-                        <ul style="margin-top: 30px; padding-bottom: 30px;">
-                            <li class="price-text-li">мини-уроки в мессенджерах</li>
-                            <li class="price-text-li">домашние задания</li>
-                            <li class="price-text-li">дедлайны</li>
-                            <li class="price-text-li">обратную связь каждую неделю</li>
-                            <li class="price-text-li">чек-лист в конце месяца</li>
+                        <p class="price-title-two">САМОСТОЯТЕЛЬНОЕ<br>ОБУЧЕНИЕ</p>
+                        <p class="text-price" style="font-family:Montserrat-bold;">Преимущества самостоятельного обучения:</p>
+                        
+                        <ul style="margin-top: 30px;">
+                            <li class="price-text-li-yellow">отсутствие давления и собственный темп</li>
+                            <li class="price-text-li-yellow">возможность изучать больше и быстрее</li>
+                            <li class="price-text-li-yellow">возможность изучать медленнее</li>
+                            <li class="price-text-li-yellow">обратная связь в любое время</li>
+                            <li class="price-text-li-yellow">изменение программы по запросу</li>
+                            <li class="price-text-li-yellow">наличие дедлайна по запросу</li>
+                            <li class="price-text-li-yellow">индивидуальный урок раз в месяц</li>
                         </ul>
-                        
-                        <div class="price-and-button">
-                            <p class="price-bottom-text">
-                                1500<br><span>руб / месяц</span>
-                            </p>
-                            <a href="#win1"><button class="price-button">ЗАПИСАТЬСЯ</button></a>
+                        <div>
+                            <p class="duration-price" style="margin-top: 30px">Абонемент: 4 недели</p>
+                            <p class="duration-price">Состав: задания, обратная связь, индивидуальный урок раз в месяц - для практики</p>
                         </div>
-                    </div>
-                    <img src="{% static 'img/bg5.png' %}" alt="img" class="bg-img">
-                </div>
-            </div>
-        </div>
-
-        <div class="price-info-block">
-            <div class="container">
-                <div class="price-full">
-                    <img src="{% static 'img/bg6.png' %}" alt="img" class="bg-img">
-                    <div class="price-text-block">
-                        <img src="{% static 'img/circle.png' %}" alt="circle" class="circle">
-                        <p class="price-title">РАЗГОВОРНЫЕ<br>КЛУБЫ</p>
-
-                        <p class="text-price">Дополние к вашей программе и эффективная практика.</p>
-                        <p class="text-price">У нас открыты:<br>киноклуб<br>книжный клуб</p>
-                        <p class="text-price" style="padding-bottom: 30px;">Это еженедельная разговорная практика в мини-группе, общий чат для обсуждений, дополнительные еженедельные задания, а также новые друзья.</p>
-                        
                         <div class="price-and-button">
                             <p class="price__ot">от</p>
                             <p class="price-bottom-text">
-                                450<br><span>руб / неделя</span>
+                                3500<br><span>руб / 4 недели</span>
                             </p>
                             <a href="#win1"><button class="price-button">ЗАПИСАТЬСЯ</button></a>
                         </div>
                     </div>
+                    <img src="{% static 'img/bg4.png' %}" alt="img" class="bg-img">
                 </div>
             </div>
         </div>
+
     </section>
 
-    <div class="line-section" style="margin-top:30px;" id="about"></div>
+    <div class="line-section" style="margin-top:30px;background-color: #b7dc99"></div>
+
+    <section class="two__block">
+        <div class="container margin-arrow-block">
+            <p class="title-languages">Как начать обучение:</p>
+            <img src="{% static 'img/arrow.png' %}" alt="arrow" class="arrow">
+        </div>
+        <div class="container-ind-lessons container">
+            <div class="orange-card home-card card-laptop">
+                <p class="text-price" style="font-family:Montserrat-bold;">1. Оставьте заявку</p>
+                <li class="li-arrow text-price" style="margin-top: 80px">оставьте свой номер телефона, привязанный к WhatsApp или Telegram (с открытым профилем), чтобы мы с вами связались</li>                 
+            </div>
+            <img src="{% static 'img/loop.png'%}" alt="" class="loop-left">
+            <div class="home-card card-laptop" style="background-color: #fafee7">
+                <p class="text-price card-add" style="width: 225px;">2. Пройдите вводную беседу с методистом</p> 
+                <li class="li-arrow text-price">на вводном звонке познакомьтесь с методистом, программой, задайте вопросы и назначьте удобное расписание</li> 
+            </div>
+            <img src="{% static 'img/loop.png'%}" alt="" class="loop-right">
+            <div class="orange-card home-card card-laptop">
+                <p class="text-price card-add">3. Начните обучение</p>
+                <li class="li-arrow text-price" style="margin-top: 80px">идём по выбранному формату с преподавателем, который вам понравился</li> 
+                 
+            </div>
+        </div>
+    </section> 
+    
+    <div class="line-section" style="margin-top:30px;background-color: #fae300" id="about"></div>
 
     <section class="two__block">
         <div class="container margin-arrow-block">
@@ -258,7 +351,7 @@
                     <p class="price-title-bottom">Языковая школа «Фрегат»<br>- это яркое пространство<br>для изучения языков<br>и обмена опытом. <br></p>
 
                     <p class="text-price-bottom">В мире живут миллионы людей, которые горят тем же, что и наши студенты, но всех их разделяет языковой и культурный барьер. Наша миссия:  объединить родственные души и дать понять, что изучать иностранные языки - это весело и увлекательно. </p>
-                    <p class="text-price-bottom">Основатель школы Елизавета Муждабаева - эксперт в сфере преподавания иностранных языков, автор и дизайнерметодических пособий и курсов.</p>
+                    <p class="text-price-bottom" style="font-family: Montserrat-bold;">Основатель школы Елизавета Муждабаева - эксперт в сфере преподавания иностранных языков, автор и дизайнер методических пособий и курсов.</p>
                 </div>
             </div>
         </div>

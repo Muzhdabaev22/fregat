@@ -17,8 +17,8 @@
                         class="episode-video"
                         data-setup="{}">
 
-                        <source src="{% url 'stream' movie.id %}" type="video/mp4"/>
-                        <source src="{% url 'stream' movie.id %}" type="video/webm"/>
+                        <source src="{% url 'main:stream' movie.id %}" type="video/mp4"/>
+                        <source src="{% url 'main:stream' movie.id %}" type="video/webm"/>
                     </video>
                 </div>
 

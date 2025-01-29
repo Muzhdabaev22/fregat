@@ -15,13 +15,13 @@
             <div class="cinema-films">
                 {% for movie in movies %}
                     <div class="cinema-film">
-                        <a href="{% url 'episode' movie.episodes.all.0.url %}" class="cinema-film__linkImg"><img src="../media/{{ movie.img }}" alt="logo_film"></a>
+                        <a href="{% url 'main:episode' movie.episodes.all.0.url %}" class="cinema-film__linkImg"><img src="../media/{{ movie.img }}" alt="logo_film"></a>
                         <div style="margin: 18px 0 8px;">
-                            <a href="{% url 'episode' movie.episodes.all.0.url %}" class="cinema-film__title">{{ movie.title }}</a>
+                            <a href="{% url 'main:episode' movie.episodes.all.0.url %}" class="cinema-film__title">{{ movie.title }}</a>
                         </div>
                          <div class="film-episodes"> 
                             {% for episode in movie.episodes.all %}
-                                <div style="margin: 0 13px 8px 0;"><a href="{% url 'episode' episode.url %}" class="episode-link">episode {{episode.number_epis}}</a></div>
+                                <div style="margin: 0 13px 8px 0;"><a href="{% url 'main:episode' episode.url %}" class="episode-link">episode {{episode.number_epis}}</a></div>
                             {% endfor %}
                         </div> 
                     </div>

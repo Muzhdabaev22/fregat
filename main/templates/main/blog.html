@@ -8,7 +8,7 @@
         <div>
             <div class="container">
                 <div class="blog-block-text-header">
-                    <img src="{% static 'img/circle.png' %}" alt="circle" class="circle">
+                    <img src="{% static 'img/circle.png' %}" alt="circle" class="circle circle-blog">
                     <p class="blog__info__header__title">Блог - сундук с сокровищами</p>
                     <div class="blog__info__two__block">
                         <p class="two__block__title">
@@ -22,6 +22,9 @@
                         <li class="price-text-li">мотивационные статьи</li>
                         <li class="price-text-li">уникальные методы запоминания слов</li>
                         <li class="price-text-li">советы по изучению языков</li>
+                        <li class="price-text-li">культурные особенности</li>
+                        <li class="price-text-li">истории из жизни преподавателей</li>
+                        <li class="price-text-li">кейсы учеников</li>
                     </ul>
                     <div class="img__bg__top">
                         <img src="{% static 'img/blog-bg-1.png' %}" alt="animation">
@@ -31,7 +34,7 @@
         </div>
     </div>
 
-    <div class="line-section" style="margin-top: 30px;"></div>
+    <div class="line-section" style="margin-top: 30px;background-color: #f8abbf"></div>
 
     <main class="main-blog">
         <div>
@@ -39,12 +42,11 @@
                 {% for post in page_obj %}
                     <a href="#{{ post.url }}">
                         <div class="blog-card">
-                            <img src="../media/{{ post.img }}" alt="">
-                            <div>
-                                <p class="blog-card-text">{{ post.title|truncatechars:25 }}</p>
+                            <img src="../media/{{ post.img }}" alt="" class="blog-img">
+                            <div class="blog-title">
+                                {{ post.title }}
                             </div>
                         </div>
-                    </a>
                     
                     <div class="dm-overlay" id="{{ post.url }}">
                         <div class="dm-table">
@@ -61,30 +63,105 @@
                 {% endfor %}
             </div>  
 
+            
             <!-- pagination -->
+        
             <div class="pagination">
-                <ul class="pagination modal-4">
+                <ul class="pagination modal-4" id="pagination">
                     {% if page_obj.has_previous %}
-                        <li><a href="blog/?page={{ page_obj.previous_page_number }}" class="prev">Previous</a></li>
+                        <li><a href="?page={{ page_obj.previous_page_number }}" class="prev"><</a></li>
                     {% else %}
-                        <li><a href="#" class="prev disabled_a" tabindex="-1">Previous</a></li>
+                        <li><a href="#" class="prev disabled_a" tabindex="-1"><</a></li>
                     {% endif %}
-                    {% for page_number in page_obj.paginator.page_range %}
-                        {% if page_number == page_obj.number %}
-                            <li><a class="active" href="?page={{ page_number }}">{{ page_number }}</a></li>
-                        {% else %}
-                            <li><a href="?page={{ page_number }}">{{ page_number }}</a></li>
-                        {% endif %}
+            
+                    {% for page in page_obj.paginator.page_range %}
+                        <li class="page-item" data-page="{{ page }}">
+                            <a href="?page={{ page }}" class="{% if page == page_obj.number %}active{% endif %}">{{ page }}</a>
+                        </li>
                     {% endfor %}
+            
                     {% if page_obj.has_next %}
-                        <li><a href="?page={{ page_obj.next_page_number }}" class="next">Next</a></li>
+                        <li><a href="?page={{ page_obj.next_page_number }}" class="next">></a></li>
                     {% else %}
-                        <li><a href="" class="next disabled_a">Next</a></li>
+                        <li><a href="#" class="next disabled_a">></a></li>
                     {% endif %}
                 </ul>
             </div>
-
         </div>
     </main>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const pagination = document.getElementById('pagination');
+            const pageItems = Array.from(pagination.getElementsByClassName('page-item'));
+            const totalPages = pageItems.length; // Общее количество страниц
+            const currentPage = parseInt(pagination.querySelector('.active') ? pagination.querySelector('.active').textContent : 1);
+    
+            function updatePagination() {
+                // Скрываем все элементы
+                pageItems.forEach(item => {
+                    item.style.display = 'none';
+                });
+    
+                let startPage, endPage;
+    
+                // Логика для отображения страниц
+                if (window.innerWidth < 768) {
+                    // Мобильная версия: показываем 3 страницы
+                    if (totalPages <= 3) {
+                        startPage = 1;
+                        endPage = totalPages;
+                    } else {
+                        if (currentPage === 1) {
+                            startPage = 1;
+                            endPage = 3;
+                        } else if (currentPage === totalPages) {
+                            startPage = totalPages - 2;
+                            endPage = totalPages;
+                        } else {
+                            startPage = currentPage - 1;
+                            endPage = currentPage + 1;
+    
+                            // Корректируем границы
+                            if (startPage < 1) {
+                                startPage = 1;
+                                endPage = 3;
+                            }
+                            if (endPage > totalPages) {
+                                endPage = totalPages;
+                                startPage = totalPages - 2;
+                            }
+                        }
+                    }
+                } else {
+                    // Десктопная версия: показываем 5 страниц
+                    if (totalPages <= 5) {
+                        startPage = 1;
+                        endPage = totalPages;
+                    } else {
+                        if (currentPage <= 3) {
+                            startPage = 1;
+                            endPage = 5;
+                        } else if (currentPage >= totalPages - 2) {
+                            startPage = totalPages - 4;
+                            endPage = totalPages;
+                        } else {
+                            startPage = currentPage - 2;
+                            endPage = currentPage + 2;
+                        }
+                    }
+                }
+    
+                // Отображаем нужные страницы
+                for (let i = startPage; i <= endPage; i++) {
+                    pageItems[i - 1].style.display = 'list-item'; // Индексируем с 0
+                }
+            }
+    
+            updatePagination();
+    
+            // Обновляем пагинацию при изменении размера окна
+            window.addEventListener('resize', updatePagination);
+        });
+    </script>
 {% endblock %}
