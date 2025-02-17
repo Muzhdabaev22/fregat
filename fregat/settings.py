@@ -177,4 +177,5 @@ CKEDITOR_CONFIGS = {
 }
 
 SESSION_COOKIE_AGE = 1209600
+LOGIN_URL = '/signin/'
 ###################################

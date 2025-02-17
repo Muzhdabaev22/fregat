@@ -1,7 +1,9 @@
+{% load static %}
+
 <h1>Все занятия</h1>
 
 <div>
     {% for lesson in lessons %}
-        <div>{{ lesson.date }}</div>
+        <div>{{lesson.id}} {{ lesson.date }} {{ lesson.student.all.0.code }} {{ lesson.status }}</div>
     {% endfor %}
 </div>

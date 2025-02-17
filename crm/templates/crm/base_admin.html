@@ -7,14 +7,14 @@
     <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}" type="image/png">
     <link rel="stylesheet" href="{% static '/css/crm_media.css' %}">
     <link rel="stylesheet" href="{% static '/css/crm.css' %}">
-    
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <title>Личный кабинет</title>
 </head>
 <body>
+    <a href="{% url 'crm:logout'%}">Выйти из аккаунта</a>
     <main class="container">
         <div class="content" id="content">
-            
+            <!-- Сюда загружается контент через AJAX -->
         </div>
         <div class="menu-container">
             <div class="menu">
@@ -23,7 +23,7 @@
                 <button class="btn-menu" onclick="loadContent('{% url "crm:students" %}')">Ученики</button> 
                 <button class="btn-menu" onclick="loadContent('{% url "crm:create_student" %}')">Добавить ученика</button> 
                 <button class="btn-menu" onclick="loadContent('{% url "crm:create_teacher" %}')">Добавить учителя</button>
-                <button class="btn-menu" onclick="loadContent('{% url "crm:materials" %}')">Материалы</button>
+                <button class="btn-menu" onclick="loadContent('{% url "crm:materials_admin" %}')">Материалы</button>
             </div>
         </div>
     </main>
@@ -79,6 +79,91 @@
                 });
             });
         });
+
+        function loadStudentsBlock() {
+            $.ajax({
+                url: '/crm/load-students-block/',
+                method: 'GET',
+                success: function(response) {
+                    $('#students-container').html(response.html);
+                },
+                error: function() {
+                    alert('Ошибка загрузки блока учеников.');
+                }
+            });
+        }
+        
+        $(document).ready(function() {
+            loadStudentsBlock();
+        
+            // Обработка кнопки "Редактировать"
+            $(document).on('click', '.edit-student-btn', function() {
+                const studentId = $(this).data('student-id');
+                const editFormContainer = $(this).next('.edit-form-container');
+        
+                // Показываем форму редактирования
+                editFormContainer.show();
+        
+                // Загрузка данных ученика через AJAX
+                $.ajax({
+                    url: `/crm/students/edit-student/${studentId}/`,
+                    method: 'GET',
+                    success: function(response) {
+                        const studentData = response.student;
+        
+                        // Заполняем форму данными
+                        editFormContainer.find('input[name="name"]').val(studentData.name);
+                        editFormContainer.find('input[name="surname"]').val(studentData.surname);
+                        editFormContainer.find('input[name="city"]').val(studentData.city);
+                        editFormContainer.find('input[name="contacts"]').val(studentData.contacts);
+                        editFormContainer.find('textarea[name="start_point"]').val(studentData.start_point);
+                        editFormContainer.find('textarea[name="current_point"]').val(studentData.current_point);
+        
+                        // Заполняем выбранные коды
+                        const selectedCodes = studentData.code;
+                        editFormContainer.find('select[name="code"] option').each(function() {
+                            if (selectedCodes.includes($(this).val())) {
+                                $(this).prop('selected', true);
+                            } else {
+                                $(this).prop('selected', false);
+                            }
+                        });
+                    },
+                    error: function() {
+                        alert('Ошибка загрузки данных ученика.');
+                    }
+                });
+            });
+        
+            // Сохранение изменений через AJAX
+            $(document).on('submit', '.edit-student-form', function(e) {
+                e.preventDefault();
+                const form = $(this);
+                const studentId = form.data('student-id');
+        
+                $.ajax({
+                    url: `/crm/students/edit-student/${studentId}/`,
+                    method: 'POST',
+                    data: form.serialize(),
+                    success: function(response) {
+                        if (response.status === 'success') {
+                            // Обновляем данные на странице
+                            const studentRow = form.closest('div[style*="flex"]');
+                            studentRow.find('div:first-child').text(response.student.name + ' ' + response.student.surname);
+        
+                            // Скрываем форму
+                            form.parent().hide();
+                        } else {
+                            alert('Ошибка сохранения данных.');
+                        }
+                    },
+                    error: function() {
+                        alert('Ошибка при отправке данных.');
+                    }
+                });
+            });
+        });
     </script>
+
 </body>
 </html>

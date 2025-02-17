@@ -12,6 +12,12 @@
                 {% csrf_token %}
                 {{ sign_form.username }}
                 {{ sign_form.password }}
+
+                {% if sign_form.non_field_errors %}
+                    <div class="alert alert-danger">
+                        {{ sign_form.non_field_errors }}
+                    </div>
+                {% endif %}
                 
                 <div class="form__button">
                     <button type="submit" name="signin">Отправить</button>

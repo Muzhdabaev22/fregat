@@ -369,7 +369,6 @@ class SignIn(View):
         form = FeedBackForm(request.POST) 
         sec_form = FeedBackFormSecond(request.POST) 
         sign_form = SignInForm(request, data=request.POST)
-        
         if 'signin' in request.POST:
             if sign_form.is_valid():
                 username = sign_form.cleaned_data['username'] 
@@ -386,8 +385,8 @@ class SignIn(View):
                     elif username.startswith('student'):
                         return redirect('/school/student')   
                 else:
-                    sign_form.add_error(None, 'Неправильный логин или пароль')        
-
+                    sign_form.add_error(None, 'Неправильный логин или пароль')     
+                    
 
         if 'first' in self.request.POST:
             if form.is_valid():
@@ -403,7 +402,6 @@ class SignIn(View):
                 lang = sec_form.cleaned_data['lang']
                 if send_mail_second(name, social, lang):
                     return HttpResponseRedirect('/')
-
 
         return render(request, 'main/signin.html', context={
             'form': form,

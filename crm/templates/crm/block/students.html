@@ -1,7 +1,56 @@
 <h1>Список учеников</h1>
+    <div>
+        {% for student in students %}
+            <div style="background-color: azure; margin: 15px; display: flex;">
+                <div style="width: 250px; border: 1px solid #1C6EA4;">
+                    {{ student.name }} {{ student.surname }}
+                </div>
+                <div style="width: 250px;">
+                    {% for code in student.code.all %}
+                        <div style="height: 30px; border: 1px solid #1C6EA4;">{{ code.code }}</div>
+                    {% endfor %}
+                </div>
+                <div style="width: 250px;">
+                    <div style="height: 30px; border: 1px solid #1C6EA4;">-</div>
+                </div>
+                <!-- Кнопка редактирования -->
+                <button class="edit-student-btn" data-student-id="{{ student.id }}">
+                    Редактировать
+                </button>
+            </div>
 
-<div>
-    {% for student in students %}
-        <div>{{ student.name }}</div>
-    {% endfor %}
-</div>
+            <!-- Блок формы редактирования (скрытый) -->
+            <div class="edit-form-container" style="display: none; margin-top: 10px;">
+                <form class="edit-student-form" method="post" data-student-id="{{ student.id }}">
+                    {% csrf_token %}
+                    <label>Имя:</label>
+                    <input type="text" name="name" required>
+                    
+                    <label>Фамилия:</label>
+                    <input type="text" name="surname" required>
+                    
+                    <label>Город:</label>
+                    <input type="text" name="city">
+                    
+                    <label>Контакты:</label>
+                    <input type="text" name="contacts">
+                    
+                    <label>Начальный уровень:</label>
+                    <textarea name="start_point"></textarea>
+                    
+                    <label>Сейчас:</label>
+                    <textarea name="current_point"></textarea>
+                    
+                    <label>Коды:</label>
+                    <select name="code" multiple>
+                        {% for code in all_codes %}
+                            <option value="{{ code.code }}">{{ code.code }}</option>
+                        {% endfor %}
+                    </select>
+                    
+                    <button type="submit">Сохранить</button>
+                </form>
+            </div>
+        {% endfor %}
+    </div>
+

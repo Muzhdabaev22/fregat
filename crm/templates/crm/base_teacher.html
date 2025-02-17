@@ -1,17 +1,198 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
     <link rel="stylesheet" href="{% static '/css/crm_media.css' %}">
     <link rel="stylesheet" href="{% static '/css/crm.css' %}">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <title>Личный кабинет</title>
+    <style>
+        /* Стили для кнопок статуса */
+        .status-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .status-button {
+            padding: 10px 20px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+        .status-button.active {
+            background-color: #007bff;
+            color: white;
+            border-color: #007bff;
+        }
+        .status-button:hover {
+            background-color: #e0e0e0;
+        }
+        /* Стили для поля причины отмены */
+        #cancel-reason-field {
+            margin-top: 20px;
+            display: none;
+        }
+        #id_cancel_reason {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: vertical;
+        }
+    </style>
 </head>
-<body>
-    
+<body class="cont-teacher">
+    <div class="left">
+        <h1>Кабинет учителя: Муждабаева Елизавета</h1>
+        
+        <form class="notice-cont" method="post" action="{% url 'crm:teacher' %}">
+            {% csrf_token %}
+            <p>Отметить урок</p>
+            <div>
+                {{ notice_form.as_p }}
+                <input type="hidden" id="status" name="status" value="">
+                <input type="hidden" id="cancel_reason" name="cancel_reason" value="">
+                
+                <div id="student-list" style="display: none;">
+                    <h3>Список учеников:</h3>
+                    <ul id="student-list-items"></ul>
+                </div>
+                <div id="student-info" style="display: none;">
+                    <h3>Информация об ученике:</h3>
+                    <p>Имя: <span id="student-name"></span></p>
+                    <p>Код: <span id="student-code"></span></p>
+                    <p>Учителя: <span id="student-teachers"></span></p>
+                </div>
+            </div>
+            <div class="status-buttons">
+                <button type="button" id="status-completed" class="status-button">Проведен</button>
+                <button type="button" id="status-cancelled" class="status-button">Отмена со списанием</button>
+            </div>
+            <div id="cancel-reason-field">
+                <label for="id_cancel_reason">Причина отмены:</label>
+                <textarea id="id_cancel_reason" name="cancel_reason" placeholder="Введите причину отмены"></textarea>
+            </div>
+            <button type="submit" name="submit_button">Урок отмечен</button>
+            <div id="message" style="display: none; margin-top: 20px; padding: 10px; border-radius: 5px;"></div>
+        </form>
+        
+        <div class="lessons-cont"></div>
+    </div>        
+    <div class="right"><a href="{% url 'crm:logout'%}">Выйти из аккаунта</a></div>
+
+    <script>
+        $(document).ready(function() {
+            let selectedCode = null;
+            let selectedStatus = null;
+        
+            $('#id_code').on('input', function() {
+                const code = $(this).val();
+                if (code.length >= 1) {
+                    $.get("{% url 'crm:get_student' %}", {code: code}, function(data) {
+                        if (data.students) {
+                            $('#student-list').show();
+                            $('#student-list-items').empty();
+                            data.students.forEach(function(student) {
+                                $('#student-list-items').append(
+                                    `<li data-code="${student.code}" data-name="${student.name}" data-teachers="${student.teachers.join(', ')}">${student.name} (${student.code})</li>`
+                                );
+                            });
+                        } else {
+                            $('#student-list').hide();
+                            $('#student-info').hide();
+                            alert(data.error || 'Ученики не найдены');
+                        }
+                    });
+                } else {
+                    $('#student-list').hide();
+                    $('#student-info').hide();
+                    selectedCode = null;
+                }
+        
+                if (code !== selectedCode) {
+                    $('#student-info').hide();
+                    $('#student-name').text('');
+                    $('#student-code').text('');
+                    $('#student-teachers').text('');
+                }
+            });
+        
+            $(document).on('click', '#student-list-items li', function() {
+                const code = $(this).data('code');
+                const name = $(this).data('name');
+                const teachers = $(this).data('teachers');
+        
+                $('#id_code').val(code);
+                selectedCode = code;
+        
+                $('#student-info').show();
+                $('#student-name').text(name);
+                $('#student-code').text(code);
+                $('#student-teachers').text(teachers);
+        
+                $('#student-list').hide();
+            });
+        
+            $('#status-completed').on('click', function() {
+                selectedStatus = 'Проведен';
+                $('#status-completed').addClass('active');
+                $('#status-cancelled').removeClass('active');
+                $('#cancel-reason-field').hide();
+                $('#status').val(selectedStatus); // Устанавливаем значение скрытого поля статуса
+            });
+        
+            $('#status-cancelled').on('click', function() {
+                selectedStatus = 'Отмена со списанием';
+                $('#status-cancelled').addClass('active');
+                $('#status-completed').removeClass('active');
+                $('#cancel-reason-field').show();
+                $('#status').val(selectedStatus); // Устанавливаем значение скрытого поля статуса
+            });
+        
+            $('form.notice-cont').on('submit', function(e) {
+                e.preventDefault(); // Предотвращаем стандартную отправку формы
+        
+                if (!selectedStatus) {
+                    alert('Пожалуйста, выберите статус урока.');
+                    return;
+                }
+        
+                $.ajax({
+                    type: 'POST',
+                    url: $(this).attr('action'),
+                    data: $(this).serialize(),
+                    success: function(response) {
+                        if (response.success) {
+                            $('#message').text(response.success).css({
+                                'display': 'block',
+                                'background-color': '#d4edda',
+                                'color': '#155724',
+                                'border': '1px solid #c3e6cb'
+                            }).fadeOut(5000); // Сообщение исчезнет через 5 секунд
+                        } else if (response.errors) {
+                            $('#message').text('Ошибка: ' + response.errors).css({
+                                'display': 'block',
+                                'background-color': '#f8d7da',
+                                'color': '#721c24',
+                                'border': '1px solid #f5c6cb'
+                            }).fadeOut(5000); // Сообщение исчезнет через 5 секунд
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        $('#message').text('Произошла ошибка при отправке формы: ' + error).css({
+                            'display': 'block',
+                            'background-color': '#f8d7da',
+                            'color': '#721c24',
+                            'border': '1px solid #f5c6cb'
+                        }).fadeOut(5000); // Сообщение исчезнет через 5 секунд
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>

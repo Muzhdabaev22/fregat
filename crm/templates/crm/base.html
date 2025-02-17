@@ -5,17 +5,13 @@
     <meta charset="UTF-8">
     <title>{% block title %}{% endblock %}</title>
     <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}" type="image/png">
-    <link rel="stylesheet" href="{% static '/css/main.css' %}">
-    <link rel="stylesheet" href="{% static '/css/media.css' %}">
+    <link rel="stylesheet" href="{% static '/css/crm_media.css' %}">
+    <link rel="stylesheet" href="{% static '/css/crm.css' %} ">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-    {% include './block/header.html' %}
-
     {% block content %}
 
     {% endblock %}
-
-    {% include './block/footer.html' %}
-    <script src="{% static 'js/navigation.js' %}"></script>
 </body>
 </html>
